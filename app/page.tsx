@@ -2,6 +2,7 @@ import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import FeaturesGrid from "@/components/FeaturesGrid";
 import ContentSection from "@/components/ContentSection";
+import TrustedManufacturers from "@/components/TrustedManufacturers";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -34,7 +35,7 @@ export default function Home() {
           id="Audio" 
           title="Audio Video" 
           bgColor="white"
-          reverse={true} // Image on the right (or left in reverse flex)
+          reverse={true} // Image on the right
           customVisual={
             <div className="h-64 bg-gradient-to-br from-blue-900 to-slate-900 rounded-xl flex items-center justify-center shadow-lg">
                <div className="text-white opacity-20">
@@ -98,20 +99,7 @@ export default function Home() {
           </p>
         </ContentSection>
 
-        {/* Partner Logos */}
-        <section className="py-16 border-t border-slate-100 bg-slate-50">
-          <div className="container mx-auto px-4">
-            <h3 className="text-center text-slate-400 uppercase tracking-widest font-semibold mb-10">Trusted Manufacturers</h3>
-            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center opacity-75 grayscale hover:grayscale-0 transition-all duration-500">
-                <div className="flex justify-center"><img src="https://vision-texas.com/wp-content/uploads/2021/08/crestron_logo.jpg" alt="Crestron" className="h-12 object-contain" /></div>
-                <div className="flex justify-center"><img src="https://vision-texas.com/wp-content/uploads/2021/08/biamp_logo.jpg" alt="Biamp" className="h-12 object-contain" /></div>
-                <div className="flex justify-center"><img src="https://vision-texas.com/wp-content/uploads/2021/08/c4_logo.jpg" alt="Control4" className="h-12 object-contain" /></div>
-                <div className="flex justify-center"><img src="https://vision-texas.com/wp-content/uploads/2021/08/b_elden_logo.png" alt="Belden" className="h-12 object-contain" /></div>
-                <div className="flex justify-center"><img src="https://vision-texas.com/wp-content/uploads/2021/08/a_xis_logo.png" alt="Axis" className="h-12 object-contain" /></div>
-                <div className="flex justify-center"><img src="https://vision-texas.com/wp-content/uploads/2021/08/e_xtron_logo.png" alt="Extron" className="h-12 object-contain" /></div>
-            </div>
-          </div>
-        </section>
+        <TrustedManufacturers />
       </main>
 
       <Footer />

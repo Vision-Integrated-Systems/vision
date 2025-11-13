@@ -12,7 +12,7 @@ export default function Footer() {
               alt="Vision Logo" 
               width={150} 
               height={40} 
-              className="brightness-0 invert mb-4" // CSS filter to make logo white
+              className="mb-4 h-10 w-auto object-contain" 
             />
           </div>
 
