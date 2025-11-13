@@ -8,7 +8,7 @@ export default function Footer() {
           {/* Logo Column */}
           <div>
             <Image
-              src="/vision-logo.png" 
+              src="/vision-logo-white.png" 
               alt="Vision Logo" 
               width={150} 
               height={40} 
