@@ -9,7 +9,7 @@ export default function Hero() {
           loop
           playsInline
           className="w-full h-full object-cover"
-          src="https://vision-texas.com/wp-content/uploads/2021/07/Future-12917.mp4"
+          src="/videos/digital-space.mp4" // Updated source path
         />
       </div>
       
