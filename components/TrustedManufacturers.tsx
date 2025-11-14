@@ -1,11 +1,43 @@
+import Image from "next/image";
+
 export default function TrustedManufacturers() {
   const manufacturers = [
-    { name: "Crestron", src: "https://vision-texas.com/wp-content/uploads/2021/08/crestron_logo.jpg" },
-    { name: "Biamp", src: "https://vision-texas.com/wp-content/uploads/2021/08/biamp_logo.jpg" },
-    { name: "Control4", src: "https://vision-texas.com/wp-content/uploads/2021/08/c4_logo.jpg" },
-    { name: "Belden", src: "https://vision-texas.com/wp-content/uploads/2021/08/b_elden_logo.png" },
-    { name: "Axis", src: "https://vision-texas.com/wp-content/uploads/2021/08/a_xis_logo.png" },
-    { name: "Extron", src: "https://vision-texas.com/wp-content/uploads/2021/08/e_xtron_logo.png" },
+    {
+      name: "Crestron",
+      src: "https://vision-texas.com/wp-content/uploads/2021/08/crestron_logo.jpg",
+      width: 200,
+      height: 60,
+    },
+    {
+      name: "Biamp",
+      src: "https://vision-texas.com/wp-content/uploads/2021/08/biamp_logo.jpg",
+      width: 200,
+      height: 60,
+    },
+    {
+      name: "Control4",
+      src: "https://vision-texas.com/wp-content/uploads/2021/08/c4_logo.jpg",
+      width: 200,
+      height: 60,
+    },
+    {
+      name: "Belden",
+      src: "https://vision-texas.com/wp-content/uploads/2021/08/b_elden_logo.png",
+      width: 200,
+      height: 60,
+    },
+    {
+      name: "Axis",
+      src: "https://vision-texas.com/wp-content/uploads/2021/08/a_xis_logo.png",
+      width: 200,
+      height: 60,
+    },
+    {
+      name: "Extron",
+      src: "https://vision-texas.com/wp-content/uploads/2021/08/e_xtron_logo.png",
+      width: 200,
+      height: 60,
+    },
   ];
 
   return (
@@ -17,10 +49,12 @@ export default function TrustedManufacturers() {
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-10 items-center transition-all duration-500">
           {manufacturers.map((logo) => (
             <div key={logo.name} className="flex justify-center">
-              <img
+              <Image
                 src={logo.src}
                 alt={logo.name}
-                className="h-20 md:h-24 w-auto object-contain"
+                width={logo.width}
+                height={logo.height}
+                className="h-16 md:h-20 w-auto object-contain"
               />
             </div>
           ))}
