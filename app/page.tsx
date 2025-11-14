@@ -7,16 +7,10 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="min-h-screen flex flex-col font-sans text-slate-800 bg-white">
-      <Header />
-
-      <main className="grow">
-        <Hero />
-        <FeaturesGrid />
-        <TrustedManufacturers />
-      </main>
-
-      <Footer />
-    </div>
+     <>
+      <Hero />
+      <FeaturesGrid />
+      <TrustedManufacturers />
+    </>
   );
 }
