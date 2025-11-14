@@ -29,7 +29,7 @@ export default function Careers() {
   return (
     <>
       <section className="bg-slate-900 py-20 text-center text-white">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 pt-20">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
             Join Our Team
           </h1>

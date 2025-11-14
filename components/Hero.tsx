@@ -26,7 +26,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative h-[600px] lg:h-[800px] flex items-center justify-center overflow-hidden bg-black">
+    <section className="relative h-[600px] lg:h-[800px] flex items-center justify-center overflow-hidden bg-black pt-20">
       {/* Video Overlay */}
       <div className="absolute inset-0 z-0 opacity-60">
         <video
