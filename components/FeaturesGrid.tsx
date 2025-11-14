@@ -1,5 +1,9 @@
+"use client";
+
+import { motion } from "framer-motion";
+
 export default function FeaturesGrid() {
-  const features = [
+ const features = [
     {
       title: "Concept & Idea",
       desc: "Audio Video. Structured Cabling. Security.",
@@ -35,17 +39,45 @@ export default function FeaturesGrid() {
     },
   ];
 
+  const gridVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+    },
+    transition: {
+      duration: 0.5,
+    },
+  };
+
   return (
     <section className="py-16 bg-white relative z-20 container mx-auto px-4">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 bg-white shadow-xl rounded-lg p-8 border border-slate-100">
+      <motion.div
+        className="grid grid-cols-1 md:grid-cols-3 gap-8 bg-white shadow-xl rounded-lg p-8 border border-slate-100"
+        variants={gridVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+      >
         {features.map((feature, idx) => (
-          <div
+          <motion.div
             key={idx}
             className={`text-center p-4 group ${
               idx === 1
                 ? "border-t md:border-t-0 md:border-l md:border-r border-slate-100"
                 : ""
             }`}
+            variants={itemVariants}
           >
             <div className="w-16 h-16 mx-auto mb-4 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
               <svg
@@ -63,9 +95,9 @@ export default function FeaturesGrid() {
               {feature.title}
             </h3>
             <p className="text-slate-600">{feature.desc}</p>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </section>
   );
 }

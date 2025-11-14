@@ -1,12 +1,8 @@
+"use client"; 
+
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import type { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "Project Gallery | Vision Integrated Systems",
-  description:
-    "Browse our gallery of completed projects, from commercial AV and conference rooms to structured cabling and advanced security integrations.",
-};
+import { motion } from "framer-motion";
 
 export default function Gallery() {
   const projects = [
@@ -60,12 +56,32 @@ export default function Gallery() {
     },
   ];
 
+  const galleryVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+ const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+    },
+    transition: {
+      duration: 0.5,
+    },
+  };
+
   return (
     <div className="min-h-screen flex flex-col font-sans text-slate-800 bg-white">
       <Header />
 
       <main className="grow pt-20">
-        {/* Page Hero Section */}
         <section className="bg-slate-900 py-20 text-center text-white">
           <div className="container mx-auto px-4">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
@@ -77,14 +93,22 @@ export default function Gallery() {
           </div>
         </section>
 
+
         {/* Gallery Grid Section */}
         <section className="py-20 bg-slate-50">
           <div className="container mx-auto px-4">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <motion.div
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+              variants={galleryVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.1 }}
+            >
               {projects.map((project) => (
-                <div
+                <motion.div
                   key={project.title}
                   className="bg-white rounded-xl overflow-hidden shadow-lg border border-slate-100 flex flex-col group"
+                  variants={itemVariants}
                 >
                   <div className="relative overflow-hidden">
                     <img
@@ -104,9 +128,9 @@ export default function Gallery() {
                       {project.description}
                     </p>
                   </div>
-                </div>
+                </motion.div>
               ))}
-            </div>
+            </motion.div>
           </div>
         </section>
       </main>
