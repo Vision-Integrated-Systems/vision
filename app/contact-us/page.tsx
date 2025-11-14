@@ -1,7 +1,7 @@
 "use client";
 
 import { useFormState } from "react-dom";
-// Header and Footer imports are removed
+import { useSearchParams } from "next/navigation";
 import {
   BuildingOffice2Icon,
   PhoneIcon,
@@ -12,7 +12,9 @@ import { handleContactSubmit, type FormState } from "../lib/actions";
 import { SubmitButton } from "@/components/SubmitButton";
 
 export default function ContactUs() {
-  // Initialize the form state
+  const searchParams = useSearchParams();
+  const subject = searchParams.get("subject");
+  const defaultMessage = subject ? `Regarding: ${subject}\n\n` : "";
   const initialState: FormState = null;
   const [state, formAction] = useFormState(handleContactSubmit, initialState);
 
@@ -160,6 +162,7 @@ export default function ContactUs() {
                     className="w-full px-4 py-2 border border-slate-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all"
                     placeholder="How can we help you?"
                     required
+                    defaultValue={defaultMessage} 
                   ></textarea>
                 </div>
 
