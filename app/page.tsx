@@ -12,9 +12,7 @@ export default function Home() {
 
       <main className="grow">
         <Hero />
-        <FeaturesGrid />
-
-        {/* New CTA Section */}
+        {/* CTA Section */}
         <section className="py-20 bg-slate-50 border-t border-slate-100">
           <div className="container mx-auto px-4 text-center">
             <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-6 relative max-w-2xl mx-auto">
@@ -43,7 +41,7 @@ export default function Home() {
             </div>
           </div>
         </section>
-
+        <FeaturesGrid />
         <TrustedManufacturers />
       </main>
 
