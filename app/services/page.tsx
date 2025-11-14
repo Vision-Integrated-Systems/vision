@@ -31,26 +31,8 @@ export default function Services() {
           title="Audio & Video"
           bgColor="white"
           reverse={true}
-          customVisual={
-            <div className="h-64 bg-linear-to-br from-blue-900 to-slate-900 rounded-xl flex items-center justify-center shadow-lg">
-              <div className="text-white opacity-20">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                  className="w-32 h-32"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M6 20.25h12m-7.5-3v3m3-3v3m-10.125-3h17.25c.621 0 1.125-.504 1.125-1.125V4.875c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125z"
-                  />
-                </svg>
-              </div>
-            </div>
-          }
+          imageSrc="https://placehold.co/600x450/3b82f6/ffffff?text=Modern+Conference+Room"
+          imageAlt="Modern conference room with video conferencing"
         >
           <h3 className="text-xl font-semibold mb-3">Custom A/V Solutions</h3>
           <p className="mb-4">
@@ -71,26 +53,8 @@ export default function Services() {
           id="cabling"
           title="Structured Cabling"
           bgColor="slate"
-          customVisual={
-            <div className="h-64 bg-linear-to-br from-slate-700 to-slate-900 rounded-xl flex items-center justify-center shadow-lg">
-              <div className="text-white opacity-20">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                  className="w-32 h-32"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M21 7.5l-9-5.25L3 7.5m18 0l-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9"
-                  />
-                </svg>
-              </div>
-            </div>
-          }
+          imageSrc="https://placehold.co/600x450/64748b/ffffff?text=Network+Server+Rack"
+          imageAlt="Cleanly wired network server rack"
         >
           <h3 className="text-xl font-semibold mb-3">
             The Backbone of Your Network
@@ -113,26 +77,8 @@ export default function Services() {
           title="Security"
           bgColor="white"
           reverse={true}
-          customVisual={
-            <div className="h-64 bg-linear-to-br from-blue-800 to-blue-950 rounded-xl flex items-center justify-center shadow-lg">
-              <div className="text-white opacity-20">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                  className="w-32 h-32"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z"
-                  />
-                </svg>
-              </div>
-            </div>
-          }
+          imageSrc="https://placehold.co/600x450/3b82f6/ffffff?text=Security+Camera"
+          imageAlt="High-definition security camera"
         >
           <h3 className="text-xl font-semibold mb-3">Protecting Your Assets</h3>
           <p className="mb-4">
