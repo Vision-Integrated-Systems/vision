@@ -100,6 +100,16 @@ export default function Header() {
                 Services
               </Link>
               <Link
+                href="/gallery"
+                className={`transition-colors ${
+                  isActive("/gallery")
+                    ? "text-blue-600 font-bold"
+                    : hoverColorClass
+                }`}
+              >
+                Gallery
+              </Link>
+              <Link
                 href="/careers"
                 className={`transition-colors ${
                   isActive("/careers")
@@ -206,6 +216,15 @@ export default function Header() {
               }`}
             >
               Services
+            </Link>
+   <Link
+              href="/gallery"
+              onClick={closeMobileMenu}
+              className={`text-3xl font-bold transition-colors ${
+                isActive("/gallery") ? "text-blue-600" : "text-slate-700"
+              }`}
+            >
+              Gallery
             </Link>
             <Link
               href="/careers"
