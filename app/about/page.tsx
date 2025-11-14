@@ -2,7 +2,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ContentSection from "@/components/ContentSection";
 import type { Metadata } from "next";
-import Image from "next/image"; // Import Image
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "About Vision Integrated Systems",
@@ -15,7 +15,7 @@ export default function About() {
     {
       name: "Bo Barron",
       title: "Managing Director",
-      bio: "Leading Vision Integrated Systems with a focus on strateth and customer satisfaction.",
+      bio: "Leading Vision Integrated Systems with a focus on strategy and customer satisfaction.",
       imageSrc: "/bo.jpeg",
     },
     {
@@ -29,6 +29,24 @@ export default function About() {
       title: "Director of Operations",
       bio: "Overseeing technical standards and driving innovation in AV and security solutions.",
       imageSrc: "/josh.jpeg",
+    },
+  ];
+
+  const values = [
+    {
+      name: "Integrity",
+      description:
+        "We build trust through honest communication and unwavering commitment to our clients.",
+    },
+    {
+      name: "Innovation",
+      description:
+        "We constantly explore new technologies to deliver cutting-edge, reliable solutions.",
+    },
+    {
+      name: "Collaboration",
+      description:
+        "We work as a unified team with our clients and partners to achieve shared goals.",
     },
   ];
 
@@ -48,6 +66,7 @@ export default function About() {
           </div>
         </section>
 
+        {/* Our Story */}
         <ContentSection
           id="our-story"
           title="Our Story"
@@ -83,7 +102,33 @@ export default function About() {
           </div>
         </section>
 
+        {/* Core Values */}
         <section className="py-20 bg-white">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-6 relative inline-block">
+                Our Core Values
+                <span className="block h-1 w-20 bg-blue-600 mt-2 rounded-full mx-auto"></span>
+              </h2>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-5xl mx-auto">
+              {values.map((value) => (
+                <div
+                  key={value.name}
+                  className="text-center p-6 bg-slate-50 rounded-lg border border-slate-100"
+                >
+                  <h3 className="text-2xl font-bold text-blue-600 mb-3">
+                    {value.name}
+                  </h3>
+                  <p className="text-slate-600">{value.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Leadership */}
+        <section className="py-20 bg-slate-50 border-t border-slate-100">
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
               <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-6 relative inline-block">
@@ -99,7 +144,7 @@ export default function About() {
               {leaders.map((leader, idx) => (
                 <div
                   key={idx}
-                  className="bg-slate-50 rounded-xl overflow-hidden shadow-md border border-slate-100 hover:shadow-xl transition-shadow duration-300 flex flex-col items-center p-8"
+                  className="bg-white rounded-xl overflow-hidden shadow-md border border-slate-100 hover:shadow-xl transition-shadow duration-300 flex flex-col items-center p-8"
                 >
                   <div className="relative h-40 w-40 mb-6">
                     <Image
