@@ -65,13 +65,13 @@ export default function Hero() {
         >
           <Link
             href="/services"
-            className="px-8 py-3 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-700 transition-colors duration-300"
+            className="px-8 py-3 bg-blue-600 text-white font-semibold rounded-full hover:bg-blue-700 transition-colors duration-300"
           >
             Our Services
           </Link>
           <Link
             href="/about"
-            className="px-8 py-3 bg-white/90 text-slate-900 font-semibold rounded-md border border-transparent hover:bg-white transition-colors duration-300"
+            className="px-8 py-3 bg-white/90 text-slate-900 font-semibold rounded-full border border-transparent hover:bg-white transition-colors duration-300"
           >
             About Us
           </Link>

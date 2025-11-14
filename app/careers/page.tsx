@@ -92,7 +92,7 @@ export default function Careers() {
                     href={`/contact-us?subject=Application for ${encodeURIComponent(
                       job.title,
                     )}`}
-                    className="px-6 py-2 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-700 transition-colors duration-300"
+                    className="px-6 py-2 bg-blue-600 text-white font-semibold rounded-full hover:bg-blue-700 transition-colors duration-300"
                   >
                     Apply Now
                   </Link>
