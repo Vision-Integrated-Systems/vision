@@ -9,6 +9,8 @@ export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
 
+  const isHome = pathname === "/";
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
@@ -19,26 +21,31 @@ export default function Header() {
   }, []);
 
   const isActive = (path: string) => pathname === path;
+  const isTransparent = isHome && !isScrolled;
+  const headerBgClass = isTransparent
+    ? "bg-transparent"
+    : "bg-white/95 backdrop-blur-sm shadow-sm border-b border-slate-100";
+  const textColorClass = isTransparent ? "text-white/90" : "text-slate-600";
+  const hoverColorClass = isTransparent
+    ? "hover:text-white"
+    : "hover:text-blue-700";
+  const logoSrc = isTransparent ? "/vision-logo-white.png" : "/vision-logo.png";
 
   return (
     <header
-      className={`fixed top-0 z-50 w-full transition-all duration-300 ${
-        isScrolled
-          ? "bg-white/95 backdrop-blur-sm shadow-sm border-b border-slate-100"
-          : "bg-transparent"
-      }`}
+      className={`fixed top-0 z-50 w-full transition-all duration-300 ${headerBgClass}`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div
-          className={`flex justify-between items-center transition-all duration-300 ${
-            isScrolled ? "h-20" : "h-24"
-          }`}
+          className={
+            "flex justify-between items-center transition-all duration-300 h-20"
+          }
         >
           {/* Logo */}
           <div className="shrink-0 cursor-pointer">
             <Link href="/">
               <Image
-                src={isScrolled ? "/vision-logo.png" : "/vision-logo-white.png"}
+                src={logoSrc}
                 alt="Vision Integrated Systems"
                 width={200}
                 height={54}
@@ -50,18 +57,12 @@ export default function Header() {
 
           {/* Desktop Navigation */}
           <nav
-            className={`hidden lg:flex space-x-8 items-center font-medium text-sm uppercase tracking-wide transition-colors duration-300 ${
-              isScrolled ? "text-slate-600" : "text-white/90"
-            }`}
+            className={`hidden lg:flex space-x-8 items-center font-medium text-sm uppercase tracking-wide transition-colors duration-300 ${textColorClass}`}
           >
             <Link
               href="/"
               className={`transition-colors ${
-                isActive("/")
-                  ? "text-blue-600 font-bold"
-                  : isScrolled
-                  ? "hover:text-blue-700"
-                  : "hover:text-white"
+                isActive("/") ? "text-blue-600 font-bold" : hoverColorClass
               }`}
             >
               Home
@@ -69,11 +70,7 @@ export default function Header() {
             <Link
               href="/about"
               className={`transition-colors ${
-                isActive("/about")
-                  ? "text-blue-600 font-bold"
-                  : isScrolled
-                  ? "hover:text-blue-700"
-                  : "hover:text-white"
+                isActive("/about") ? "text-blue-600 font-bold" : hoverColorClass
               }`}
             >
               About
@@ -83,9 +80,7 @@ export default function Header() {
               className={`transition-colors ${
                 isActive("/leadership")
                   ? "text-blue-600 font-bold"
-                  : isScrolled
-                  ? "hover:text-blue-700"
-                  : "hover:text-white"
+                  : hoverColorClass
               }`}
             >
               Leadership
@@ -95,9 +90,7 @@ export default function Header() {
               className={`transition-colors ${
                 isActive("/services")
                   ? "text-blue-600 font-bold"
-                  : isScrolled
-                  ? "hover:text-blue-700"
-                  : "hover:text-white"
+                  : hoverColorClass
               }`}
             >
               Services
@@ -107,9 +100,7 @@ export default function Header() {
               className={`transition-colors ${
                 isActive("/contact-us")
                   ? "text-blue-600 font-bold"
-                  : isScrolled
-                  ? "hover:text-blue-700"
-                  : "hover:text-white"
+                  : hoverColorClass
               }`}
             >
               Contact Us
@@ -118,9 +109,9 @@ export default function Header() {
             <Link
               href="/service-ticket"
               className={`px-5 py-2 border-2 transition-all duration-300 rounded-sm ${
-                isScrolled
-                  ? "border-slate-800 hover:bg-slate-800 hover:text-white"
-                  : "border-white text-white hover:bg-white hover:text-slate-900"
+                isTransparent
+                  ? "border-white text-white hover:bg-white hover:text-slate-900"
+                  : "border-slate-800 hover:bg-slate-800 hover:text-white"
               }`}
             >
               Service Ticket
@@ -130,9 +121,7 @@ export default function Header() {
           {/* Mobile Menu Button */}
           <div className="lg:hidden">
             <button
-              className={`p-2 transition-colors duration-300 ${
-                isScrolled ? "text-slate-600" : "text-white"
-              }`}
+              className={`p-2 transition-colors duration-300 ${textColorClass}`}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
