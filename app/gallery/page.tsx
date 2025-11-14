@@ -8,7 +8,7 @@ export default function Gallery() {
       title: "Corporate Boardroom",
       category: "Audio & Video",
       imageSrc:
-        "https://placehold.co/600x400/3b82f6/ffffff?text=Corporate+Boardroom",
+        "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
       description:
         "Complete A/V integration for a modern corporate boardroom, featuring video conferencing, in-ceiling speakers, and Crestron touch-panel control.",
     },
@@ -16,7 +16,7 @@ export default function Gallery() {
       title: "University Lecture Hall",
       category: "Audio & Video",
       imageSrc:
-        "https://placehold.co/600x400/3b82f6/ffffff?text=Lecture+Hall+AV",
+        "https://images.unsplash.com/photo-1543269865-0a740d43b91c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
       description:
         "Dual-projector setup with lecture capture and voice-lift microphone system for a 200-seat university hall.",
     },
@@ -24,7 +24,7 @@ export default function Gallery() {
       title: "New Office Campus Build-out",
       category: "Structured Cabling",
       imageSrc:
-        "https://placehold.co/600x400/64748b/ffffff?text=Network+IDF+Rack",
+        "https://images.unsplash.com/photo-1631160312543-f61b1c6d35b1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
       description:
         "Installed over 1,500 Cat6A drops, 24-strand fiber backbone, and built out three IDF closets for a new corporate campus.",
     },
@@ -32,7 +32,7 @@ export default function Gallery() {
       title: "Warehouse Security",
       category: "Security",
       imageSrc:
-        "https://placehold.co/600x400/10b981/ffffff?text=IP+Security+Camera",
+        "https://images.unsplash.com/photo-1534999818448-9B0c346066b1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
       description:
         "Campus-wide IP surveillance system with over 50 Axis cameras and a centralized access control system for all entry points.",
     },
@@ -40,7 +40,7 @@ export default function Gallery() {
       title: "Restaurant Sound System",
       category: "Audio & Video",
       imageSrc:
-        "https://placehold.co/600x400/3b82f6/ffffff?text=Restaurant+Audio",
+        "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
       description:
         "Multi-zone audio system for a high-end restaurant, providing distinct volume and source control for the bar, dining room, and patio.",
     },
@@ -48,7 +48,7 @@ export default function Gallery() {
       title: "Data Center Cleanup",
       category: "Structured Cabling",
       imageSrc:
-        "https://placehold.co/600x400/64748b/ffffff?text=Server+Rack+Cleanup",
+        "https://images.unsplash.com/photo-1520087617565-c782b4ea7362?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
       description:
         "Re-terminated and organized main server room cabling, improving airflow, reliability, and serviceability for the client's IT team.",
     },
