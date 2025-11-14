@@ -1,11 +1,17 @@
 import Image from "next/image";
-import Link from "next/link"; // <-- Import Link
+import Link from "next/link";
+import {
+  MapPinIcon,
+  EnvelopeIcon,
+  PhoneIcon,
+} from "@heroicons/react/24/outline";
 
 export default function Footer() {
   return (
     <footer className="bg-slate-900 text-slate-300 py-12 border-t border-slate-800">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
+          {/* Logo Column */}
           <div className="md:col-span-2">
             <Image
               src="/vision-logo-white.png"
@@ -20,6 +26,7 @@ export default function Footer() {
             </p>
           </div>
 
+          {/* Quick Links */}
           <div>
             <h4 className="text-white font-semibold text-lg mb-4">
               Quick Links
@@ -58,8 +65,12 @@ export default function Footer() {
             </nav>
           </div>
 
+          {/* Address */}
           <div>
-            <h4 className="text-white font-semibold text-lg mb-4">Address</h4>
+            <h4 className="text-white font-semibold text-lg mb-4 flex items-center">
+              <MapPinIcon className="w-5 h-5 mr-2 text-blue-400" /> {/* <-- Icon */}
+              Address
+            </h4>
             <p className="text-sm leading-relaxed">
               32311 Tamina Rd
               <br />
@@ -68,21 +79,24 @@ export default function Footer() {
             </p>
           </div>
 
+          {/* Get In Touch */}
           <div>
             <h4 className="text-white font-semibold text-lg mb-4">
               Get In Touch
             </h4>
-            <div className="flex flex-col space-y-3 text-sm">
+            <div className="flex flex-col space-y-3">
               <a
                 href="mailto:info@vision-texas.com"
-                className="hover:text-blue-400 transition-colors"
+                className="flex items-center text-sm hover:text-blue-400 transition-colors"
               >
+                <EnvelopeIcon className="w-5 h-5 mr-3 text-blue-400" /> {/* <-- Icon */}
                 info@vision-texas.com
               </a>
               <a
                 href="tel:8325351991"
-                className="text-lg font-bold text-blue-400"
+                className="flex items-center text-lg font-bold text-blue-400"
               >
+                <PhoneIcon className="w-5 h-5 mr-3" /> {/* <-- Icon */}
                 832.535.1991
               </a>
             </div>

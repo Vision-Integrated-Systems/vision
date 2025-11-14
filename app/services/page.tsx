@@ -2,6 +2,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ContentSection from "@/components/ContentSection";
 import type { Metadata } from "next";
+import { CheckCircleIcon } from "@heroicons/react/24/outline";
 
 export const metadata: Metadata = {
   title: "Services | Vision Integrated Systems",
@@ -41,11 +42,23 @@ export default function Services() {
             tailor every installation to the unique requirements of your space,
             budget, and application.
           </p>
-          <ul className="list-disc list-inside text-slate-600 space-y-2">
-            <li>Conference Rooms & Huddle Spaces</li>
-            <li>Digital Signage & Video Walls</li>
-            <li>Sound Masking & Background Audio</li>
-            <li>Control Systems (Crestron, Extron, etc.)</li>
+        <ul className="space-y-3 text-slate-600">
+            <li className="flex items-start">
+              <CheckCircleIcon className="w-5 h-5 text-blue-600 shrink-0 mr-3" />
+              <span>Conference Rooms & Huddle Spaces</span>
+            </li>
+            <li className="flex items-start">
+              <CheckCircleIcon className="w-5 h-5 text-blue-600 shrink-0 mr-3" />
+              <span>Digital Signage & Video Walls</span>
+            </li>
+            <li className="flex items-start">
+              <CheckCircleIcon className="w-5 h-5 text-blue-600 shrink-0 mr-3" />
+              <span>Sound Masking & Background Audio</span>
+            </li>
+            <li className="flex items-start">
+              <CheckCircleIcon className="w-5 h-5 text-blue-600 shrink-0 mr-3" />
+              <span>Control Systems (Crestron, Extron, etc.)</span>
+            </li>
           </ul>
         </ContentSection>
 
@@ -64,11 +77,23 @@ export default function Services() {
             procure, and install structured cabling systems that meet today's
             demands and tomorrow's growth.
           </p>
-          <ul className="list-disc list-inside text-slate-600 space-y-2">
-            <li>Cat5e, Cat6, Cat6A Copper Cabling</li>
-            <li>Fiber Optic Installation & Splicing</li>
-            <li>Server Room & Rack Cleanups</li>
-            <li>Certified Installations (Panduit, Belden, CommScope)</li>
+          <ul className="space-y-3 text-slate-600">
+            <li className="flex items-start">
+              <CheckCircleIcon className="w-5 h-5 text-blue-600 shrink-0 mr-3" />
+              <span>Cat5e, Cat6, Cat6A Copper Cabling</span>
+            </li>
+            <li className="flex items-start">
+              <CheckCircleIcon className="w-5 h-5 text-blue-600 shrink-0 mr-3" />
+              <span>Fiber Optic Installation & Splicing</span>
+            </li>
+            <li className="flex items-start">
+              <CheckCircleIcon className="w-5 h-5 text-blue-600 shrink-0 mr-3" />
+              <span>Server Room & Rack Cleanups</span>
+            </li>
+            <li className="flex items-start">
+              <CheckCircleIcon className="w-5 h-5 text-blue-600 shrink-0 mr-3" />
+              <span>Certified Installations (Panduit, Belden, CommScope)</span>
+            </li>
           </ul>
         </ContentSection>
 
@@ -86,11 +111,23 @@ export default function Services() {
             systems deliver peace of mind. We provide solutions that are
             unsurpassed in simplicity, flexibility, and reliability.
           </p>
-          <ul className="list-disc list-inside text-slate-600 space-y-2">
-            <li>IP Video Surveillance</li>
-            <li>Access Control Systems</li>
-            <li>Intrusion Detection</li>
-            <li>Integrated Building Management</li>
+      <ul className="space-y-3 text-slate-600">
+            <li className="flex items-start">
+              <CheckCircleIcon className="w-5 h-5 text-blue-600 shrink-0 mr-3" />
+              <span>IP Video Surveillance</span>
+            </li>
+            <li className="flex items-start">
+              <CheckCircleIcon className="w-5 h-5 text-blue-600 shrink-0 mr-3" />
+              <span>Access Control Systems</span>
+            </li>
+            <li className="flex items-start">
+              <CheckCircleIcon className="w-5 h-5 text-blue-600 shrink-0 mr-3" />
+              <span>Intrusion Detection</span>
+            </li>
+            <li className="flex items-start">
+              <CheckCircleIcon className="w-5 h-5 text-blue-600 shrink-0 mr-3" />
+              <span>Integrated Building Management</span>
+            </li>
           </ul>
         </ContentSection>
       </main>

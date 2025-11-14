@@ -1,6 +1,11 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import type { Metadata } from "next";
+import {
+  BuildingOffice2Icon,
+  PhoneIcon,
+  EnvelopeIcon,
+} from "@heroicons/react/24/outline";
 
 export const metadata: Metadata = {
   title: "Contact Us | Vision Integrated Systems",
@@ -23,13 +28,14 @@ export default function ContactUs() {
           </div>
         </section>
 
-        <section className="py-20 bg-slate-50">
+      <section className="py-20 bg-slate-50">
           <div className="container mx-auto px-4">
             <div className="flex flex-col lg:flex-row gap-12">
               {/* Contact Info */}
               <div className="lg:w-1/3 space-y-8">
                 <div className="bg-white p-8 rounded-xl shadow-sm border border-slate-100">
-                  <h3 className="text-xl font-bold text-slate-900 mb-4">
+                  <h3 className="text-xl font-bold text-slate-900 mb-6 flex items-center">
+                    <BuildingOffice2Icon className="w-6 h-6 mr-3 text-blue-600" />
                     Our Office
                   </h3>
                   <p className="text-slate-600 leading-relaxed mb-6">
@@ -38,25 +44,27 @@ export default function ContactUs() {
                     Suite A<br />
                     Magnolia, TX 77354
                   </p>
-                  <div className="space-y-2">
-                    <p className="flex items-center text-slate-700">
-                      <span className="font-semibold w-20">Phone:</span>
+                  <div className="space-y-4">
+                    <div className="flex items-center">
+                      <PhoneIcon className="w-5 h-5 mr-3 text-slate-500" />
+                      <span className="font-semibold w-16">Phone:</span>
                       <a
                         href="tel:8325351991"
                         className="text-blue-600 hover:underline"
                       >
                         832.535.1991
                       </a>
-                    </p>
-                    <p className="flex items-center text-slate-700">
-                      <span className="font-semibold w-20">Email:</span>
+                    </div>
+                    <div className="flex items-center">
+                      <EnvelopeIcon className="w-5 h-5 mr-3 text-slate-500" />
+                      <span className="font-semibold w-16">Email:</span>
                       <a
                         href="mailto:info@vision-texas.com"
                         className="text-blue-600 hover:underline"
                       >
                         info@vision-texas.com
                       </a>
-                    </p>
+                    </div>
                   </div>
                 </div>
               </div>

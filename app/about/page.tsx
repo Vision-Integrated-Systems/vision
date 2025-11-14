@@ -3,6 +3,11 @@ import Footer from "@/components/Footer";
 import ContentSection from "@/components/ContentSection";
 import type { Metadata } from "next";
 import Image from "next/image";
+import {
+  ShieldCheckIcon,
+  LightBulbIcon,
+  UsersIcon,
+} from "@heroicons/react/24/outline";
 
 export const metadata: Metadata = {
   title: "About Vision Integrated Systems",
@@ -32,21 +37,24 @@ export default function About() {
     },
   ];
 
-  const values = [
+const values = [
     {
       name: "Integrity",
       description:
         "We build trust through honest communication and unwavering commitment to our clients.",
+      icon: <ShieldCheckIcon className="w-8 h-8" />,
     },
     {
       name: "Innovation",
       description:
         "We constantly explore new technologies to deliver cutting-edge, reliable solutions.",
+      icon: <LightBulbIcon className="w-8 h-8" />,
     },
     {
       name: "Collaboration",
       description:
         "We work as a unified team with our clients and partners to achieve shared goals.",
+      icon: <UsersIcon className="w-8 h-8" />,
     },
   ];
 
@@ -117,6 +125,9 @@ export default function About() {
                   key={value.name}
                   className="text-center p-6 bg-slate-50 rounded-lg border border-slate-100"
                 >
+                  <div className="w-16 h-16 mx-auto mb-4 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center">
+                    {value.icon}
+                  </div>
                   <h3 className="text-2xl font-bold text-blue-600 mb-3">
                     {value.name}
                   </h3>
