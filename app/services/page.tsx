@@ -1,6 +1,13 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ContentSection from "@/components/ContentSection";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Services | Vision Integrated Systems",
+  description:
+    "Explore our professional services: commercial audio/video, structured cabling (Cat6, Fiber), and integrated security & access control systems.",
+};
 
 export default function Services() {
   return (

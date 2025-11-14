@@ -1,5 +1,12 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Contact Us | Vision Integrated Systems",
+  description:
+    "Ready to start your project? Get in touch with the Vision team today for a consultation on your AV, cabling, or security needs.",
+};
 
 export default function ContactUs() {
   return (

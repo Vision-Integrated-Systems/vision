@@ -1,5 +1,12 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Leadership Team | Vision Integrated Systems",
+  description:
+    "Meet the experienced leadership team driving innovation and quality at Vision Integrated Systems.",
+};
 
 export default function Leadership() {
   const leaders = [

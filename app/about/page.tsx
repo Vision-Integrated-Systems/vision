@@ -1,6 +1,13 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ContentSection from "@/components/ContentSection";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About Vision Integrated Systems",
+  description:
+    "Learn about Vision's 30+ years of excellence in providing audio, video, cabling, and security solutions as a trusted partner for businesses across Texas.",
+};
 
 export default function About() {
   return (
