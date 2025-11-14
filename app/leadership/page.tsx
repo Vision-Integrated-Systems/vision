@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import type { Metadata } from "next";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Leadership Team | Vision Integrated Systems",
@@ -14,16 +15,19 @@ export default function Leadership() {
       name: "Bo Barron",
       title: "Managing Director",
       bio: "Leading Vision Integrated Systems with a focus on strateth and customer satisfaction.",
+      imageSrc: "/bo.jpeg",
     },
     {
       name: "Zack Spelz",
       title: "Director of Business Development",
       bio: "Ensuring operational excellence and efficient project delivery across all sectors.",
+      imageSrc: "/zack.jpeg",
     },
     {
       name: "Josh Schulze",
       title: "Director of Operations",
       bio: "Overseeing technical standards and driving innovation in AV and security solutions.",
+      imageSrc: "/josh.jpeg",
     },
   ];
 
@@ -49,26 +53,21 @@ export default function Leadership() {
               {leaders.map((leader, idx) => (
                 <div
                   key={idx}
-                  className="bg-slate-50 rounded-xl overflow-hidden shadow-md border border-slate-100 hover:shadow-xl transition-shadow duration-300"
+                  className="bg-slate-50 rounded-xl overflow-hidden shadow-md border border-slate-100 hover:shadow-xl transition-shadow duration-300 flex flex-col items-center p-8"
                 >
-                  {/* Placeholder Image Area */}
-                  <div className="h-64 bg-slate-200 flex items-center justify-center">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      strokeWidth={1.5}
-                      stroke="currentColor"
-                      className="w-20 h-20 text-slate-400"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"
-                      />
-                    </svg>
+                  {/* Circular Image Area */}
+                  <div className="relative h-40 w-40 mb-6">
+                    <Image
+                      src={leader.imageSrc}
+                      alt={`Portrait of ${leader.name}`}
+                      width={160}
+                      height={160}
+                      className="rounded-full object-cover border-4 border-white shadow-md"
+                    />
                   </div>
-                  <div className="p-6">
+
+                  {/* Text Content */}
+                  <div className="text-center">
                     <h3 className="text-xl font-bold text-slate-900">
                       {leader.name}
                     </h3>
