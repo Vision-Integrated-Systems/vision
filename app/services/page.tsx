@@ -27,7 +27,7 @@ export default function Services() {
         title="Audio & Video"
         bgColor="white"
         reverse={true}
-        imageSrc="https://placehold.co/600x450/3b82f6/ffffff?text=Modern+Conference+Room"
+        imageSrc="/conference-room.jpg"
         imageAlt="Modern conference room with video conferencing"
       >
         <h3 className="text-xl font-semibold mb-3">Custom A/V Solutions</h3>
@@ -61,7 +61,7 @@ export default function Services() {
         id="cabling"
         title="Structured Cabling"
         bgColor="slate"
-        imageSrc="https://placehold.co/600x450/64748b/ffffff?text=Network+Server+Rack"
+        imageSrc="/cabling.jpg"
         imageAlt="Cleanly wired network server rack"
       >
         <h3 className="text-xl font-semibold mb-3">
@@ -97,7 +97,7 @@ export default function Services() {
         title="Security"
         bgColor="white"
         reverse={true}
-        imageSrc="https://placehold.co/600x450/3b82f6/ffffff?text=Security+Camera"
+        imageSrc="/cameras.jpg"
         imageAlt="High-definition security camera"
       >
         <h3 className="text-xl font-semibold mb-3">Protecting Your Assets</h3>
