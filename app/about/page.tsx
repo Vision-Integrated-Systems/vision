@@ -5,6 +5,7 @@ import {
   LightBulbIcon,
   UsersIcon,
 } from "@heroicons/react/24/outline";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "About Vision Integrated Systems",
@@ -149,8 +150,8 @@ export default function About() {
                 className="bg-white rounded-xl overflow-hidden shadow-md border border-slate-100 hover:shadow-xl transition-shadow duration-300 flex flex-col items-center p-8"
               >
                 <div className="relative h-40 w-40 mb-6">
-                  {/* Replaced next/image with standard img tag to fix compilation */}
-                  <img
+                  {/* Switched back to next/image for optimization */}
+                  <Image
                     src={leader.imageSrc}
                     alt={`Portrait of ${leader.name}`}
                     width={160}
