@@ -90,16 +90,6 @@ export default function Header() {
                 About
               </Link>
               <Link
-                href="/leadership"
-                className={`transition-colors ${
-                  isActive("/leadership")
-                    ? "text-blue-600 font-bold"
-                    : hoverColorClass
-                }`}
-              >
-                Leadership
-              </Link>
-              <Link
                 href="/services"
                 className={`transition-colors ${
                   isActive("/services")
@@ -197,15 +187,6 @@ export default function Header() {
               }`}
             >
               About
-            </Link>
-            <Link
-              href="/leadership"
-              onClick={closeMobileMenu}
-              className={`text-3xl font-bold transition-colors ${
-                isActive("/leadership") ? "text-blue-600" : "text-slate-700"
-              }`}
-            >
-              Leadership
             </Link>
             <Link
               href="/services"
