@@ -2,6 +2,7 @@
 
 import { useFormState } from "react-dom";
 import { useSearchParams } from "next/navigation";
+import { Suspense } from "react";
 import {
   BuildingOffice2Icon,
   PhoneIcon,
@@ -11,10 +12,11 @@ import {
 import { handleContactSubmit, type FormState } from "../lib/actions";
 import { SubmitButton } from "@/components/SubmitButton";
 
-export default function ContactUs() {
+function ContactForm() {
   const searchParams = useSearchParams();
   const subject = searchParams.get("subject");
   const defaultMessage = subject ? `Regarding: ${subject}\n\n` : "";
+
   const initialState: FormState = null;
   const [state, formAction] = useFormState(handleContactSubmit, initialState);
 
@@ -162,7 +164,7 @@ export default function ContactUs() {
                     className="w-full px-4 py-2 border border-slate-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all"
                     placeholder="How can we help you?"
                     required
-                    defaultValue={defaultMessage} 
+                    defaultValue={defaultMessage}
                   ></textarea>
                 </div>
 
@@ -184,5 +186,13 @@ export default function ContactUs() {
         </div>
       </section>
     </>
+  );
+}
+
+export default function ContactUs() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-slate-900 flex items-center justify-center text-white">Loading...</div>}>
+      <ContactForm />
+    </Suspense>
   );
 }
