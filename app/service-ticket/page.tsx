@@ -31,8 +31,6 @@ export default function ServiceTicket() {
 
   return (
     <div className="min-h-screen flex flex-col font-sans text-slate-800 bg-white">
-      <Header />
-
       <main className="grow pt-20">
         <section className="bg-slate-900 py-20 text-center text-white">
           <div className="container mx-auto px-4">
@@ -155,7 +153,6 @@ export default function ServiceTicket() {
         </section>
       </main>
 
-      <Footer />
     </div>
   );
 }
