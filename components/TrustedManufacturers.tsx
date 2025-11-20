@@ -3,12 +3,6 @@ import Image from "next/image";
 export default function TrustedManufacturers() {
   const manufacturers = [
     {
-      name: "Crestron",
-      src: "/logos/crestron.jpg",
-      width: 200,
-      height: 60,
-    },
-    {
       name: "Biamp",
       src: "/logos/biamp.jpg",
       width: 200,
@@ -29,12 +23,6 @@ export default function TrustedManufacturers() {
     {
       name: "Axis",
       src: "/logos/axis.png",
-      width: 200,
-      height: 60,
-    },
-    {
-      name: "Extron",
-      src: "/logos/extron.jpg",
       width: 200,
       height: 60,
     },
