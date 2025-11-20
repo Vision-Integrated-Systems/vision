@@ -34,8 +34,9 @@ export default function Hero() {
           muted
           loop
           playsInline
+          poster="/images/hero-poster.png"
           className="w-full h-full object-cover"
-          src="/videos/digital-space.mp4"
+          src="https://58rt0phzp49wzguc.public.blob.vercel-storage.com/digital-space.mp4"
         />
       </div>
 
