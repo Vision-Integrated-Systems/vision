@@ -1,6 +1,7 @@
 "use client";
 
-import { useFormState } from "react-dom";
+// FIX 1: Import useActionState from "react" instead of useFormState from "react-dom"
+import { useActionState } from "react";
 import { useSearchParams } from "next/navigation";
 import { Suspense } from "react";
 import {
@@ -18,7 +19,9 @@ function ContactForm() {
   const defaultMessage = subject ? `Regarding: ${subject}\n\n` : "";
 
   const initialState: FormState = null;
-  const [state, formAction] = useFormState(handleContactSubmit, initialState);
+  
+  // FIX 2: Use useActionState instead of useFormState
+  const [state, formAction] = useActionState(handleContactSubmit, initialState);
 
   return (
     <>
@@ -168,6 +171,7 @@ function ContactForm() {
                   ></textarea>
                 </div>
 
+                {/* Note: Ensure your SubmitButton accepts text prop if customizing */}
                 <SubmitButton text="Send Message" />
 
                 {state?.status === "success" && (
