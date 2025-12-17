@@ -3,7 +3,7 @@ export default function StructuredData() {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "Vision Integrated Systems",
-    "image": "https://vision-texas.com/vision-logo.png", // Ensure this URL is absolute in prod
+    "image": "https://vision.jeffhogg.com/vision-logo.png",
     "telephone": "832-535-1991",
     "email": "info@vision-texas.com",
     "address": {
