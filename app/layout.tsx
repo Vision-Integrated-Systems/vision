@@ -4,7 +4,7 @@ import "./globals.css";
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import ScrollProgress from "@/components/ScrollProgress";
+import StructuredData from "@/components/StructuredData";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,7 +31,7 @@ export default function RootLayout({
      <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <ScrollProgress />
+        <StructuredData />
         <div className="min-h-screen flex flex-col font-sans text-slate-800 bg-white">
           <Header />
           <main className="grow">{children}</main>
