@@ -1,4 +1,3 @@
-// app/lib/actions.ts
 "use server";
 
 export type FormState = {
@@ -33,7 +32,6 @@ export async function handleContactSubmit(
   }
 }
 
-// --- NEW: Job Application Action ---
 export async function handleJobApplication(
   prevState: FormState,
   formData: FormData,
@@ -68,6 +66,40 @@ export async function handleJobApplication(
     return {
       status: "error",
       message: "Failed to submit application. Please try again.",
+    };
+  }
+}
+
+export async function handleServiceTicket(
+  prevState: FormState,
+  formData: FormData,
+): Promise<FormState> {
+  const company = formData.get("companyName");
+  const name = formData.get("contactName");
+  const email = formData.get("email");
+  const urgency = formData.get("urgency");
+  const systemType = formData.get("systemType");
+  const message = formData.get("message");
+  const attachment = formData.get("attachment") as File;
+
+  console.log("New Service Ticket:");
+  console.log({ company, name, email, urgency, systemType, message });
+  
+  if (attachment && attachment.size > 0) {
+    console.log(`Issue attachment: ${attachment.name} (${attachment.size} bytes)`);
+  }
+
+  try {
+    await new Promise((resolve) => setTimeout(resolve, 1500));
+
+    return {
+      status: "success",
+      message: `Ticket #${Math.floor(Math.random() * 10000)} created. A technician will review your request shortly.`,
+    };
+  } catch (error) {
+    return {
+      status: "error",
+      message: "Failed to submit ticket. Please call us directly at 832.535.1991.",
     };
   }
 }

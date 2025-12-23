@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 
 export default function Gallery() {
   const projects = [
@@ -54,7 +54,7 @@ export default function Gallery() {
     },
   ];
 
-  const galleryVariants = {
+  const galleryVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -64,74 +64,83 @@ export default function Gallery() {
     },
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
       y: 0,
-    },
-    transition: {
-      duration: 0.5,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut",
+      },
     },
   };
 
   return (
     <>
-      <section className="bg-slate-900 py-24 text-center text-white relative overflow-hidden">
+      <section className="bg-slate-900 py-32 text-center text-white relative overflow-hidden">
         {/* Abstract BG element */}
-        <div className="absolute top-0 left-0 w-full h-full overflow-hidden opacity-10 pointer-events-none">
-          <div className="absolute -top-24 -right-24 w-96 h-96 bg-blue-500 rounded-full blur-3xl"></div>
-          <div className="absolute top-1/2 -left-24 w-72 h-72 bg-purple-500 rounded-full blur-3xl"></div>
+        <div className="absolute top-0 left-0 w-full h-full overflow-hidden opacity-20 pointer-events-none">
+          <div className="absolute -top-32 -right-32 w-[600px] h-[600px] bg-blue-600 rounded-full blur-[120px]"></div>
+          <div className="absolute bottom-0 -left-32 w-[500px] h-[500px] bg-purple-600 rounded-full blur-[120px]"></div>
         </div>
 
-        <div className="container mx-auto px-4 pt-10 relative z-10">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight">
-            Project Gallery
+        <div className="container mx-auto px-4 relative z-10">
+          <h1 className="text-5xl md:text-7xl font-bold mb-8 tracking-tight">
+            Project{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-white">
+              Gallery
+            </span>
           </h1>
-          <p className="text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed">
-            Explore a variety of projects we've completed across different
-            industries and sectors.
+          <p className="text-xl md:text-2xl text-slate-300 max-w-2xl mx-auto leading-relaxed font-light">
+            See the quality and scope of our work.
           </p>
         </div>
       </section>
 
       {/* Gallery Grid Section */}
-      <section className="py-20 bg-slate-50">
-        <div className="container mx-auto px-4">
+      <section className="py-24 bg-slate-50 relative">
+        {/* Texture Overlay */}
+        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-5 pointer-events-none"></div>
+
+        <div className="container mx-auto px-4 relative z-10">
           <motion.div
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
             variants={galleryVariants}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.1 }}
+            viewport={{ once: true, margin: "-50px" }}
           >
             {projects.map((project) => (
               <motion.div
                 key={project.title}
-                className="bg-white rounded-xl overflow-hidden shadow-lg border border-slate-100 flex flex-col group"
+                className="bg-white rounded-2xl overflow-hidden shadow-lg border border-slate-100 flex flex-col group hover:shadow-2xl transition-all duration-500"
                 variants={itemVariants}
-                whileHover={{
-                  y: -5,
-                  boxShadow:
-                    "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)",
-                }}
-                transition={{ duration: 0.2 }}
+                whileHover={{ y: -8 }}
               >
-                <div className="relative overflow-hidden">
+                <div className="relative overflow-hidden h-64">
+                  {/* Dark overlay on hover */}
+                  <div className="absolute inset-0 bg-slate-900/10 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
                   <img
                     src={project.imageSrc}
                     alt={project.title}
-                    className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                   />
+
+                  {/* Category Badge - Floating */}
+                  <div className="absolute top-4 left-4 z-20">
+                    <span className="px-3 py-1 bg-white/90 backdrop-blur-md text-blue-600 text-xs font-bold uppercase tracking-wider rounded-full shadow-sm">
+                      {project.category}
+                    </span>
+                  </div>
                 </div>
-                <div className="p-6 flex flex-col flex-1">
-                  <span className="text-blue-600 text-sm font-semibold uppercase tracking-wide">
-                    {project.category}
-                  </span>
-                  <h3 className="text-xl font-bold text-slate-900 mt-2 mb-3">
+
+                <div className="p-8 flex flex-col flex-1">
+                  <h3 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors duration-300">
                     {project.title}
                   </h3>
-                  <p className="text-slate-600 text-sm leading-relaxed flex-1">
+                  <p className="text-slate-600 leading-relaxed flex-1">
                     {project.description}
                   </p>
                 </div>
