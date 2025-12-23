@@ -109,6 +109,7 @@ export default function Footer() {
                 ["About Vision", "/about"],
                 ["Our Services", "/services"],
                 ["Project Gallery", "/gallery"],
+                ["Insights Blog", "/insights"], // Added Insights
                 ["Careers", "/careers"],
                 ["Contact", "/contact-us"],
               ].map(([label, href]) => (
@@ -124,22 +125,24 @@ export default function Footer() {
             </nav>
           </div>
 
-          {/* Column 3: Services */}
+          {/* Column 3: Services & Solutions */}
           <div>
             <h4 className="text-white font-semibold text-lg mb-6">Solutions</h4>
             <nav className="flex flex-col space-y-3">
+              {/* Updated list to include Solution Finder link */}
               {[
-                "Audio & Video",
-                "Structured Cabling",
-                "Security & Access Control",
-                "Fiber Optics",
-              ].map((label) => (
+                { label: "Solution Finder", href: "/get-started" }, // New Tool Link
+                { label: "Audio & Video", href: "/services" },
+                { label: "Structured Cabling", href: "/services" },
+                { label: "Security & Access", href: "/services" },
+                { label: "Fiber Optics", href: "/services" },
+              ].map((item) => (
                 <Link
-                  key={label}
-                  href="/services"
+                  key={item.label}
+                  href={item.href}
                   className="text-slate-400 hover:text-white hover:translate-x-1 transition-all duration-200"
                 >
-                  {label}
+                  {item.label}
                 </Link>
               ))}
             </nav>

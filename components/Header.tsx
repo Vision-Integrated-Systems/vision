@@ -19,13 +19,8 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Determine appearance state
-  // Mode 1: Transparent (Home top)
-  // Mode 2: Floating Pill (Scrolled)
-  // Mode 3: Solid Standard (Non-home top)
   const isTransparent = isHome && !isScrolled && !isMobileMenuOpen;
 
-  // Dynamic positioning and styling
   const headerClasses = isScrolled
     ? "fixed top-4 left-1/2 -translate-x-1/2 w-[95%] max-w-6xl rounded-full border border-slate-200/50 bg-white/80 backdrop-blur-xl shadow-2xl shadow-slate-900/5 py-3"
     : isTransparent
@@ -43,6 +38,7 @@ export default function Header() {
     { name: "Home", path: "/" },
     { name: "About", path: "/about" },
     { name: "Services", path: "/services" },
+    { name: "Insights", path: "/insights" }, // Added Insights
     { name: "Gallery", path: "/gallery" },
     { name: "Careers", path: "/careers" },
     { name: "Contact", path: "/contact-us" },
@@ -55,10 +51,8 @@ export default function Header() {
       >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center">
-            {/* Logo */}
             <Link href="/" className="shrink-0 relative z-50">
               <div className="relative h-8 w-40">
-                {/* Clever trick: fade between logos based on state */}
                 <Image
                   src="/vision-logo.png"
                   alt="Vision Integrated Systems"
