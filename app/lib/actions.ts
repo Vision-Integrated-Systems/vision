@@ -1,3 +1,4 @@
+// app/lib/actions.ts
 "use server";
 
 export type FormState = {
@@ -15,13 +16,11 @@ export async function handleContactSubmit(
   const phone = formData.get("phone");
   const message = formData.get("message");
 
-  // --- TODO: Add your email sending logic here ---
   console.log("New Contact Form Submission:");
   console.log({ firstName, lastName, email, phone, message });
 
   try {
     await new Promise((resolve) => setTimeout(resolve, 1000));
-
     return {
       status: "success",
       message: "Your message has been sent! We'll be in touch soon.",
@@ -30,6 +29,45 @@ export async function handleContactSubmit(
     return {
       status: "error",
       message: "Something went wrong. Please try again.",
+    };
+  }
+}
+
+// --- NEW: Job Application Action ---
+export async function handleJobApplication(
+  prevState: FormState,
+  formData: FormData,
+): Promise<FormState> {
+  const jobTitle = formData.get("jobTitle");
+  const fullName = formData.get("fullName");
+  const email = formData.get("email");
+  const phone = formData.get("phone");
+  const linkedIn = formData.get("linkedIn");
+  const coverLetter = formData.get("coverLetter");
+  
+  // File handling
+  const resume = formData.get("resume") as File;
+
+  console.log(`New Application for ${jobTitle}:`);
+  console.log({ fullName, email, phone, linkedIn, coverLetter });
+  
+  if (resume && resume.size > 0) {
+    console.log(`Resume uploaded: ${resume.name} (${resume.size} bytes)`);
+    // TODO: Upload this file to S3, Blob Storage, or email attachment service
+  }
+
+  try {
+    // Simulate processing delay
+    await new Promise((resolve) => setTimeout(resolve, 1500));
+
+    return {
+      status: "success",
+      message: "Application received! We will review your qualifications and contact you shortly.",
+    };
+  } catch (error) {
+    return {
+      status: "error",
+      message: "Failed to submit application. Please try again.",
     };
   }
 }
