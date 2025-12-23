@@ -37,25 +37,43 @@ export async function handleJobApplication(
   formData: FormData,
 ): Promise<FormState> {
   const jobTitle = formData.get("jobTitle");
-  const fullName = formData.get("fullName");
+  
+  // Updated Name Handling
+  const firstName = formData.get("firstName");
+  const lastName = formData.get("lastName");
+  
   const email = formData.get("email");
   const phone = formData.get("phone");
   const linkedIn = formData.get("linkedIn");
+  
+  // New HR/Industry Fields
+  const experience = formData.get("experience");
+  const certifications = formData.get("certifications");
+  const startDate = formData.get("startDate");
+  const workAuth = formData.get("workAuth");
+  
   const coverLetter = formData.get("coverLetter");
   
   // File handling
   const resume = formData.get("resume") as File;
 
   console.log(`New Application for ${jobTitle}:`);
-  console.log({ fullName, email, phone, linkedIn, coverLetter });
+  console.log({ 
+    firstName, 
+    lastName, 
+    email, 
+    phone, 
+    experience, 
+    certifications, 
+    startDate,
+    workAuth
+  });
   
   if (resume && resume.size > 0) {
     console.log(`Resume uploaded: ${resume.name} (${resume.size} bytes)`);
-    // TODO: Upload this file to S3, Blob Storage, or email attachment service
   }
 
   try {
-    // Simulate processing delay
     await new Promise((resolve) => setTimeout(resolve, 1500));
 
     return {
