@@ -58,10 +58,21 @@ export default function About() {
 
   return (
     <>
-      <section className="bg-slate-900 py-20 text-center text-white">
-        <div className="container mx-auto px-4 pt-20">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">About Vision</h1>
-          <p className="text-xl text-slate-300 max-w-2xl mx-auto">
+      <section className="bg-slate-900 py-24 text-center text-white relative overflow-hidden">
+        {/* Abstract BG element */}
+        <div className="absolute top-0 left-0 w-full h-full overflow-hidden opacity-10 pointer-events-none">
+          <div className="absolute -top-24 -right-24 w-96 h-96 bg-blue-500 rounded-full blur-3xl"></div>
+          <div className="absolute top-1/2 -left-24 w-72 h-72 bg-purple-500 rounded-full blur-3xl"></div>
+        </div>
+
+        <div className="container mx-auto px-4 pt-10 relative z-10">
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight">
+            About <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-white">
+              Vision Integrated Systems
+            </span>
+          </h1>
+          <p className="text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed">
             Over 30 years of excellence in integrated systems.
           </p>
         </div>
@@ -82,9 +93,9 @@ export default function About() {
           across Texas.
         </p>
         <p>
-          We provide complete end-to-end solutions for commercial AV,
-          structured cabling, and security projects. With thousands of
-          integrations completed, our focus remains steadfast on the customer
+          We provide complete end-to-end solutions for commercial AV, structured
+          cabling, and security projects. With thousands of integrations
+          completed, our focus remains steadfast on the customer
           experience—providing quality solutions that work simply and reliably.
         </p>
       </ContentSection>

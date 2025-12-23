@@ -11,13 +11,19 @@ export const metadata: Metadata = {
 export default function Services() {
   return (
     <>
-      <section className="bg-slate-900 py-20 text-center text-white">
-        <div className="container mx-auto px-4 pt-20">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
+      <section className="bg-slate-900 py-24 text-center text-white relative overflow-hidden">
+        {/* Abstract BG element */}
+        <div className="absolute top-0 left-0 w-full h-full overflow-hidden opacity-10 pointer-events-none">
+          <div className="absolute -top-24 -right-24 w-96 h-96 bg-blue-500 rounded-full blur-3xl"></div>
+          <div className="absolute top-1/2 -left-24 w-72 h-72 bg-purple-500 rounded-full blur-3xl"></div>
+        </div>
+
+        <div className="container mx-auto px-4 pt-10 relative z-10">
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight">
             Our Services
           </h1>
-          <p className="text-xl text-slate-300 max-w-2xl mx-auto">
-            End-to-end solutions for modern business environments.
+          <p className="text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed">
+            End-to-end solutions for modern business environments.{" "}
           </p>
         </div>
       </section>
@@ -33,9 +39,9 @@ export default function Services() {
         <h3 className="text-xl font-semibold mb-3">Custom A/V Solutions</h3>
         <p className="mb-4">
           Vision Integrated Systems is a premier provider of high-quality
-          commercial audio, video, and visual presentation solutions. We
-          tailor every installation to the unique requirements of your space,
-          budget, and application.
+          commercial audio, video, and visual presentation solutions. We tailor
+          every installation to the unique requirements of your space, budget,
+          and application.
         </p>
         <ul className="space-y-3 text-slate-600">
           <li className="flex items-start">

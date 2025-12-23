@@ -19,16 +19,24 @@ function ContactForm() {
   const defaultMessage = subject ? `Regarding: ${subject}\n\n` : "";
 
   const initialState: FormState = null;
-  
+
   // FIX 2: Use useActionState instead of useFormState
   const [state, formAction] = useActionState(handleContactSubmit, initialState);
 
   return (
     <>
-      <section className="bg-slate-900 py-20 text-center text-white">
-        <div className="container mx-auto px-4 pt-20">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Contact Us</h1>
-          <p className="text-xl text-slate-300 max-w-2xl mx-auto">
+      <section className="bg-slate-900 py-24 text-center text-white relative overflow-hidden">
+        {/* Abstract BG element */}
+        <div className="absolute top-0 left-0 w-full h-full overflow-hidden opacity-10 pointer-events-none">
+          <div className="absolute -top-24 -right-24 w-96 h-96 bg-blue-500 rounded-full blur-3xl"></div>
+          <div className="absolute top-1/2 -left-24 w-72 h-72 bg-purple-500 rounded-full blur-3xl"></div>
+        </div>
+
+        <div className="container mx-auto px-4 pt-10 relative z-10">
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight">
+            Contact Us
+          </h1>
+          <p className="text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed">
             Ready to start your project? Get in touch with our team.
           </p>
         </div>
@@ -175,14 +183,10 @@ function ContactForm() {
                 <SubmitButton text="Send Message" />
 
                 {state?.status === "success" && (
-                  <p className="mt-4 text-sm text-green-600">
-                    {state.message}
-                  </p>
+                  <p className="mt-4 text-sm text-green-600">{state.message}</p>
                 )}
                 {state?.status === "error" && (
-                  <p className="mt-4 text-sm text-red-600">
-                    {state.message}
-                  </p>
+                  <p className="mt-4 text-sm text-red-600">{state.message}</p>
                 )}
               </form>
             </div>
@@ -195,7 +199,13 @@ function ContactForm() {
 
 export default function ContactUs() {
   return (
-    <Suspense fallback={<div className="min-h-screen bg-slate-900 flex items-center justify-center text-white">Loading...</div>}>
+    <Suspense
+      fallback={
+        <div className="min-h-screen bg-slate-900 flex items-center justify-center text-white">
+          Loading...
+        </div>
+      }
+    >
       <ContactForm />
     </Suspense>
   );

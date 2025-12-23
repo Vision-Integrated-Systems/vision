@@ -1,4 +1,4 @@
-"use client"; 
+"use client";
 
 import { motion } from "framer-motion";
 
@@ -64,7 +64,7 @@ export default function Gallery() {
     },
   };
 
- const itemVariants = {
+  const itemVariants = {
     hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
@@ -77,13 +77,20 @@ export default function Gallery() {
 
   return (
     <>
-      <section className="bg-slate-900 py-20 text-center text-white">
-        <div className="container mx-auto px-4 pt-20">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
+      <section className="bg-slate-900 py-24 text-center text-white relative overflow-hidden">
+        {/* Abstract BG element */}
+        <div className="absolute top-0 left-0 w-full h-full overflow-hidden opacity-10 pointer-events-none">
+          <div className="absolute -top-24 -right-24 w-96 h-96 bg-blue-500 rounded-full blur-3xl"></div>
+          <div className="absolute top-1/2 -left-24 w-72 h-72 bg-purple-500 rounded-full blur-3xl"></div>
+        </div>
+
+        <div className="container mx-auto px-4 pt-10 relative z-10">
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight">
             Project Gallery
           </h1>
-          <p className="text-xl text-slate-300 max-w-2xl mx-auto">
-            See the quality and scope of our work.
+          <p className="text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed">
+            Explore a variety of projects we've completed across different
+            industries and sectors.
           </p>
         </div>
       </section>
@@ -103,7 +110,11 @@ export default function Gallery() {
                 key={project.title}
                 className="bg-white rounded-xl overflow-hidden shadow-lg border border-slate-100 flex flex-col group"
                 variants={itemVariants}
-                whileHover={{ y: -5, boxShadow: "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)" }}
+                whileHover={{
+                  y: -5,
+                  boxShadow:
+                    "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)",
+                }}
                 transition={{ duration: 0.2 }}
               >
                 <div className="relative overflow-hidden">
