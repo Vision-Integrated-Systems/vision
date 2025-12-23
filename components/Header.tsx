@@ -1,9 +1,11 @@
 "use client";
+
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -17,74 +19,102 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Determine styles based on state
+  // Determine appearance state
+  // Mode 1: Transparent (Home top)
+  // Mode 2: Floating Pill (Scrolled)
+  // Mode 3: Solid Standard (Non-home top)
   const isTransparent = isHome && !isScrolled && !isMobileMenuOpen;
-  
+
+  // Dynamic positioning and styling
+  const headerClasses = isScrolled
+    ? "fixed top-4 left-1/2 -translate-x-1/2 w-[95%] max-w-6xl rounded-full border border-slate-200/50 bg-white/80 backdrop-blur-xl shadow-2xl shadow-slate-900/5 py-3"
+    : isTransparent
+    ? "fixed top-0 w-full border-transparent bg-transparent py-6"
+    : "fixed top-0 w-full border-b border-slate-200 bg-white/90 backdrop-blur-md py-4";
+
+  const textColor = isTransparent ? "text-white" : "text-slate-700";
+  const hoverColor = isTransparent
+    ? "hover:text-blue-300"
+    : "hover:text-blue-600";
+  const activeColor = isTransparent ? "text-white" : "text-blue-600";
+  const activeBarColor = isTransparent ? "bg-white" : "bg-blue-600";
+
+  const navLinks = [
+    { name: "Home", path: "/" },
+    { name: "About", path: "/about" },
+    { name: "Services", path: "/services" },
+    { name: "Gallery", path: "/gallery" },
+    { name: "Careers", path: "/careers" },
+    { name: "Contact", path: "/contact-us" },
+  ];
+
   return (
     <>
       <header
-        className={`fixed top-0 z-50 w-full transition-all duration-500 border-b ${
-          isTransparent
-            ? "bg-transparent border-transparent py-4"
-            : "bg-white/90 backdrop-blur-md border-slate-200/50 py-2 shadow-sm"
-        }`}
+        className={`${headerClasses} z-50 transition-all duration-500 ease-in-out`}
       >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
+          <div className="flex justify-between items-center">
             {/* Logo */}
             <Link href="/" className="shrink-0 relative z-50">
-              <Image
-                src={isTransparent ? "/vision-logo-white.png" : "/vision-logo.png"}
-                alt="Vision Integrated Systems"
-                width={180}
-                height={50}
-                className="h-10 w-auto object-contain transition-all"
-                priority
-              />
+              <div className="relative h-8 w-40">
+                {/* Clever trick: fade between logos based on state */}
+                <Image
+                  src="/vision-logo.png"
+                  alt="Vision Integrated Systems"
+                  fill
+                  className={`object-contain transition-opacity duration-500 ${
+                    isTransparent ? "opacity-0" : "opacity-100"
+                  }`}
+                  priority
+                />
+                <Image
+                  src="/vision-logo-white.png"
+                  alt="Vision Integrated Systems"
+                  fill
+                  className={`object-contain transition-opacity duration-500 ${
+                    isTransparent ? "opacity-100" : "opacity-0"
+                  }`}
+                  priority
+                />
+              </div>
             </Link>
 
             {/* Desktop Nav */}
-            <nav className="hidden lg:flex space-x-1 items-center">
-              {[
-                { name: "Home", path: "/" },
-                { name: "About", path: "/about" },
-                { name: "Services", path: "/services" },
-                { name: "Gallery", path: "/gallery" },
-                { name: "Careers", path: "/careers" },
-                { name: "Contact", path: "/contact-us" },
-              ].map((link) => {
+            <nav className="hidden lg:flex items-center gap-1">
+              {navLinks.map((link) => {
                 const isActive = pathname === link.path;
                 return (
                   <Link
                     key={link.path}
                     href={link.path}
-                    className={`relative px-4 py-2 text-sm font-medium transition-colors duration-300 ${
-                      isTransparent 
-                        ? "text-white/90 hover:text-white" 
-                        : "text-slate-600 hover:text-blue-600"
-                    } ${isActive ? (isTransparent ? "text-white" : "text-blue-600") : ""}`}
+                    className={`relative px-4 py-2 text-sm font-semibold transition-colors duration-300 ${textColor} ${hoverColor} ${
+                      isActive ? activeColor : ""
+                    }`}
                   >
                     {link.name}
                     {isActive && (
                       <motion.div
                         layoutId="activeNav"
-                        className={`absolute bottom-0 left-0 right-0 h-0.5 ${
-                          isTransparent ? "bg-white" : "bg-blue-600"
-                        }`}
-                        transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                        className={`absolute bottom-0 left-0 right-0 mx-auto h-0.5 w-1/2 rounded-full ${activeBarColor}`}
+                        transition={{
+                          type: "spring",
+                          stiffness: 380,
+                          damping: 30,
+                        }}
                       />
                     )}
                   </Link>
                 );
               })}
 
-              <div className="pl-4">
-                 <Link
+              <div className="pl-4 ml-2 border-l border-slate-200/20">
+                <Link
                   href="/service-ticket"
-                  className={`px-5 py-2.5 rounded text-sm font-semibold transition-all duration-300 border ${
+                  className={`px-5 py-2.5 rounded-full text-sm font-bold transition-all duration-300 transform hover:scale-105 shadow-lg ${
                     isTransparent
-                      ? "border-white text-white hover:bg-white hover:text-slate-900"
-                      : "bg-slate-900 text-white border-slate-900 hover:bg-blue-600 hover:border-blue-600"
+                      ? "bg-white text-slate-900 hover:bg-blue-50"
+                      : "bg-slate-900 text-white hover:bg-blue-600"
                   }`}
                 >
                   Service Ticket
@@ -92,23 +122,78 @@ export default function Header() {
               </div>
             </nav>
 
-            {/* Mobile Toggle (Simplified for brevity) */}
+            {/* Mobile Toggle */}
             <div className="lg:hidden z-50">
-               <button
+              <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className={`p-2 ${isTransparent ? 'text-white' : 'text-slate-900'}`}
+                className={`p-2 rounded-full transition-colors ${
+                  isTransparent
+                    ? "text-white hover:bg-white/10"
+                    : "text-slate-900 hover:bg-slate-100"
+                }`}
               >
                 <span className="sr-only">Open menu</span>
-                {/* Icon logic here */}
-                <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={isMobileMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} />
-                </svg>
+                {isMobileMenuOpen ? (
+                  <XMarkIcon className="w-6 h-6" />
+                ) : (
+                  <Bars3Icon className="w-6 h-6" />
+                )}
               </button>
             </div>
           </div>
         </div>
       </header>
-       {/* Mobile Menu Content Omitted for brevity - keep existing logic */}
+
+      {/* Mobile Menu Overlay */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-40 bg-white pt-24 px-6 pb-6 lg:hidden flex flex-col"
+          >
+            <nav className="flex flex-col space-y-2">
+              {navLinks.map((link, idx) => (
+                <motion.div
+                  key={link.path}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: idx * 0.05 }}
+                >
+                  <Link
+                    href={link.path}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className={`block text-2xl font-bold py-3 border-b border-slate-100 ${
+                      pathname === link.path
+                        ? "text-blue-600"
+                        : "text-slate-800"
+                    }`}
+                  >
+                    {link.name}
+                  </Link>
+                </motion.div>
+              ))}
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 }}
+                className="pt-8"
+              >
+                <Link
+                  href="/service-ticket"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="block w-full text-center px-6 py-4 bg-slate-900 text-white font-bold rounded-xl shadow-xl active:scale-95 transition-transform"
+                >
+                  Submit Service Ticket
+                </Link>
+              </motion.div>
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 }
