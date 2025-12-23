@@ -38,44 +38,54 @@ export async function handleJobApplication(
 ): Promise<FormState> {
   const jobTitle = formData.get("jobTitle");
   
-  // Updated Name Handling
+  // Personal Info
   const firstName = formData.get("firstName");
   const lastName = formData.get("lastName");
+  const gender = formData.get("gender"); // New
   
+  // Address - New
+  const address = formData.get("address");
+  const city = formData.get("city");
+  const state = formData.get("state");
+  const zip = formData.get("zip");
+
   const email = formData.get("email");
   const phone = formData.get("phone");
   const linkedIn = formData.get("linkedIn");
   
-  // New HR/Industry Fields
+  // Qualifications
   const experience = formData.get("experience");
   const certifications = formData.get("certifications");
   const startDate = formData.get("startDate");
   const workAuth = formData.get("workAuth");
+  const backgroundCheck = formData.get("backgroundCheck"); // New
+  const referralSource = formData.get("referralSource"); // New
   
   const coverLetter = formData.get("coverLetter");
-  
-  // File handling
   const resume = formData.get("resume") as File;
 
   console.log(`New Application for ${jobTitle}:`);
   console.log({ 
-    firstName, 
-    lastName, 
-    email, 
-    phone, 
-    experience, 
-    certifications, 
+    name: `${firstName} ${lastName}`,
+    contact: `${email}, ${phone}, ${linkedIn}`,
+    gender,
+    location: `${address}, ${city}, ${state} ${zip}`,
+    referralSource,
+    experience,
+    certifications,
     startDate,
-    workAuth
+    backgroundCheck,
+    workAuth,
+    coverLetter,
+    resume: resume ? resume.name : null,
   });
   
   if (resume && resume.size > 0) {
-    console.log(`Resume uploaded: ${resume.name} (${resume.size} bytes)`);
+    console.log(`Resume uploaded: ${resume.name}`);
   }
 
   try {
     await new Promise((resolve) => setTimeout(resolve, 1500));
-
     return {
       status: "success",
       message: "Application received! We will review your qualifications and contact you shortly.",
