@@ -1,66 +1,16 @@
 "use client";
 
 import { motion, Variants } from "framer-motion";
+import Link from "next/link";
+import { projects } from "@/app/lib/projects";
+import { ArrowRightIcon } from "@heroicons/react/24/outline";
 
 export default function Gallery() {
-  const projects = [
-    {
-      title: "Corporate Boardroom",
-      category: "Audio & Video",
-      imageSrc:
-        "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
-      description:
-        "Complete A/V integration for a modern corporate boardroom, featuring video conferencing, in-ceiling speakers, and Crestron touch-panel control.",
-    },
-    {
-      title: "University Lecture Hall",
-      category: "Audio & Video",
-      imageSrc:
-        "https://images.unsplash.com/photo-1543269865-0a740d43b91c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
-      description:
-        "Dual-projector setup with lecture capture and voice-lift microphone system for a 200-seat university hall.",
-    },
-    {
-      title: "New Office Campus Build-out",
-      category: "Structured Cabling",
-      imageSrc:
-        "https://images.unsplash.com/photo-1631160312543-f61b1c6d35b1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
-      description:
-        "Installed over 1,500 Cat6A drops, 24-strand fiber backbone, and built out three IDF closets for a new corporate campus.",
-    },
-    {
-      title: "Warehouse Security",
-      category: "Security",
-      imageSrc:
-        "https://images.unsplash.com/photo-1534999818448-9B0c346066b1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
-      description:
-        "Campus-wide IP surveillance system with over 50 Axis cameras and a centralized access control system for all entry points.",
-    },
-    {
-      title: "Restaurant Sound System",
-      category: "Audio & Video",
-      imageSrc:
-        "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
-      description:
-        "Multi-zone audio system for a high-end restaurant, providing distinct volume and source control for the bar, dining room, and patio.",
-    },
-    {
-      title: "Data Center Cleanup",
-      category: "Structured Cabling",
-      imageSrc:
-        "https://images.unsplash.com/photo-1520087617565-c782b4ea7362?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
-      description:
-        "Re-terminated and organized main server room cabling, improving airflow, reliability, and serviceability for the client's IT team.",
-    },
-  ];
-
-  const galleryVariants: Variants = {
+  const galleryVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
+      transition: { staggerChildren: 0.1 },
     },
   };
 
@@ -69,10 +19,7 @@ export default function Gallery() {
     visible: {
       opacity: 1,
       y: 0,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut",
-      },
+      transition: { duration: 0.6, ease: "easeOut" },
     },
   };
 
@@ -100,7 +47,6 @@ export default function Gallery() {
 
       {/* Gallery Grid Section */}
       <section className="py-24 bg-slate-50 relative">
-        {/* Texture Overlay */}
         <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-5 pointer-events-none"></div>
 
         <div className="container mx-auto px-4 relative z-10">
@@ -113,14 +59,20 @@ export default function Gallery() {
           >
             {projects.map((project) => (
               <motion.div
-                key={project.title}
+                key={project.id}
                 className="bg-white rounded-2xl overflow-hidden shadow-lg border border-slate-100 flex flex-col group hover:shadow-2xl transition-all duration-500"
                 variants={itemVariants}
                 whileHover={{ y: -8 }}
               >
-                <div className="relative overflow-hidden h-64">
-                  {/* Dark overlay on hover */}
-                  <div className="absolute inset-0 bg-slate-900/10 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <Link
+                  href={`/gallery/${project.id}`}
+                  className="block relative overflow-hidden h-64"
+                >
+                  <div className="absolute inset-0 bg-slate-900/20 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
+                    <span className="bg-white/20 backdrop-blur-md border border-white/30 text-white px-4 py-2 rounded-full flex items-center gap-2 font-medium">
+                      View Case Study <ArrowRightIcon className="w-4 h-4" />
+                    </span>
+                  </div>
 
                   <img
                     src={project.imageSrc}
@@ -128,17 +80,16 @@ export default function Gallery() {
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                   />
 
-                  {/* Category Badge - Floating */}
                   <div className="absolute top-4 left-4 z-20">
                     <span className="px-3 py-1 bg-white/90 backdrop-blur-md text-blue-600 text-xs font-bold uppercase tracking-wider rounded-full shadow-sm">
                       {project.category}
                     </span>
                   </div>
-                </div>
+                </Link>
 
                 <div className="p-8 flex flex-col flex-1">
                   <h3 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors duration-300">
-                    {project.title}
+                    <Link href={`/gallery/${project.id}`}>{project.title}</Link>
                   </h3>
                   <p className="text-slate-600 leading-relaxed flex-1">
                     {project.description}
