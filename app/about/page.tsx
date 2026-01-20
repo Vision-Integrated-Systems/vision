@@ -124,18 +124,10 @@ export default function About() {
             Our Mission
           </h2>
           <div className="max-w-4xl mx-auto relative">
-            {/* Quote Icon - Added z-0 to ensure it stays behind text */}
-            <svg
-              className="absolute -top-10 -left-10 w-24 h-24 text-slate-200 opacity-50 z-0"
-              fill="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path d="M14.017 21L14.017 18C14.017 16.0547 14.432 15.1431 15.2618 15.2652C14.7351 14.9439 14.2882 14.5098 13.9723 13.993C13.6565 13.4762 13.5042 12.8797 13.5284 12.2743C13.5284 9.17578 16.2736 7.42578 19.3366 7.42578L19.8988 7.42578L19.8988 10.4258L19.5085 10.4258C18.4239 10.4258 17.6596 10.9701 17.6596 12.0586C17.6596 12.5938 18.0699 12.9224 18.6655 12.9224H19.9238V21H14.017ZM7.01736 21L7.01736 18C7.01736 16.0547 7.43231 15.1431 8.26214 15.2652C7.73543 14.9439 7.28851 14.5098 6.97268 13.993C6.65684 13.4762 6.50456 12.8797 6.52873 12.2743C6.52873 9.17578 9.27391 7.42578 12.3369 7.42578L12.8991 7.42578L12.8991 10.4258L12.5088 10.4258C11.4243 10.4258 10.6599 10.9701 10.6599 12.0586C10.6599 12.5938 11.0702 12.9224 11.6658 12.9224H12.9242V21H7.01736Z" />
-            </svg>
             {/* Text - Added relative and z-10 to ensure it sits ON TOP of the SVG */}
             <p className="relative z-10 text-3xl md:text-4xl text-slate-800 font-serif italic leading-relaxed">
-              "To deliver the security of an ironclad product, backed by the
-              responsiveness and expertise your success demands."
+              To deliver the security of an ironclad product, backed by the
+              responsiveness and expertise your success demands.
             </p>
           </div>
         </div>
