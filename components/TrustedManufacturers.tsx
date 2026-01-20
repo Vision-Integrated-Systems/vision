@@ -3,9 +3,12 @@ import Image from "next/image";
 
 export default function TrustedManufacturers() {
   const manufacturers = [
+    { name: "Panduit", src: "/logos/panduit2.png", width: 200, height: 60 },
+    { name: "Crestron", src: "/logos/crestron1.png", width: 200, height: 60 },
+    { name: "Extron", src: "/logos/extron-logo.png", width: 200, height: 60 },
+    { name: "QSC", src: "/logos/qsc-logo.png", width: 200, height: 60 },
     { name: "Biamp", src: "/logos/biamp.jpg", width: 200, height: 60 },
-    { name: "Shure", src: "/logos/shure.svg", width: 200, height: 60 },
-    { name: "Belden", src: "/logos/belden.png", width: 200, height: 60 },
+    { name: "Genetec", src: "/logos/genetec_logo.png", width: 200, height: 60 },
     { name: "Axis", src: "/logos/axis.png", width: 200, height: 60 },
   ];
 
@@ -25,10 +28,7 @@ export default function TrustedManufacturers() {
 
           <div className="flex w-max animate-scroll hover:[animation-play-state:paused] items-center">
             {allLogos.map((logo, index) => (
-              <div
-                key={index}
-                className="flex-none px-12 md:px-16 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-500"
-              >
+              <div key={index} className="flex-none px-12 md:px-16">
                 <Image
                   src={logo.src}
                   alt={logo.name}
