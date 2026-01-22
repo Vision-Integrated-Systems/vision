@@ -109,7 +109,6 @@ export default function Footer() {
                 ["About Vision", "/about"],
                 ["Our Services", "/services"],
                 ["Project Gallery", "/gallery"],
-                ["Insights Blog", "/insights"], // Added Insights
                 ["Careers", "/careers"],
                 ["Contact", "/contact-us"],
               ].map(([label, href]) => (
@@ -129,9 +128,8 @@ export default function Footer() {
           <div>
             <h4 className="text-white font-semibold text-lg mb-6">Solutions</h4>
             <nav className="flex flex-col space-y-3">
-              {/* Updated list to include Solution Finder link */}
               {[
-                { label: "Solution Finder", href: "/get-started" }, // New Tool Link
+                { label: "Solution Finder", href: "/get-started" },
                 { label: "Audio & Video", href: "/services" },
                 { label: "Structured Cabling", href: "/services" },
                 { label: "Security & Access", href: "/services" },

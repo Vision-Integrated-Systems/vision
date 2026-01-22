@@ -24,8 +24,8 @@ export default function Header() {
   const headerClasses = isScrolled
     ? "fixed top-4 left-1/2 -translate-x-1/2 w-[95%] max-w-6xl rounded-full border border-slate-200/50 bg-white/80 backdrop-blur-xl shadow-2xl shadow-slate-900/5 py-3"
     : isTransparent
-    ? "fixed top-0 w-full border-transparent bg-transparent py-6"
-    : "fixed top-0 w-full border-b border-slate-200 bg-white/90 backdrop-blur-md py-4";
+      ? "fixed top-0 w-full border-transparent bg-transparent py-6"
+      : "fixed top-0 w-full border-b border-slate-200 bg-white/90 backdrop-blur-md py-4";
 
   const textColor = isTransparent ? "text-white" : "text-slate-700";
   const hoverColor = isTransparent
@@ -38,7 +38,6 @@ export default function Header() {
     { name: "Home", path: "/" },
     { name: "About", path: "/about" },
     { name: "Services", path: "/services" },
-    { name: "Insights", path: "/insights" }, // Added Insights
     { name: "Gallery", path: "/gallery" },
     { name: "Careers", path: "/careers" },
     { name: "Contact", path: "/contact-us" },
