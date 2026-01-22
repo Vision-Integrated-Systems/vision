@@ -1,13 +1,21 @@
+import dynamic from "next/dynamic";
 import Hero from "@/components/Hero";
-import FeaturesGrid from "@/components/FeaturesGrid";
-import StatsSection from "@/components/StatsSection";
-import Testimonials from "@/components/Testimonials";
 import TrustedManufacturers from "@/components/TrustedManufacturers";
-import CtaSection from "@/components/CtaSection";
+
+const StatsSection = dynamic(() => import("@/components/StatsSection"), {
+  loading: () => <div className="h-48 bg-slate-50" />,
+});
+const FeaturesGrid = dynamic(() => import("@/components/FeaturesGrid"), {
+  loading: () => <div className="h-[600px] bg-white" />,
+});
+const Testimonials = dynamic(() => import("@/components/Testimonials"), {
+  loading: () => <div className="h-[500px] bg-slate-900" />,
+});
+const CtaSection = dynamic(() => import("@/components/CtaSection"));
 
 export default function Home() {
   return (
-     <>
+    <>
       <Hero />
       <StatsSection />
       <FeaturesGrid />
