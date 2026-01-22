@@ -17,8 +17,28 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Vision Integrated Systems",
-  description: "Leading provider of audio-video, structured cabling, and security solutions in Texas.",
+  title: {
+    template: "%s | Vision Integrated Systems",
+    default: "Vision Integrated Systems",
+  },
+  description:
+    "Leading provider of audio-video, structured cabling, and security solutions in Texas.",
+  openGraph: {
+    title: "Vision Integrated Systems",
+    description:
+      "Leading provider of audio-video, structured cabling, and security solutions in Texas.",
+    url: "https://vision-iota-ten.vercel.app/", // TODO: Replace with your actual domain
+    siteName: "Vision Integrated Systems",
+    images: [
+      {
+        url: "/hero-poster.webp",
+        width: 1200,
+        height: 630,
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
@@ -28,7 +48,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-     <body
+      <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <StructuredData />
