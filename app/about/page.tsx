@@ -69,7 +69,7 @@ export default function About() {
         <div className="container mx-auto px-4 relative z-10">
           <h1 className="text-5xl md:text-7xl font-bold mb-8 tracking-tight leading-tight">
             About <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-white">
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-400 to-white">
               Vision Integrated Systems
             </span>
           </h1>
@@ -89,10 +89,13 @@ export default function About() {
           <div className="relative rounded-2xl overflow-hidden shadow-2xl group">
             {/* Switched to standard img for compatibility with ContentSection's existing style, 
                  or could use next/image if you prefer optimization */}
-            <img
+            <Image
               src="/vision-team.jpg"
               alt="The Vision Integrated Systems team"
+              width={1200}
+              height={800}
               className="w-full h-auto object-cover transform transition-transform duration-700 hover:scale-105"
+              priority
             />
             {/* Glass Sheen Effect on Hover */}
             <div className="absolute inset-0 bg-linear-to-tr from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
@@ -193,7 +196,7 @@ export default function About() {
                   <div className="relative w-40 h-40 rounded-full overflow-hidden border-4 border-slate-700 shadow-2xl group-hover:border-blue-500 transition-colors duration-300">
                     <Image
                       src={leader.imageSrc}
-                      alt={`Portrait of ${leader.name}`}
+                      alt={`Head shot of ${leader.name}`}
                       fill
                       className="object-cover"
                     />

@@ -1,6 +1,7 @@
 "use client";
 import { ReactNode } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 interface ContentSectionProps {
   id: string;
@@ -8,10 +9,12 @@ interface ContentSectionProps {
   children: ReactNode;
   imageSrc?: string;
   imageAlt?: string;
+  imageWidth?: number;
+  imageHeight?: number;
   reverse?: boolean;
   bgColor?: "white" | "slate";
   customVisual?: ReactNode;
-  centered?: boolean; // New Optional Prop to force centering
+  centered?: boolean;
 }
 
 export default function ContentSection({
@@ -20,12 +23,13 @@ export default function ContentSection({
   children,
   imageSrc,
   imageAlt = "Vision Integrated Systems",
+  imageWidth = 800,
+  imageHeight = 600,
   reverse = false,
   bgColor = "white",
   customVisual,
   centered,
 }: ContentSectionProps) {
-  // Automatically center if "centered" is true OR if no visuals are provided
   const isCentered = centered ?? (!imageSrc && !customVisual);
 
   return (
@@ -48,7 +52,6 @@ export default function ContentSection({
           {/* Text Side */}
           <motion.div
             className={isCentered ? "max-w-4xl w-full mx-auto" : "lg:w-1/2"}
-            // Adjust animation direction based on layout
             initial={{
               opacity: 0,
               x: isCentered ? 0 : reverse ? 50 : -50,
@@ -60,7 +63,6 @@ export default function ContentSection({
           >
             <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-6 relative inline-block">
               {title}
-              {/* Animated Underline - Centered if layout is centered */}
               <motion.span
                 className={`absolute -bottom-2 h-1 bg-blue-600 rounded-full ${
                   isCentered ? "left-1/2 -translate-x-1/2" : "left-0"
@@ -76,7 +78,7 @@ export default function ContentSection({
             </div>
           </motion.div>
 
-          {/* Visual Side - Only render if NOT centered */}
+          {/* Visual Side */}
           {!isCentered && (
             <motion.div
               className="lg:w-1/2 w-full relative"
@@ -98,9 +100,11 @@ export default function ContentSection({
 
                   {/* Main Image */}
                   <div className="relative rounded-2xl overflow-hidden shadow-2xl z-10">
-                    <img
+                    <Image
                       src={imageSrc}
                       alt={imageAlt}
+                      width={imageWidth}
+                      height={imageHeight}
                       className="w-full h-auto object-cover transform transition-transform duration-700 hover:scale-105"
                     />
                     {/* Glass Sheen Effect on Hover */}

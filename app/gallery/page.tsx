@@ -4,6 +4,7 @@ import { motion, Variants } from "framer-motion";
 import Link from "next/link";
 import { projects } from "@/app/lib/projects";
 import { ArrowRightIcon } from "@heroicons/react/24/outline";
+import Image from "next/image";
 
 export default function Gallery() {
   const galleryVariants = {
@@ -74,10 +75,12 @@ export default function Gallery() {
                     </span>
                   </div>
 
-                  <img
+                  <Image
                     src={project.imageSrc}
                     alt={project.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-700"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   />
 
                   <div className="absolute top-4 left-4 z-20">

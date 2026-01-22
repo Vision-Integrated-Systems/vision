@@ -1,6 +1,7 @@
 import ContentSection from "@/components/ContentSection";
 import type { Metadata } from "next";
 import { CheckCircleIcon } from "@heroicons/react/24/outline";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Services | Vision Integrated Systems",
@@ -40,9 +41,11 @@ export default function Services() {
         reverse={true}
         customVisual={
           <div className="relative rounded-2xl overflow-hidden shadow-2xl group border border-slate-100">
-            <img
+            <Image
               src="/conference-room.jpg"
               alt="Modern conference room with video conferencing"
+              width={800}
+              height={600}
               className="w-full h-auto object-cover transform transition-transform duration-700 hover:scale-105"
             />
             <div className="absolute inset-0 bg-linear-to-tr from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
@@ -80,9 +83,11 @@ export default function Services() {
         bgColor="slate"
         customVisual={
           <div className="relative rounded-2xl overflow-hidden shadow-2xl group border border-slate-200/50">
-            <img
+            <Image
               src="/cabling.jpg"
               alt="Cleanly wired network server rack"
+              width={800}
+              height={600}
               className="w-full h-auto object-cover transform transition-transform duration-700 hover:scale-105"
             />
             <div className="absolute inset-0 bg-linear-to-tr from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
@@ -120,9 +125,11 @@ export default function Services() {
         reverse={true}
         customVisual={
           <div className="relative rounded-2xl overflow-hidden shadow-2xl group border border-slate-100">
-            <img
+            <Image
               src="/cameras.jpg"
               alt="High-definition security camera"
+              width={800}
+              height={600}
               className="w-full h-auto object-cover transform transition-transform duration-700 hover:scale-105"
             />
             <div className="absolute inset-0 bg-linear-to-tr from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />

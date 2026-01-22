@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeftIcon, CheckCircleIcon } from "@heroicons/react/24/outline";
 import ContentSection from "@/components/ContentSection";
+import Image from "next/image";
 
 // Generate static params for all known projects (good for SEO/Performance)
 export async function generateStaticParams() {
@@ -26,10 +27,13 @@ export default async function ProjectPage(props: {
       {/* Hero Header */}
       <section className="relative h-[60vh] min-h-[500px] flex items-end pb-20 overflow-hidden bg-slate-900">
         <div className="absolute inset-0 z-0">
-          <img
+          <Image
             src={project.imageSrc}
             alt={project.title}
-            className="w-full h-full object-cover opacity-40"
+            fill
+            className="object-cover opacity-40"
+            priority // Loads this immediately since it's the largest element on screen (LCP)
+            sizes="100vw"
           />
           <div className="absolute inset-0 bg-linear-to-t from-slate-900 via-slate-900/60 to-transparent" />
         </div>
