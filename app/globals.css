@@ -74,8 +74,9 @@ body {
     to { transform: translateX(-50%); }
   }
   .animate-scroll {
-    animation: scroll 40s linear infinite;
-  }
+  animation: scroll 40s linear infinite;
+  will-change: transform; /* Hint to browser to optimize rendering */
+}
 
   /* Visual Polish Utilities */
   .text-shadow {

@@ -56,6 +56,7 @@ export default function Header() {
                   src="/vision-logo-long.png"
                   alt="Vision Integrated Systems"
                   fill
+                  sizes="160px"
                   className={`object-contain transition-opacity duration-500 ${
                     isTransparent ? "opacity-0" : "opacity-100"
                   }`}
@@ -65,6 +66,7 @@ export default function Header() {
                   src="/vision-logo-long-white.png"
                   alt="Vision Integrated Systems"
                   fill
+                  sizes="160px"
                   className={`object-contain transition-opacity duration-500 ${
                     isTransparent ? "opacity-100" : "opacity-0"
                   }`}
