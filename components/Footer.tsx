@@ -21,7 +21,7 @@ export default function Footer() {
           <div>
             <Link href="/" className="inline-block mb-4">
               <Image
-                src="/vision-logo-white.png"
+                src="/vision-logo-long-white.png"
                 alt="Vision Integrated Systems"
                 width={200}
                 height={60}

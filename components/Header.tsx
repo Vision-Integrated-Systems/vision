@@ -53,7 +53,7 @@ export default function Header() {
             <Link href="/" className="shrink-0 relative z-50">
               <div className="relative h-8 w-40">
                 <Image
-                  src="/vision-logo.png"
+                  src="/vision-logo-long.png"
                   alt="Vision Integrated Systems"
                   fill
                   className={`object-contain transition-opacity duration-500 ${
@@ -62,7 +62,7 @@ export default function Header() {
                   priority
                 />
                 <Image
-                  src="/vision-logo-white.png"
+                  src="/vision-logo-long-white.png"
                   alt="Vision Integrated Systems"
                   fill
                   className={`object-contain transition-opacity duration-500 ${
