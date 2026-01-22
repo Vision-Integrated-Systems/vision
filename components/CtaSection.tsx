@@ -9,7 +9,7 @@ export default function CtaSection() {
     <section className="py-32 relative overflow-hidden">
       {/* Dynamic Background */}
       <div className="absolute inset-0 bg-blue-600 z-0">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-600 to-indigo-700" />
+        <div className="absolute inset-0 bg-linear-to-br from-blue-600 to-indigo-700" />
         {/* Grain Texture Overlay */}
         <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-soft-light" />
       </div>

@@ -95,7 +95,7 @@ export default function About() {
               className="w-full h-auto object-cover transform transition-transform duration-700 hover:scale-105"
             />
             {/* Glass Sheen Effect on Hover */}
-            <div className="absolute inset-0 bg-gradient-to-tr from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+            <div className="absolute inset-0 bg-linear-to-tr from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
           </div>
         }
       >
@@ -143,7 +143,7 @@ export default function About() {
             <h2 className="text-4xl font-bold text-slate-900 mt-2 mb-6">
               Our Core Values
             </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full"></div>
+            <div className="w-24 h-1 bg-linear-to-r from-blue-600 to-purple-600 mx-auto rounded-full"></div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {values.map((value) => (
@@ -170,7 +170,7 @@ export default function About() {
       <section className="py-24 bg-slate-900 text-white relative overflow-hidden">
         {/* Background Decoration */}
         <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 mix-blend-soft-light"></div>
-        <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-blue-900/20 to-transparent pointer-events-none"></div>
+        <div className="absolute top-0 right-0 w-1/2 h-full bg-linear-to-l from-blue-900/20 to-transparent pointer-events-none"></div>
 
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-20">

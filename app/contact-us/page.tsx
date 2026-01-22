@@ -51,12 +51,13 @@ function ContactForm() {
         <div className="container mx-auto px-4 relative z-10">
           <h1 className="text-5xl md:text-7xl font-bold mb-8 tracking-tight">
             Get in{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-white">
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-400 to-white">
               Touch
             </span>
           </h1>
           <p className="text-xl md:text-2xl text-slate-300 max-w-2xl mx-auto leading-relaxed font-light">
-            Ready to start your project? Let's build something great together.
+            Ready to start your project? Let&apos;s build something great
+            together.
           </p>
         </div>
       </section>
@@ -143,7 +144,7 @@ function ContactForm() {
               {/* Smart Route: Careers */}
               <Link
                 href="/careers"
-                className="block bg-white p-6 rounded-2xl shadow-md border border-slate-100 hover:border-blue-200 transition-colors group flex items-center justify-between"
+                className="block bg-white p-6 rounded-2xl shadow-md border border-slate-100 hover:border-blue-200 transition-colors group items-center justify-between"
               >
                 <div className="flex items-center">
                   <UserGroupIcon className="w-5 h-5 text-slate-400 mr-3 group-hover:text-blue-600 transition-colors" />

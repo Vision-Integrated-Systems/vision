@@ -22,7 +22,7 @@ export default function StatsSection() {
               transition={{ delay: index * 0.1 }}
               className="p-4"
             >
-              <div className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-blue-400 to-white mb-2">
+              <div className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-linear-to-br from-blue-400 to-white mb-2">
                 {stat.value}
               </div>
               <div className="text-slate-400 text-sm md:text-base font-medium uppercase tracking-wider">

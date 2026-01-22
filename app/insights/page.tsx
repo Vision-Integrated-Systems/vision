@@ -18,7 +18,7 @@ export default function Insights() {
         <div className="container mx-auto px-4 relative z-10">
           <h1 className="text-5xl md:text-7xl font-bold mb-8 tracking-tight">
             Vision{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-white">
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-400 to-white">
               Insights
             </span>
           </h1>

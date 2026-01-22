@@ -33,7 +33,7 @@ export default function ServiceTicket() {
           </div>
           <h1 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight">
             Service{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-white">
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-400 to-white">
               Center
             </span>
           </h1>
@@ -280,7 +280,7 @@ export default function ServiceTicket() {
                 The Vision Guarantee
               </h3>
               <p className="text-slate-300 text-sm mb-6 leading-relaxed relative z-10">
-                We stand behind every installation. If your system isn't
+                We stand behind every installation. If your system isn&apos;t
                 performing to spec, we will make it right.
               </p>
               <div className="text-xs text-slate-500 relative z-10">

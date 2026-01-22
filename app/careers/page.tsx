@@ -9,7 +9,6 @@ import {
   WrenchScrewdriverIcon,
   TruckIcon,
   AcademicCapIcon,
-  ChevronDownIcon,
 } from "@heroicons/react/24/outline";
 
 export const metadata: Metadata = {
@@ -110,8 +109,8 @@ export default function Careers() {
             <span className="text-blue-500">With Us</span>
           </h1>
           <p className="text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed">
-            We're looking for talented individuals who value quality, integrity,
-            and innovation.
+            We&apos;re looking for talented individuals who value quality,
+            integrity, and innovation.
           </p>
         </div>
       </section>
@@ -122,10 +121,10 @@ export default function Careers() {
         bgColor="white"
       >
         <p className="mb-6 text-lg">
-          At Vision Integrated Systems, we're more than just a company—we're a
-          team. We value quality, service, and reliability above all else. We've
-          built our reputation on 30+ years of excellence and are looking for
-          individuals who share our commitment.
+          At Vision Integrated Systems, we&apos;re more than just a
+          company—we&apos;re a team. We value quality, service, and reliability
+          above all else. We&apos;ve built our reputation on 30+ years of
+          excellence and are looking for individuals who share our commitment.
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {[
@@ -173,7 +172,7 @@ export default function Careers() {
                   </svg>
                 </div>
                 <p className="text-lg text-slate-700 italic mb-6 relative z-10">
-                  "{t.quote}"
+                  &quot;{t.quote}&quot;
                 </p>
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-lg">
@@ -332,7 +331,7 @@ export default function Careers() {
                     <div className="flex items-center">
                       <Link
                         href={`/careers/apply?job=${encodeURIComponent(
-                          job.title
+                          job.title,
                         )}`}
                         className="w-full md:w-auto text-center px-8 py-3 bg-slate-900 text-white font-semibold rounded-xl hover:bg-blue-600 transition-colors duration-300 shadow-lg shadow-slate-900/10"
                       >

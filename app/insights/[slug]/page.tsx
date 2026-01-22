@@ -35,7 +35,7 @@ export default async function BlogPost(props: {
             fill
             className="object-cover blur-3xl scale-110"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-slate-900/80 via-slate-900/80 to-slate-900"></div>
+          <div className="absolute inset-0 bg-linear-to-b from-slate-900/80 via-slate-900/80 to-slate-900"></div>
         </div>
 
         <div className="container mx-auto px-4 relative z-10 max-w-4xl text-center">
@@ -143,7 +143,7 @@ export default async function BlogPost(props: {
 
       {/* Related / CTA */}
       <div className="max-w-3xl mx-auto mt-20 px-4 text-center">
-        <div className="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-3xl p-12 text-white shadow-2xl relative overflow-hidden">
+        <div className="bg-linear-to-br from-blue-600 to-indigo-700 rounded-3xl p-12 text-white shadow-2xl relative overflow-hidden">
           {/* Abstract BG Shapes */}
           <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -mr-16 -mt-16"></div>
           <div className="absolute bottom-0 left-0 w-64 h-64 bg-black/10 rounded-full blur-3xl -ml-16 -mb-16"></div>

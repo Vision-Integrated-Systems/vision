@@ -22,7 +22,7 @@ export default function Services() {
         <div className="container mx-auto px-4 relative z-10">
           <h1 className="text-5xl md:text-7xl font-bold mb-8 tracking-tight">
             Our{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-white">
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-400 to-white">
               Services
             </span>
           </h1>
@@ -45,7 +45,7 @@ export default function Services() {
               alt="Modern conference room with video conferencing"
               className="w-full h-auto object-cover transform transition-transform duration-700 hover:scale-105"
             />
-            <div className="absolute inset-0 bg-gradient-to-tr from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+            <div className="absolute inset-0 bg-linear-to-tr from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
           </div>
         }
       >
@@ -85,7 +85,7 @@ export default function Services() {
               alt="Cleanly wired network server rack"
               className="w-full h-auto object-cover transform transition-transform duration-700 hover:scale-105"
             />
-            <div className="absolute inset-0 bg-gradient-to-tr from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+            <div className="absolute inset-0 bg-linear-to-tr from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
           </div>
         }
       >
@@ -94,8 +94,8 @@ export default function Services() {
         </h3>
         <p className="mb-6 text-lg text-slate-600 leading-relaxed">
           Reliable connectivity starts with professional cabling. We design,
-          procure, and install structured cabling systems that meet today's
-          demands and tomorrow's growth.
+          procure, and install structured cabling systems that meet today&apos;s
+          demands and tomorrow&apos;s growth.
         </p>
         <ul className="space-y-4">
           {[
@@ -125,7 +125,7 @@ export default function Services() {
               alt="High-definition security camera"
               className="w-full h-auto object-cover transform transition-transform duration-700 hover:scale-105"
             />
-            <div className="absolute inset-0 bg-gradient-to-tr from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+            <div className="absolute inset-0 bg-linear-to-tr from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
           </div>
         }
       >

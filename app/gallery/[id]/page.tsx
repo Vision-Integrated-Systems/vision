@@ -31,7 +31,7 @@ export default async function ProjectPage(props: {
             alt={project.title}
             className="w-full h-full object-cover opacity-40"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-transparent" />
+          <div className="absolute inset-0 bg-linear-to-t from-slate-900 via-slate-900/60 to-transparent" />
         </div>
 
         <div className="container mx-auto px-4 relative z-10">

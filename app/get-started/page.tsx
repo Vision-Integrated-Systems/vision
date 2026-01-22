@@ -20,13 +20,13 @@ export default function GetStarted() {
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
             Find Your{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-white">
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-400 to-white">
               Perfect Solution
             </span>
           </h1>
           <p className="text-xl text-slate-400 max-w-xl mx-auto">
-            Not sure where to start? Tell us a bit about your project, and we'll
-            point you in the right direction.
+            Not sure where to start? Tell us a bit about your project, and
+            we&apos;ll point you in the right direction.
           </p>
         </div>
 
