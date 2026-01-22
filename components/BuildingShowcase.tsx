@@ -26,7 +26,6 @@ function Annotation({ point }: { point: (typeof pointsOfInterest)[0] }) {
   return (
     <Html position={point.position} center distanceFactor={10}>
       <div className="relative flex flex-col items-center group">
-        {/* UPDATED: Made the marker smaller (w-6 h-6) and icon smaller */}
         <button
           onClick={() => setIsOpen(!isOpen)}
           className={`w-6 h-6 rounded-full flex items-center justify-center shadow-md transition-all duration-300 ${

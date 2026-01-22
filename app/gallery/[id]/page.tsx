@@ -32,7 +32,7 @@ export default async function ProjectPage(props: {
             alt={project.title}
             fill
             className="object-cover opacity-40"
-            priority // Loads this immediately since it's the largest element on screen (LCP)
+            priority
             sizes="100vw"
           />
           <div className="absolute inset-0 bg-linear-to-t from-slate-900 via-slate-900/60 to-transparent" />
@@ -100,7 +100,6 @@ export default async function ProjectPage(props: {
         </p>
       </ContentSection>
 
-      {/* The Solution - Darker background for contrast */}
       <section className="py-24 bg-slate-50 border-y border-slate-200">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">

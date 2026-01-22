@@ -246,7 +246,6 @@ export default function ServiceTicket() {
 
           {/* RIGHT: Info Sidebar */}
           <div className="lg:w-1/3 space-y-6">
-            {/* SLA Card */}
             <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
               <h3 className="font-bold text-slate-900 mb-4 flex items-center">
                 <ClockIcon className="w-5 h-5 mr-2 text-blue-600" />
@@ -272,7 +271,6 @@ export default function ServiceTicket() {
 
             {/* Support Process */}
             <div className="bg-slate-900 text-white p-6 rounded-2xl shadow-lg relative overflow-hidden">
-              {/* Decorative bg */}
               <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500 rounded-full blur-3xl opacity-20 -mr-10 -mt-10"></div>
 
               <h3 className="font-bold mb-4 flex items-center relative z-10">

@@ -27,7 +27,7 @@ export default function SolutionFinder() {
           label: "Warehouse / Industrial",
           icon: WrenchScrewdriverIcon,
         },
-        { id: "campus", label: "Education / Campus", icon: VideoCameraIcon }, // Reusing icon for visual variety
+        { id: "campus", label: "Education / Campus", icon: VideoCameraIcon },
       ],
     },
     {
@@ -55,7 +55,7 @@ export default function SolutionFinder() {
     if (step < questions.length - 1) {
       setStep(step + 1);
     } else {
-      setStep(step + 1); // Move to results
+      setStep(step + 1);
     }
   };
 

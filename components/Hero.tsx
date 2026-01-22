@@ -37,7 +37,6 @@ export default function Hero() {
           className="w-full h-full object-cover opacity-50"
           src="https://58rt0phzp49wzguc.public.blob.vercel-storage.com/digital-space.mp4"
         />
-        {/* Gradient Overlay for better text readability */}
         <div className="absolute inset-0 bg-linear-to-t from-slate-950 via-slate-950/40 to-transparent" />
       </div>
 

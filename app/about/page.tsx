@@ -84,11 +84,8 @@ export default function About() {
         id="our-story"
         title="Our Story"
         bgColor="white"
-        // Using customVisual to render image WITHOUT the blue offset border
         customVisual={
           <div className="relative rounded-2xl overflow-hidden shadow-2xl group">
-            {/* Switched to standard img for compatibility with ContentSection's existing style, 
-                 or could use next/image if you prefer optimization */}
             <Image
               src="/vision-team.jpg"
               alt="The Vision Integrated Systems team"
