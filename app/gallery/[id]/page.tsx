@@ -1,11 +1,11 @@
 import { projects } from "@/app/lib/projects";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { ArrowLeftIcon, CheckCircleIcon } from "@heroicons/react/24/outline";
-import ContentSection from "@/components/ContentSection";
+import { ArrowLeftIcon, CpuChipIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
+import CtaSection from "@/components/CtaSection";
 
-// Generate static params for all known projects (good for SEO/Performance)
+// Generate static params for all known projects
 export async function generateStaticParams() {
   return projects.map((project) => ({
     id: project.id,
@@ -23,102 +23,71 @@ export default async function ProjectPage(props: {
   }
 
   return (
-    <div className="bg-white">
-      {/* Hero Header */}
-      <section className="relative h-[60vh] min-h-[500px] flex items-end pb-20 overflow-hidden bg-slate-900">
+    <div className="bg-slate-50">
+      {/* Immersive Hero Header */}
+      <section className="relative h-[70vh] min-h-[600px] flex items-end pb-16 overflow-hidden bg-slate-950">
+        {/* Background Image with Zoom Effect */}
         <div className="absolute inset-0 z-0">
           <Image
             src={project.imageSrc}
             alt={project.title}
             fill
-            className="object-cover opacity-40"
+            className="object-cover opacity-60"
             priority
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-linear-to-t from-slate-900 via-slate-900/60 to-transparent" />
+          {/* Complex Gradient Overlay for Readability */}
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/80 to-slate-900/30" />
+          {/* Texture Overlay */}
+          <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-soft-light" />
         </div>
 
         <div className="container mx-auto px-4 relative z-10">
           <Link
             href="/gallery"
-            className="inline-flex items-center text-slate-300 hover:text-white mb-8 transition-colors"
+            className="inline-flex items-center text-blue-300 hover:text-white mb-8 transition-colors text-sm font-medium tracking-wide uppercase"
           >
             <ArrowLeftIcon className="w-4 h-4 mr-2" />
             Back to Gallery
           </Link>
 
-          <div className="max-w-4xl">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-blue-600/20 border border-blue-500/30 text-blue-400 text-sm font-bold uppercase tracking-wider mb-6">
-              {project.category}
-            </span>
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
-              {project.title}
-            </h1>
+          <div className="grid lg:grid-cols-2 gap-12 items-end">
+            <div>
+              <span className="inline-block px-4 py-1.5 rounded-full bg-blue-500/20 border border-blue-400/30 text-blue-300 text-xs font-bold uppercase tracking-wider mb-6 backdrop-blur-md">
+                {project.category}
+              </span>
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight tracking-tight">
+                {project.title}
+              </h1>
+            </div>
 
-            {/* Project Meta Grid */}
-            <div className="flex flex-wrap gap-8 md:gap-16 border-t border-white/10 pt-8 mt-8">
-              <div>
-                <span className="block text-slate-400 text-sm uppercase tracking-wider mb-1">
-                  Client
-                </span>
-                <span className="text-white font-medium text-lg">
-                  {project.client}
-                </span>
-              </div>
-              <div>
-                <span className="block text-slate-400 text-sm uppercase tracking-wider mb-1">
-                  Duration
-                </span>
-                <span className="text-white font-medium text-lg">
-                  {project.duration}
-                </span>
-              </div>
-              {project.stats.map((stat) => (
-                <div key={stat.label}>
-                  <span className="block text-slate-400 text-sm uppercase tracking-wider mb-1">
-                    {stat.label}
+            {/* Glass Stats Panel */}
+            <div className="lg:mb-2">
+              <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6 grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div>
+                  <span className="block text-slate-400 text-xs uppercase tracking-wider mb-2">
+                    Client
                   </span>
-                  <span className="text-white font-medium text-lg">
-                    {stat.value}
+                  <span className="block text-white font-semibold text-lg leading-tight">
+                    {project.client}
                   </span>
                 </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* The Challenge */}
-      <ContentSection
-        id="challenge"
-        title="The Challenge"
-        bgColor="white"
-        centered={false}
-      >
-        <p className="text-lg text-slate-600 leading-relaxed mb-6">
-          {project.challenge}
-        </p>
-      </ContentSection>
-
-      <section className="py-24 bg-slate-50 border-y border-slate-200">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8">
-              The Solution
-            </h2>
-            <p className="text-lg text-slate-700 leading-relaxed mb-12">
-              {project.solution}
-            </p>
-
-            <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
-              <h3 className="text-xl font-bold text-slate-900 mb-6 border-b border-slate-100 pb-4">
-                Key Technology Deployed
-              </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {project.gearList.map((item, i) => (
-                  <div key={i} className="flex items-center text-slate-600">
-                    <CheckCircleIcon className="w-5 h-5 text-blue-600 mr-3 shrink-0" />
-                    {item}
+                <div>
+                  <span className="block text-slate-400 text-xs uppercase tracking-wider mb-2">
+                    Timeline
+                  </span>
+                  <span className="block text-white font-semibold text-lg leading-tight">
+                    {project.duration}
+                  </span>
+                </div>
+                {project.stats.map((stat) => (
+                  <div key={stat.label}>
+                    <span className="block text-slate-400 text-xs uppercase tracking-wider mb-2">
+                      {stat.label}
+                    </span>
+                    <span className="block text-white font-semibold text-lg leading-tight">
+                      {stat.value}
+                    </span>
                   </div>
                 ))}
               </div>
@@ -127,20 +96,64 @@ export default async function ProjectPage(props: {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-24 bg-white text-center">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-slate-900 mb-6">
-            Ready to upgrade your space?
-          </h2>
-          <Link
-            href="/contact-us"
-            className="inline-block px-8 py-4 bg-slate-900 text-white font-bold rounded-full shadow-lg hover:bg-blue-600 hover:scale-105 transition-all duration-300"
-          >
-            Start Your Project
-          </Link>
+      {/* The Challenge - Dark Mode Context */}
+      <section className="py-24 bg-slate-900 text-white relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-1/3 h-full bg-blue-900/10 blur-3xl pointer-events-none" />
+
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-4xl mx-auto">
+            <span className="text-blue-500 font-bold tracking-widest uppercase text-sm mb-4 block">
+              The Challenge
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold mb-8 leading-snug">
+              Identifying the Obstacles
+            </h2>
+            <div className="prose prose-lg prose-invert text-slate-300 leading-relaxed">
+              <p>{project.challenge}</p>
+            </div>
+          </div>
         </div>
       </section>
+
+      {/* The Solution - Light Mode Context */}
+      <section className="py-24 bg-white relative">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <span className="text-blue-600 font-bold tracking-widest uppercase text-sm mb-4 block">
+              The Solution
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-8 leading-snug">
+              Delivering Excellence
+            </h2>
+            <div className="prose prose-lg text-slate-600 leading-relaxed mb-16">
+              <p>{project.solution}</p>
+            </div>
+
+            {/* Tech Stack Grid */}
+            <div className="bg-slate-50 rounded-3xl p-8 md:p-12 border border-slate-200">
+              <h3 className="text-2xl font-bold text-slate-900 mb-8 flex items-center gap-3">
+                <CpuChipIcon className="w-8 h-8 text-blue-600" />
+                Technology Deployed
+              </h3>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                {project.gearList.map((item, i) => (
+                  <div
+                    key={i}
+                    className="flex items-center p-4 bg-white rounded-xl border border-slate-200 shadow-sm hover:shadow-md hover:border-blue-200 transition-all duration-300"
+                  >
+                    <div className="w-2 h-2 rounded-full bg-blue-500 mr-3 shrink-0" />
+                    <span className="text-slate-700 font-medium">{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Global CTA Section */}
+      <CtaSection />
     </div>
   );
 }
