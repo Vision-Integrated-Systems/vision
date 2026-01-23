@@ -1,4 +1,5 @@
 import ContentSection from "@/components/ContentSection";
+import CtaSection from "@/components/CtaSection";
 import type { Metadata } from "next";
 import Link from "next/link";
 import {
@@ -9,6 +10,8 @@ import {
   WrenchScrewdriverIcon,
   TruckIcon,
   AcademicCapIcon,
+  ArrowRightIcon,
+  SparklesIcon,
 } from "@heroicons/react/24/outline";
 
 export const metadata: Metadata = {
@@ -96,92 +99,141 @@ export default function Careers() {
 
   return (
     <>
-      <section className="bg-slate-900 py-24 text-center text-white relative overflow-hidden">
-        {/* Abstract BG element */}
-        <div className="absolute top-0 left-0 w-full h-full overflow-hidden opacity-10 pointer-events-none">
-          <div className="absolute -top-24 -right-24 w-96 h-96 bg-blue-500 rounded-full blur-3xl"></div>
-          <div className="absolute top-1/2 -left-24 w-72 h-72 bg-purple-500 rounded-full blur-3xl"></div>
+      {/* Hero Section */}
+      <section className="relative bg-slate-950 py-32 lg:py-48 text-center text-white overflow-hidden">
+        {/* Background Elements */}
+        <div className="absolute inset-0 bg-dot-pattern opacity-10 pointer-events-none"></div>
+
+        {/* Gradient Orbs */}
+        <div className="absolute top-0 left-0 w-full h-full overflow-hidden opacity-30 pointer-events-none">
+          <div className="absolute -top-32 -right-32 w-[600px] h-[600px] bg-blue-600 rounded-full blur-[120px] mix-blend-screen"></div>
+          <div className="absolute bottom-0 -left-32 w-[500px] h-[500px] bg-indigo-600 rounded-full blur-[120px] mix-blend-screen"></div>
         </div>
 
-        <div className="container mx-auto px-4 pt-10 relative z-10">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight">
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="inline-block mb-6 px-4 py-1.5 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-300 text-sm font-medium tracking-wide backdrop-blur-md">
+            Join Our Team
+          </div>
+          <h1 className="text-5xl md:text-7xl font-bold mb-8 tracking-tight leading-tight">
             Build the Future <br />
-            <span className="text-blue-500">With Us</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-white">
+              With Us
+            </span>
           </h1>
-          <p className="text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-xl md:text-2xl text-slate-300 max-w-2xl mx-auto leading-relaxed font-light mb-12">
             We&apos;re looking for talented individuals who value quality,
             integrity, and innovation.
           </p>
+
+          <div className="flex flex-wrap justify-center gap-4">
+            <Link
+              href="#openings"
+              className="px-8 py-4 bg-blue-600 text-white font-semibold rounded-full hover:bg-blue-500 hover:scale-105 transition-all duration-300 shadow-lg shadow-blue-900/20"
+            >
+              View Open Positions
+            </Link>
+          </div>
         </div>
       </section>
 
+      {/* Why Vision */}
       <ContentSection
         id="why-vision"
         title="Why Work at Vision?"
         bgColor="white"
+        customVisual={
+          <div className="bg-gradient-to-br from-slate-900 to-blue-900 rounded-2xl p-8 text-white relative overflow-hidden shadow-2xl h-full flex flex-col justify-center">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500 rounded-full filter blur-[80px] opacity-20" />
+            <div className="relative z-10">
+              <SparklesIcon className="w-12 h-12 text-yellow-400 mb-6" />
+              <h3 className="text-3xl font-bold mb-4">More Than Just a Job</h3>
+              <p className="text-blue-100 text-lg leading-relaxed mb-8">
+                &quot;We don&apos;t just build systems; we build careers. Join a
+                company that invests in your future as much as you invest in our
+                success.&quot;
+              </p>
+              <div className="flex items-center gap-2 text-sm font-bold tracking-widest uppercase text-blue-300">
+                — The Vision Leadership Team
+              </div>
+            </div>
+          </div>
+        }
       >
-        <p className="mb-6 text-lg">
-          At Vision Integrated Systems, we&apos;re more than just a
-          company—we&apos;re a team. We value quality, service, and reliability
-          above all else. We&apos;ve built our reputation on 30+ years of
-          excellence and are looking for individuals who share our commitment.
-        </p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div className="prose prose-lg text-slate-600 mb-8">
+          <p>
+            At Vision Integrated Systems, we&apos;re more than just a
+            company—we&apos;re a team. We value quality, service, and
+            reliability above all else. We&apos;ve built our reputation on 30+
+            years of excellence and are looking for individuals who share our
+            commitment.
+          </p>
+        </div>
+        <div className="grid grid-cols-1 gap-4">
           {[
             "Competitive salary and benefits",
-            "Professional growth & certification",
-            "Collaborative team environment",
-            "Industry-leading technology partners",
+            "Professional growth & certification sponsorship",
+            "Collaborative, family-oriented environment",
+            "Access to industry-leading technology",
+            "Stable, long-term career path",
           ].map((item, i) => (
             <div
               key={i}
-              className="flex items-center text-slate-700 bg-slate-50 p-3 rounded-lg border border-slate-100"
+              className="flex items-center text-slate-700 bg-slate-50 p-4 rounded-xl border border-slate-100 hover:border-blue-200 transition-colors"
             >
-              <div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
-              {item}
+              <div className="w-2 h-2 bg-blue-500 rounded-full mr-4 shrink-0"></div>
+              <span className="font-medium">{item}</span>
             </div>
           ))}
         </div>
       </ContentSection>
 
-      {/* Employee Spotlights - NEW */}
-      <section className="py-24 bg-slate-50">
-        <div className="container mx-auto px-4">
+      {/* Employee Spotlights */}
+      <section className="py-24 bg-slate-50 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-5 pointer-events-none"></div>
+        <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-slate-900 mb-4">
+            <span className="text-blue-600 font-bold uppercase tracking-wider text-sm mb-2 block">
+              Real Stories
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
               Hear from the Team
             </h2>
-            <p className="text-slate-600">
-              Real stories from the people who make it happen.
+            <p className="text-slate-600 max-w-2xl mx-auto text-lg">
+              Don&apos;t just take our word for it. Here&apos;s what our people
+              have to say.
             </p>
           </div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {testimonials.map((t, idx) => (
               <div
                 key={idx}
-                className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 relative"
+                className="bg-white p-10 rounded-2xl shadow-lg border border-slate-100 relative group hover:-translate-y-1 transition-transform duration-300"
               >
                 {/* Quote Icon */}
-                <div className="absolute top-6 right-8 text-slate-100">
+                <div className="absolute top-6 right-8 text-slate-100 group-hover:text-blue-50 transition-colors duration-300">
                   <svg
-                    className="w-16 h-16"
+                    className="w-20 h-20"
                     fill="currentColor"
                     viewBox="0 0 24 24"
                   >
                     <path d="M14.017 21L14.017 18C14.017 16.0547 14.432 15.1431 15.2618 15.2652C14.7351 14.9439 14.2882 14.5098 13.9723 13.993C13.6565 13.4762 13.5042 12.8797 13.5284 12.2743C13.5284 9.17578 16.2736 7.42578 19.3366 7.42578L19.8988 7.42578L19.8988 10.4258L19.5085 10.4258C18.4239 10.4258 17.6596 10.9701 17.6596 12.0586C17.6596 12.5938 18.0699 12.9224 18.6655 12.9224H19.9238V21H14.017ZM7.01736 21L7.01736 18C7.01736 16.0547 7.43231 15.1431 8.26214 15.2652C7.73543 14.9439 7.28851 14.5098 6.97268 13.993C6.65684 13.4762 6.50456 12.8797 6.52873 12.2743C6.52873 9.17578 9.27391 7.42578 12.3369 7.42578L12.8991 7.42578L12.8991 10.4258L12.5088 10.4258C11.4243 10.4258 10.6599 10.9701 10.6599 12.0586C10.6599 12.5938 11.0702 12.9224 11.6658 12.9224H12.9242V21H7.01736Z" />
                   </svg>
                 </div>
-                <p className="text-lg text-slate-700 italic mb-6 relative z-10">
+                <p className="text-xl text-slate-700 italic mb-8 relative z-10 leading-relaxed">
                   &quot;{t.quote}&quot;
                 </p>
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-lg">
+                <div className="flex items-center gap-4 relative z-10">
+                  <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-md">
                     {t.author.charAt(0)}
                   </div>
                   <div>
-                    <h4 className="font-bold text-slate-900">{t.author}</h4>
-                    <p className="text-sm text-slate-500">
-                      {t.role} &bull; {t.years}
+                    <h4 className="font-bold text-slate-900 text-lg">
+                      {t.author}
+                    </h4>
+                    <p className="text-sm text-blue-600 font-medium">
+                      {t.role} <span className="text-slate-300 mx-1">•</span>{" "}
+                      {t.years}
                     </p>
                   </div>
                 </div>
@@ -202,21 +254,22 @@ export default function Careers() {
               Simple, transparent, and respectful of your time.
             </p>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto relative">
+            {/* Connector Line (Desktop) */}
+            <div className="hidden md:block absolute w-3/4 h-0.5 bg-slate-100 top-8 left-[12.5%] -z-10"></div>
+
             {processSteps.map((step, idx) => (
               <div
                 key={idx}
                 className="flex flex-col items-center text-center group"
               >
-                <div className="w-16 h-16 bg-slate-50 rounded-full flex items-center justify-center shadow-sm mb-4 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300 border border-slate-100 text-slate-600">
+                <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center shadow-lg mb-6 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300 border border-slate-100 text-slate-600 relative z-10">
                   <step.icon className="w-8 h-8" />
                 </div>
-                <h3 className="font-bold text-slate-900 mb-1">{step.title}</h3>
-                <p className="text-sm text-slate-500">{step.desc}</p>
-                {/* Connector Line (except last item) */}
-                {idx !== processSteps.length - 1 && (
-                  <div className="hidden md:block absolute w-full h-0.5 bg-slate-100 top-8 left-1/2 -z-10 transform translate-x-1/2"></div>
-                )}
+                <h3 className="text-lg font-bold text-slate-900 mb-2">
+                  {step.title}
+                </h3>
+                <p className="text-sm text-slate-500 px-4">{step.desc}</p>
               </div>
             ))}
           </div>
@@ -235,13 +288,13 @@ export default function Careers() {
             {faqs.map((faq, idx) => (
               <div
                 key={idx}
-                className="bg-white p-6 rounded-xl shadow-sm border border-slate-100 flex gap-4"
+                className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 flex gap-6 hover:shadow-md transition-shadow duration-300"
               >
-                <div className="shrink-0 mt-1">
-                  <faq.icon className="w-6 h-6 text-blue-600" />
+                <div className="shrink-0 mt-1 p-2 bg-blue-50 text-blue-600 rounded-lg h-fit">
+                  <faq.icon className="w-6 h-6" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-slate-900 mb-2">
+                  <h3 className="text-xl font-bold text-slate-900 mb-3">
                     {faq.question}
                   </h3>
                   <p className="text-slate-600 leading-relaxed">{faq.answer}</p>
@@ -252,13 +305,17 @@ export default function Careers() {
         </div>
       </section>
 
+      {/* Current Openings */}
       <section id="openings" className="py-24 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center max-w-2xl mx-auto mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-6 relative inline-block">
+            <span className="text-blue-600 font-bold uppercase tracking-wider text-sm mb-2 block">
+              Join Us
+            </span>
+            <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-6">
               Current Openings
-              <span className="block h-1 w-full bg-blue-600 mt-2 rounded-full opacity-20"></span>
             </h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full"></div>
           </div>
 
           {jobPostings.length > 0 ? (
@@ -266,15 +323,17 @@ export default function Careers() {
               {jobPostings.map((job) => (
                 <div
                   key={job.title}
-                  className="bg-white p-8 rounded-2xl shadow-lg border border-slate-100 hover:border-blue-200 hover:shadow-2xl transition-all duration-300 group"
+                  className="bg-white p-8 rounded-2xl shadow-lg border border-slate-100 hover:border-blue-200 hover:shadow-xl transition-all duration-300 group relative overflow-hidden"
                 >
-                  <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6">
+                  <div className="absolute top-0 right-0 w-2 h-full bg-blue-600 transform translate-x-full group-hover:translate-x-0 transition-transform duration-300"></div>
+
+                  <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6 relative z-10">
                     <div className="flex-1">
-                      <div className="flex flex-wrap gap-2 mb-3">
+                      <div className="flex flex-wrap gap-2 mb-4">
                         {job.tags.map((tag) => (
                           <span
                             key={tag}
-                            className="px-2 py-1 bg-blue-50 text-blue-700 text-xs font-semibold rounded-md"
+                            className="px-3 py-1 bg-slate-100 text-slate-600 text-xs font-bold uppercase tracking-wide rounded-full"
                           >
                             {tag}
                           </span>
@@ -283,8 +342,8 @@ export default function Careers() {
                       <h3 className="text-2xl font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition-colors">
                         {job.title}
                       </h3>
-                      <div className="flex gap-4 text-sm text-slate-500 mb-4 font-medium">
-                        <span className="flex items-center gap-1">
+                      <div className="flex gap-6 text-sm text-slate-500 mb-6 font-medium">
+                        <span className="flex items-center gap-1.5">
                           <svg
                             className="w-4 h-4"
                             fill="none"
@@ -306,7 +365,7 @@ export default function Careers() {
                           </svg>
                           {job.location}
                         </span>
-                        <span className="flex items-center gap-1">
+                        <span className="flex items-center gap-1.5">
                           <svg
                             className="w-4 h-4"
                             fill="none"
@@ -323,7 +382,7 @@ export default function Careers() {
                           {job.type}
                         </span>
                       </div>
-                      <p className="text-slate-600 leading-relaxed mb-6 md:mb-0">
+                      <p className="text-slate-600 leading-relaxed mb-6 md:mb-0 max-w-2xl">
                         {job.description}
                       </p>
                     </div>
@@ -333,9 +392,9 @@ export default function Careers() {
                         href={`/careers/apply?job=${encodeURIComponent(
                           job.title,
                         )}`}
-                        className="w-full md:w-auto text-center px-8 py-3 bg-slate-900 text-white font-semibold rounded-xl hover:bg-blue-600 transition-colors duration-300 shadow-lg shadow-slate-900/10"
+                        className="w-full md:w-auto inline-flex items-center justify-center gap-2 px-8 py-3 bg-slate-900 text-white font-bold rounded-full hover:bg-blue-600 transition-colors duration-300 shadow-lg shadow-slate-900/10 group-hover:shadow-blue-600/20"
                       >
-                        Apply Now
+                        Apply Now <ArrowRightIcon className="w-4 h-4" />
                       </Link>
                     </div>
                   </div>
@@ -352,14 +411,18 @@ export default function Careers() {
               </p>
               <Link
                 href="/careers/apply?job=General+Inquiry"
-                className="text-blue-600 font-semibold hover:underline"
+                className="text-blue-600 font-semibold hover:underline flex items-center justify-center gap-2"
               >
-                Submit General Application &rarr;
+                Submit General Application{" "}
+                <ArrowRightIcon className="w-4 h-4" />
               </Link>
             </div>
           )}
         </div>
       </section>
+
+      {/* Final CTA */}
+      <CtaSection />
     </>
   );
 }
