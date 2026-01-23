@@ -53,7 +53,7 @@ export default function Header() {
             <Link href="/" className="shrink-0 relative z-50">
               <div className="relative h-8 w-40">
                 <Image
-                  src="/vision-logo.png"
+                  src="/logos/vision-logo.png"
                   alt="Vision Integrated Systems"
                   fill
                   sizes="160px"
@@ -63,7 +63,7 @@ export default function Header() {
                   priority
                 />
                 <Image
-                  src="/vision-logo-white.png"
+                  src="/logos/vision-logo-white.png"
                   alt="Vision Integrated Systems"
                   fill
                   sizes="160px"
