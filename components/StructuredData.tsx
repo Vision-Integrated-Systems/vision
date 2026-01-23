@@ -3,7 +3,7 @@ export default function StructuredData() {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     name: "Vision Integrated Systems",
-    image: "https://vision.jeffhogg.com/logos/vision-logo.png",
+    image: "https://vision-iota-ten.vercel.app/logos/vision-logo.png",
     telephone: "832-535-1991",
     email: "info@vision-texas.com",
     address: {
@@ -14,7 +14,7 @@ export default function StructuredData() {
       postalCode: "77354",
       addressCountry: "US",
     },
-    url: "https://vision-texas.com",
+    url: "https://vision-iota-ten.vercel.app/",
     openingHoursSpecification: [
       {
         "@type": "OpeningHoursSpecification",
