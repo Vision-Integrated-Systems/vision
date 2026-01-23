@@ -116,7 +116,7 @@ export default function Careers() {
           </div>
           <h1 className="text-5xl md:text-7xl font-bold mb-8 tracking-tight leading-tight">
             Build the Future <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-white">
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-400 to-white">
               With Us
             </span>
           </h1>
@@ -142,7 +142,7 @@ export default function Careers() {
         title="Why Work at Vision?"
         bgColor="white"
         customVisual={
-          <div className="bg-gradient-to-br from-slate-900 to-blue-900 rounded-2xl p-8 text-white relative overflow-hidden shadow-2xl h-full flex flex-col justify-center">
+          <div className="bg-linear-to-br from-slate-900 to-blue-900 rounded-2xl p-8 text-white relative overflow-hidden shadow-2xl h-full flex flex-col justify-center">
             <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500 rounded-full filter blur-[80px] opacity-20" />
             <div className="relative z-10">
               <SparklesIcon className="w-12 h-12 text-yellow-400 mb-6" />
@@ -224,7 +224,7 @@ export default function Careers() {
                   &quot;{t.quote}&quot;
                 </p>
                 <div className="flex items-center gap-4 relative z-10">
-                  <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-md">
+                  <div className="w-12 h-12 bg-linear-to-br from-blue-500 to-indigo-600 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-md">
                     {t.author.charAt(0)}
                   </div>
                   <div>
@@ -315,7 +315,7 @@ export default function Careers() {
             <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-6">
               Current Openings
             </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full"></div>
+            <div className="w-24 h-1 bg-linear-to-r from-blue-600 to-purple-600 mx-auto rounded-full"></div>
           </div>
 
           {jobPostings.length > 0 ? (

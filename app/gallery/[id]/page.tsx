@@ -37,7 +37,7 @@ export default async function ProjectPage(props: {
             sizes="100vw"
           />
           {/* Complex Gradient Overlay for Readability */}
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/80 to-slate-900/30" />
+          <div className="absolute inset-0 bg-linear-to-t from-slate-950 via-slate-950/80 to-slate-900/30" />
           {/* Texture Overlay */}
           <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-soft-light" />
         </div>

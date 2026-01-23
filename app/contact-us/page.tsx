@@ -63,7 +63,7 @@ function ContactForm() {
           </div>
           <h1 className="text-5xl md:text-7xl font-bold mb-8 tracking-tight">
             Get in{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-white">
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-400 to-white">
               Touch
             </span>
           </h1>
@@ -187,7 +187,7 @@ function ContactForm() {
             {/* RIGHT COLUMN: Contact Form */}
             <div className="lg:w-2/3">
               <div className="bg-white p-8 md:p-12 rounded-3xl shadow-2xl border border-slate-100/60 relative overflow-hidden">
-                <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500"></div>
+                <div className="absolute top-0 left-0 w-full h-1.5 bg-linear-to-r from-blue-500 via-indigo-500 to-purple-500"></div>
 
                 <div className="mb-10">
                   <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-xs font-bold uppercase tracking-wider mb-4">
@@ -294,14 +294,14 @@ function ContactForm() {
                   <div className="pt-4">
                     <SubmitButton
                       text="Send Message"
-                      className="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold rounded-xl shadow-lg shadow-blue-600/20 hover:from-blue-700 hover:to-indigo-700 hover:-translate-y-0.5 transition-all duration-300"
+                      className="w-full sm:w-auto px-8 py-4 bg-linear-to-r from-blue-600 to-indigo-600 text-white font-bold rounded-xl shadow-lg shadow-blue-600/20 hover:from-blue-700 hover:to-indigo-700 hover:-translate-y-0.5 transition-all duration-300"
                     />
                   </div>
 
                   {state?.status === "success" && (
                     <div className="p-4 bg-green-50 border border-green-200 text-green-700 rounded-xl flex items-center animate-in fade-in slide-in-from-bottom-2">
                       <svg
-                        className="w-5 h-5 mr-3 flex-shrink-0"
+                        className="w-5 h-5 mr-3 shrink-0"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
@@ -319,7 +319,7 @@ function ContactForm() {
                   {state?.status === "error" && (
                     <div className="p-4 bg-red-50 border border-red-200 text-red-700 rounded-xl flex items-center animate-in fade-in slide-in-from-bottom-2">
                       <svg
-                        className="w-5 h-5 mr-3 flex-shrink-0"
+                        className="w-5 h-5 mr-3 shrink-0"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"

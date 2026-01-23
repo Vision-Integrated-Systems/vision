@@ -78,7 +78,7 @@ export default function About() {
           </div>
           <h1 className="text-5xl md:text-7xl font-bold mb-8 tracking-tight leading-tight">
             About <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-white">
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-400 to-white">
               Vision Integrated Systems
             </span>
           </h1>
@@ -107,7 +107,7 @@ export default function About() {
               priority
             />
             {/* Glass Sheen Effect */}
-            <div className="absolute inset-0 bg-gradient-to-tr from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+            <div className="absolute inset-0 bg-linear-to-tr from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
           </div>
         }
       >
@@ -130,7 +130,7 @@ export default function About() {
 
       {/* Mission Statement - High Impact */}
       <section className="py-24 relative overflow-hidden bg-blue-900 text-white">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-900 to-slate-900 z-0" />
+        <div className="absolute inset-0 bg-linear-to-br from-blue-900 to-slate-900 z-0" />
         <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-soft-light z-0" />
 
         <div className="container mx-auto px-4 text-center relative z-10">
@@ -138,7 +138,7 @@ export default function About() {
             Our Mission
           </h2>
           <div className="max-w-5xl mx-auto">
-            <p className="text-3xl md:text-5xl font-serif leading-tight text-transparent bg-clip-text bg-gradient-to-b from-white to-blue-200">
+            <p className="text-3xl md:text-5xl font-serif leading-tight text-transparent bg-clip-text bg-linear-to-b from-white to-blue-200">
               &quot;To deliver the security of an ironclad product, backed by
               the responsiveness and expertise your success demands.&quot;
             </p>
@@ -187,7 +187,7 @@ export default function About() {
       <section className="py-24 bg-slate-900 text-white relative overflow-hidden">
         {/* Background Decoration */}
         <div className="absolute inset-0 bg-dot-pattern opacity-5 mix-blend-soft-light"></div>
-        <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-blue-900/10 to-transparent pointer-events-none"></div>
+        <div className="absolute top-0 right-0 w-1/2 h-full bg-linear-to-l from-blue-900/10 to-transparent pointer-events-none"></div>
 
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-20">

@@ -44,7 +44,7 @@ export default function Gallery() {
           </div>
           <h1 className="text-5xl md:text-7xl font-bold mb-8 tracking-tight">
             Project{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-white">
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-400 to-white">
               Gallery
             </span>
           </h1>

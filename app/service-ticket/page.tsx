@@ -2,7 +2,6 @@
 
 import { useActionState, useState } from "react";
 import {
-  WrenchScrewdriverIcon,
   PhotoIcon,
   ExclamationTriangleIcon,
   CheckCircleIcon,
@@ -10,7 +9,6 @@ import {
   ShieldCheckIcon,
   ServerIcon,
   SignalIcon,
-  DocumentIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
 import { handleServiceTicket, type FormState } from "../lib/actions";
@@ -60,7 +58,7 @@ export default function ServiceTicket() {
           </div>
           <h1 className="text-5xl md:text-7xl font-bold mb-8 tracking-tight">
             Service{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-white">
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-400 to-white">
               Center
             </span>
           </h1>
@@ -77,7 +75,7 @@ export default function ServiceTicket() {
           <div className="lg:w-2/3">
             <div className="bg-white p-8 md:p-10 rounded-3xl shadow-2xl border border-slate-100/60 relative overflow-hidden">
               {/* Decorative Gradient Line */}
-              <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500"></div>
+              <div className="absolute top-0 left-0 w-full h-1.5 bg-linear-to-r from-blue-500 via-indigo-500 to-purple-500"></div>
 
               <form action={formAction} className="space-y-8">
                 <div className="flex items-start gap-4 mb-8 pb-8 border-b border-slate-100">
@@ -307,19 +305,19 @@ export default function ServiceTicket() {
                 <div className="pt-4">
                   <SubmitButton
                     text="Submit Ticket"
-                    className="w-full py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold text-lg rounded-xl hover:from-blue-700 hover:to-indigo-700 transition-all shadow-lg hover:shadow-blue-500/30 transform hover:-translate-y-0.5"
+                    className="w-full py-4 bg-linear-to-r from-blue-600 to-indigo-600 text-white font-bold text-lg rounded-xl hover:from-blue-700 hover:to-indigo-700 transition-all shadow-lg hover:shadow-blue-500/30 transform hover:-translate-y-0.5"
                   />
                 </div>
 
                 {state?.status === "success" && (
                   <div className="p-4 bg-green-50 border border-green-200 text-green-700 rounded-xl flex items-center animate-in fade-in slide-in-from-bottom-2">
-                    <CheckCircleIcon className="w-6 h-6 mr-3 flex-shrink-0" />
+                    <CheckCircleIcon className="w-6 h-6 mr-3 shrink-0" />
                     {state.message}
                   </div>
                 )}
                 {state?.status === "error" && (
                   <div className="p-4 bg-red-50 border border-red-200 text-red-700 rounded-xl flex items-center animate-in fade-in slide-in-from-bottom-2">
-                    <ExclamationTriangleIcon className="w-6 h-6 mr-3 flex-shrink-0" />
+                    <ExclamationTriangleIcon className="w-6 h-6 mr-3 shrink-0" />
                     {state.message}
                   </div>
                 )}
