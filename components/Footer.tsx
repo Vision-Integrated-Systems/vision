@@ -8,16 +8,11 @@ import {
 export default function Footer() {
   return (
     <footer className="bg-slate-950 text-slate-300 pt-20 pb-10 border-t border-slate-900 relative overflow-hidden">
-      {/* ... Visual Effects (unchanged) ... */}
-
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* ... Top Section (unchanged) ... */}
-
         {/* Main Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           {/* Column 1: Contact */}
           <div>
-            {/* Accessibility Fix: Changed h4 to h3 to fix heading hierarchy */}
             <h3 className="text-white font-semibold text-lg mb-6">
               Contact Us
             </h3>
@@ -25,7 +20,6 @@ export default function Footer() {
               <a href="tel:8325351991" className="flex items-start group">
                 <PhoneIcon className="w-6 h-6 mr-3 text-blue-500 shrink-0 group-hover:text-white transition-colors" />
                 <div>
-                  {/* Accessibility Fix: Increased contrast (slate-500 -> slate-400) */}
                   <span className="block text-xs text-slate-400 uppercase tracking-wider font-bold mb-1">
                     Call Us 24/7
                   </span>
@@ -41,7 +35,6 @@ export default function Footer() {
               >
                 <EnvelopeIcon className="w-6 h-6 mr-3 text-blue-500 shrink-0 group-hover:text-white transition-colors" />
                 <div>
-                  {/* Accessibility Fix: Increased contrast (slate-500 -> slate-400) */}
                   <span className="block text-xs text-slate-400 uppercase tracking-wider font-bold mb-1">
                     Email Us
                   </span>
@@ -54,7 +47,6 @@ export default function Footer() {
               <div className="flex items-start">
                 <MapPinIcon className="w-6 h-6 mr-3 text-blue-500 shrink-0" />
                 <div>
-                  {/* Accessibility Fix: Increased contrast (slate-500 -> slate-400) */}
                   <span className="block text-xs text-slate-400 uppercase tracking-wider font-bold mb-1">
                     Visit HQ
                   </span>
@@ -69,7 +61,6 @@ export default function Footer() {
 
           {/* Column 2: Quick Links */}
           <div>
-            {/* Accessibility Fix: Changed h4 to h3 */}
             <h3 className="text-white font-semibold text-lg mb-6">Company</h3>
             <nav className="flex flex-col space-y-3">
               {[
@@ -94,7 +85,6 @@ export default function Footer() {
 
           {/* Column 3: Services & Solutions */}
           <div>
-            {/* Accessibility Fix: Changed h4 to h3 */}
             <h3 className="text-white font-semibold text-lg mb-6">Solutions</h3>
             <nav className="flex flex-col space-y-3">
               {[
@@ -117,7 +107,6 @@ export default function Footer() {
 
           {/* Column 4: Socials */}
           <div>
-            {/* Accessibility Fix: Changed h4 to h3 */}
             <h3 className="text-white font-semibold text-lg mb-6">Connect</h3>
             <p className="text-slate-400 text-sm mb-6">
               Follow us for project updates and company news.
@@ -126,17 +115,17 @@ export default function Footer() {
               {[
                 {
                   icon: "linkedin",
-                  name: "LinkedIn", // Added name for label
+                  name: "LinkedIn",
                   href: "https://www.linkedin.com/company/vishouston/",
                 },
                 {
                   icon: "facebook",
-                  name: "Facebook", // Added name for label
+                  name: "Facebook",
                   href: "https://www.facebook.com/profile.php?id=61571604035898",
                 },
                 {
                   icon: "instagram",
-                  name: "Instagram", // Added name for label
+                  name: "Instagram",
                   href: "https://www.instagram.com/vis_houston",
                 },
               ].map((social) => (
@@ -145,11 +134,10 @@ export default function Footer() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  // Accessibility Fix: Added aria-label
                   aria-label={`Follow us on ${social.name}`}
                   className="w-12 h-12 flex items-center justify-center rounded-xl bg-slate-800 text-slate-400 hover:bg-blue-600 hover:text-white hover:-translate-y-1 transition-all duration-300"
                 >
-                  {/* ... SVGs (unchanged) ... */}
+                  {/* SVGs */}
                   {social.icon === "linkedin" && (
                     <svg
                       fill="currentColor"
@@ -184,7 +172,6 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        {/* Accessibility Fix: Increased contrast (text-slate-500 -> text-slate-400) */}
         <div className="border-t border-slate-800/50 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-400 font-medium">
           <p>
             © {new Date().getFullYear()} VIS Houston, LLC. All rights reserved.
