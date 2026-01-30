@@ -21,7 +21,7 @@ export function SubmitButton({
       type="submit"
       disabled={pending}
       className={`${className || defaultClasses} ${
-        pending ? "bg-slate-400! cursor-not-allowed" : ""
+        pending ? "bg-slate-400! cursor-not-allowed" : "cursor-pointer"
       }`}
     >
       {pending ? "Sending..." : text}
