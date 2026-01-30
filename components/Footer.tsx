@@ -67,7 +67,6 @@ export default function Footer() {
                 ["About Vision", "/about"],
                 ["Our Services", "/services"],
                 ["Project Gallery", "/gallery"],
-                ["Insights Blog", "/insights"],
                 ["Careers", "/careers"],
                 ["Contact", "/contact-us"],
               ].map(([label, href]) => (
