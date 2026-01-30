@@ -63,15 +63,15 @@ export default function Careers() {
     {
       quote:
         "Vision treats us like family. They invest in our training and always ensure we have the right tools for the job. It's refreshing to work for a company that values quality over speed.",
-      author: "Mike R.",
-      role: "Senior A/V Technician",
-      years: "5 years at Vision",
+      author: "Elizar O.",
+      role: "Project Coordinator",
+      years: "3 years at Vision",
     },
     {
       quote:
-        "I love the variety of projects. One day I'm at a corporate HQ, the next I'm helping secure a warehouse. It never gets boring, and the team always has my back.",
-      author: "Sarah L.",
-      role: "Security Systems Specialist",
+        "I like the work and I like the people I work with. Everyone is respectful and supportive. It's a great place to grow professionally.",
+      author: "Brad A.",
+      role: "A/V Technician",
       years: "3 years at Vision",
     },
   ];
