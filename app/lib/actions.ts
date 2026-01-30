@@ -1,133 +1,196 @@
 "use server";
 
+import { Resend } from "resend";
+
+const resend = new Resend(process.env.RESEND_API_KEY);
+// TODO: fromEmail: If you verified 'vision-texas.com', use 'noreply@vision-texas.com'
+// If you have NOT verified a domain yet, MUST use: 'onboarding@resend.dev'
+const fromEmail = "onboarding@resend.dev"; 
+const toContactEmail = "dev@vision-texas.com";
+const toServiceEmail = "dev@vision-texas.com";
+const toCareersEmail = "dev@vision-texas.com";
+
 export type FormState = {
   status: "success" | "error";
   message: string;
 } | null;
 
+// --- Contact Form Action ---
 export async function handleContactSubmit(
   prevState: FormState,
   formData: FormData,
 ): Promise<FormState> {
   const firstName = formData.get("firstName");
   const lastName = formData.get("lastName");
-  const email = formData.get("email");
+  const email = formData.get("email") as string;
   const phone = formData.get("phone");
   const message = formData.get("message");
 
-  console.log("New Contact Form Submission:");
-  console.log({ firstName, lastName, email, phone, message });
-
   try {
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    await resend.emails.send({
+      from: `Vision Website <${fromEmail}>`,
+      to: toContactEmail,
+      replyTo: email,
+      subject: `Contact Inquiry: ${firstName} ${lastName}`,
+      html: `
+        <div style="font-family: Arial, sans-serif; color: #333;">
+          <h2 style="color: #2563EB;">New Contact Inquiry</h2>
+          <p><strong>Name:</strong> ${firstName} ${lastName}</p>
+          <p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
+          <p><strong>Phone:</strong> ${phone}</p>
+          <hr />
+          <p><strong>Message:</strong></p>
+          <p style="background: #f9f9f9; padding: 15px; border-radius: 5px;">${message}</p>
+        </div>
+      `,
+    });
+
     return {
       status: "success",
-      message: "Your message has been sent! We'll be in touch soon.",
+      message: "Your message has been sent successfully!",
     };
   } catch (error) {
+    console.error("Resend Error:", error);
     return {
       status: "error",
-      message: "Something went wrong. Please try again.",
+      message: "Failed to send message. Please call us directly.",
     };
   }
 }
 
+// --- Job Application Action ---
 export async function handleJobApplication(
   prevState: FormState,
   formData: FormData,
 ): Promise<FormState> {
   const jobTitle = formData.get("jobTitle");
-  
-  // Personal Info
   const firstName = formData.get("firstName");
   const lastName = formData.get("lastName");
-  const gender = formData.get("gender"); // New
-  
-  // Address - New
-  const address = formData.get("address");
-  const city = formData.get("city");
-  const state = formData.get("state");
-  const zip = formData.get("zip");
-
-  const email = formData.get("email");
-  const phone = formData.get("phone");
-  const linkedIn = formData.get("linkedIn");
-  
-  // Qualifications
+  const email = formData.get("email") as string;
   const experience = formData.get("experience");
-  const certifications = formData.get("certifications");
-  const startDate = formData.get("startDate");
-  const workAuth = formData.get("workAuth");
-  const backgroundCheck = formData.get("backgroundCheck"); // New
-  const referralSource = formData.get("referralSource"); // New
-  
   const coverLetter = formData.get("coverLetter");
   const resume = formData.get("resume") as File;
 
-  console.log(`New Application for ${jobTitle}:`);
-  console.log({ 
-    name: `${firstName} ${lastName}`,
-    contact: `${email}, ${phone}, ${linkedIn}`,
-    gender,
-    location: `${address}, ${city}, ${state} ${zip}`,
-    referralSource,
-    experience,
-    certifications,
-    startDate,
-    backgroundCheck,
-    workAuth,
-    coverLetter,
-    resume: resume ? resume.name : null,
-  });
-  
+  // Prepare Attachment
+  const attachments = [];
   if (resume && resume.size > 0) {
-    console.log(`Resume uploaded: ${resume.name}`);
+    const buffer = Buffer.from(await resume.arrayBuffer());
+    attachments.push({
+      filename: resume.name,
+      content: buffer,
+    });
   }
 
+  // Generate list of fields
+  const detailsHtml = Array.from(formData.entries())
+    .filter(([key]) => key !== "resume" && key !== "coverLetter")
+    .map(([key, value]) => `<p><strong>${key}:</strong> ${value}</p>`)
+    .join("");
+
   try {
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    await resend.emails.send({
+      from: `Vision Careers <${fromEmail}>`,
+      to: toCareersEmail,
+      replyTo: email,
+      subject: `Application: ${jobTitle} - ${firstName} ${lastName}`,
+      html: `
+        <div style="font-family: Arial, sans-serif; color: #333;">
+          <h2 style="color: #2563EB;">New Job Application</h2>
+          <h3>Position: ${jobTitle}</h3>
+          <p><strong>Applicant:</strong> ${firstName} ${lastName} (${experience})</p>
+          <p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
+          <hr />
+          <h3>Details:</h3>
+          ${detailsHtml}
+          <h3>Cover Letter:</h3>
+          <p>${coverLetter}</p>
+        </div>
+      `,
+      attachments: attachments,
+    });
+
     return {
       status: "success",
-      message: "Application received! We will review your qualifications and contact you shortly.",
+      message: "Application received! We will be in touch shortly.",
     };
   } catch (error) {
+    console.error("Resend Error:", error);
     return {
       status: "error",
-      message: "Failed to submit application. Please try again.",
+      message: "Application failed to send. Please try again.",
     };
   }
 }
 
+// --- Service Ticket Action ---
 export async function handleServiceTicket(
   prevState: FormState,
   formData: FormData,
 ): Promise<FormState> {
+  const ticketId = Math.floor(Math.random() * 90000) + 10000;
   const company = formData.get("companyName");
   const name = formData.get("contactName");
-  const email = formData.get("email");
+  const email = formData.get("email") as string;
   const urgency = formData.get("urgency");
   const systemType = formData.get("systemType");
   const message = formData.get("message");
   const attachment = formData.get("attachment") as File;
 
-  console.log("New Service Ticket:");
-  console.log({ company, name, email, urgency, systemType, message });
-  
+  // Prepare Attachment
+  const attachments = [];
   if (attachment && attachment.size > 0) {
-    console.log(`Issue attachment: ${attachment.name} (${attachment.size} bytes)`);
+    const buffer = Buffer.from(await attachment.arrayBuffer());
+    attachments.push({
+      filename: attachment.name,
+      content: buffer,
+    });
   }
 
+  const urgencyColor =
+    urgency === "critical"
+      ? "#DC2626"
+      : urgency === "high"
+        ? "#D97706"
+        : "#2563EB";
+
   try {
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    await resend.emails.send({
+      from: `Service Desk <${fromEmail}>`,
+      to: toServiceEmail,
+      replyTo: email,
+      subject: `[Ticket #${ticketId}] ${urgency?.toString().toUpperCase()} - ${company}`,
+      html: `
+        <div style="font-family: Arial, sans-serif; color: #333; border: 1px solid #eee; border-radius: 8px; padding: 20px;">
+          <div style="border-bottom: 2px solid ${urgencyColor}; padding-bottom: 10px; margin-bottom: 20px;">
+            <h2 style="margin:0; color: ${urgencyColor};">Ticket #${ticketId}</h2>
+            <p style="margin:0; font-size: 14px;">Priority: ${urgency?.toString().toUpperCase()}</p>
+          </div>
+          
+          <table style="width: 100%; border-collapse: collapse;">
+            <tr><td style="padding: 5px 0; font-weight: bold;">Company:</td><td>${company}</td></tr>
+            <tr><td style="padding: 5px 0; font-weight: bold;">Contact:</td><td>${name}</td></tr>
+            <tr><td style="padding: 5px 0; font-weight: bold;">Email:</td><td>${email}</td></tr>
+            <tr><td style="padding: 5px 0; font-weight: bold;">System:</td><td>${systemType}</td></tr>
+          </table>
+
+          <div style="background: #f3f4f6; padding: 15px; border-radius: 5px; margin-top: 20px;">
+            <strong>Issue Description:</strong>
+            <p style="white-space: pre-wrap;">${message}</p>
+          </div>
+        </div>
+      `,
+      attachments: attachments,
+    });
 
     return {
       status: "success",
-      message: `Ticket #${Math.floor(Math.random() * 10000)} created. A technician will review your request shortly.`,
+      message: `Ticket #${ticketId} created successfully.`,
     };
   } catch (error) {
+    console.error("Resend Error:", error);
     return {
       status: "error",
-      message: "Failed to submit ticket. Please call us directly at 832.535.1991.",
+      message: "Failed to create ticket. Please call support.",
     };
   }
 }
