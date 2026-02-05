@@ -153,7 +153,7 @@ export default function Careers() {
                 success.&quot;
               </p>
               <div className="flex items-center gap-2 text-sm font-bold tracking-widest uppercase text-blue-300">
-                — The Vision Leadership Team
+                — The Vision Leadership Team David
               </div>
             </div>
           </div>
