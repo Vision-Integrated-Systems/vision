@@ -88,6 +88,7 @@ export default function Footer() {
             <nav className="flex flex-col space-y-3">
               {[
                 { label: "Solution Finder", href: "/get-started" },
+                { label: "Training Library", href: "/training" },
                 { label: "Audio & Video", href: "/services" },
                 { label: "Structured Cabling", href: "/services" },
                 { label: "Security & Access", href: "/services" },
