@@ -115,9 +115,12 @@ export default function Gallery() {
 
                   <div className="mt-6 pt-6 border-t border-slate-100 flex items-center justify-between text-sm text-slate-400 font-medium">
                     <span>{project.client}</span>
-                    <span className="flex items-center text-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <Link
+                      href={`/gallery/${project.id}`}
+                      className="flex items-center text-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:underline cursor-pointer"
+                    >
                       Read More <ArrowRightIcon className="w-3 h-3 ml-1" />
-                    </span>
+                    </Link>
                   </div>
                 </div>
               </motion.div>
