@@ -1,4 +1,3 @@
-import ContentSection from "@/components/ContentSection";
 import StatsSection from "@/components/StatsSection";
 import TrustedManufacturers from "@/components/TrustedManufacturers";
 import CtaSection from "@/components/CtaSection";
@@ -104,7 +103,7 @@ export default function About() {
           <div className="flex flex-col lg:flex-row items-center gap-16">
             {/* Left Side: Content */}
             <div className="lg:w-1/2 relative z-10">
-              <span className="text-blue-600 font-bold tracking-widest uppercase text-sm mb-4 block flex items-center gap-2">
+              <span className="text-blue-600 font-bold tracking-widest uppercase text-sm mb-4 flex items-center gap-2">
                 <span className="w-8 h-px bg-blue-600"></span>
                 Our Story
               </span>
@@ -246,7 +245,7 @@ export default function About() {
                   <h3 className="text-2xl font-bold text-slate-900 mb-4 z-10 relative group-hover:text-blue-600 transition-colors duration-300">
                     {value.name}
                   </h3>
-                  <p className="text-slate-600 leading-relaxed z-10 relative flex-grow">
+                  <p className="text-slate-600 leading-relaxed z-10 relative grow">
                     {value.description}
                   </p>
 
@@ -341,7 +340,7 @@ export default function About() {
 
                   <div className="w-12 h-px bg-slate-700 mb-6 group-hover:bg-blue-500/50 transition-colors duration-500"></div>
 
-                  <p className="text-slate-400 leading-relaxed font-light flex-grow">
+                  <p className="text-slate-400 leading-relaxed font-light grow">
                     {leader.bio}
                   </p>
                 </div>

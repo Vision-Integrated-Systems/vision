@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import CtaSection from "@/components/CtaSection";
 
 export const metadata: Metadata = {
   title: "Terms of Service | Vision Integrated Systems",

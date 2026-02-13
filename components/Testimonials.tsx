@@ -86,7 +86,7 @@ export default function Testimonials() {
                 </div>
 
                 {/* Review Content */}
-                <p className="text-slate-300 mb-10 leading-relaxed italic text-lg relative z-10 flex-grow">
+                <p className="text-slate-300 mb-10 leading-relaxed italic text-lg relative z-10 grow">
                   &quot;{t.content}&quot;
                 </p>
 
