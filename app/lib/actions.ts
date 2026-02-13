@@ -6,9 +6,9 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 // TODO: fromEmail: If you verified 'vision-texas.com', use 'noreply@vision-texas.com'
 // If you have NOT verified a domain yet, MUST use: 'onboarding@resend.dev'
 const fromEmail = "onboarding@resend.dev"; 
-const toContactEmail = "dev@vision-texas.com";
-const toServiceEmail = "dev@vision-texas.com";
-const toCareersEmail = "dev@vision-texas.com";
+const toContactEmail = "bids@vision-texas.com";
+const toServiceEmail = "service@vision-texas.com";
+const toCareersEmail = "careers@vision-texas.com";
 
 export type FormState = {
   status: "success" | "error";
