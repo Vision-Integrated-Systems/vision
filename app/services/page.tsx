@@ -226,10 +226,10 @@ export default function Services() {
 
               <ul className="space-y-5">
                 {[
-                  "Cat5e, Cat6, Cat6A Copper Cabling",
+                  "Copper Cabling",
                   "Fiber Optic Installation & Splicing",
                   "Server Room & Rack Cleanups",
-                  "Certified Installations (Panduit, Belden)",
+                  "Certified Installations",
                 ].map((item, i) => (
                   <li
                     key={i}
