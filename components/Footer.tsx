@@ -3,24 +3,37 @@ import {
   MapPinIcon,
   EnvelopeIcon,
   PhoneIcon,
+  ArrowUpRightIcon,
 } from "@heroicons/react/24/outline";
 
 export default function Footer() {
   return (
-    <footer className="bg-slate-950 text-slate-300 pt-20 pb-10 border-t border-slate-900 relative overflow-hidden">
+    <footer className="relative bg-slate-950 text-slate-300 pt-24 pb-10 overflow-hidden z-10">
+      {/* Dynamic Background Effects */}
+      <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.15] mix-blend-overlay pointer-events-none z-0"></div>
+
+      {/* Ambient Bottom Glow */}
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-1/2 bg-blue-600/10 blur-[120px] rounded-t-full pointer-events-none z-0"></div>
+
+      {/* Glowing Top Border */}
+      <div className="absolute top-0 left-0 w-full h-px bg-linear-to-r from-transparent via-blue-500/50 to-transparent opacity-50"></div>
+
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Main Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-20">
           {/* Column 1: Contact */}
-          <div>
-            <h3 className="text-white font-semibold text-lg mb-6">
+          <div className="space-y-8">
+            <h3 className="text-white font-bold text-xl tracking-tight flex items-center gap-3">
+              <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
               Contact Us
             </h3>
-            <div className="space-y-4">
+            <div className="space-y-6">
               <a href="tel:8325351991" className="flex items-start group">
-                <PhoneIcon className="w-6 h-6 mr-3 text-blue-500 shrink-0 group-hover:text-white transition-colors" />
+                <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center mr-4 shrink-0 group-hover:bg-blue-600/20 group-hover:border-blue-500/50 transition-all duration-300">
+                  <PhoneIcon className="w-5 h-5 text-blue-400 group-hover:text-blue-300" />
+                </div>
                 <div>
-                  <span className="block text-xs text-slate-400 uppercase tracking-wider font-bold mb-1">
+                  <span className="block text-xs text-slate-500 uppercase tracking-widest font-bold mb-1 group-hover:text-slate-400 transition-colors">
                     Call Us 24/7
                   </span>
                   <span className="text-white text-lg font-medium group-hover:text-blue-400 transition-colors">
@@ -33,9 +46,11 @@ export default function Footer() {
                 href="mailto:info@vision-texas.com"
                 className="flex items-start group"
               >
-                <EnvelopeIcon className="w-6 h-6 mr-3 text-blue-500 shrink-0 group-hover:text-white transition-colors" />
+                <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center mr-4 shrink-0 group-hover:bg-blue-600/20 group-hover:border-blue-500/50 transition-all duration-300">
+                  <EnvelopeIcon className="w-5 h-5 text-blue-400 group-hover:text-blue-300" />
+                </div>
                 <div>
-                  <span className="block text-xs text-slate-400 uppercase tracking-wider font-bold mb-1">
+                  <span className="block text-xs text-slate-500 uppercase tracking-widest font-bold mb-1 group-hover:text-slate-400 transition-colors">
                     Email Us
                   </span>
                   <span className="text-slate-300 group-hover:text-blue-400 transition-colors">
@@ -44,13 +59,15 @@ export default function Footer() {
                 </div>
               </a>
 
-              <div className="flex items-start">
-                <MapPinIcon className="w-6 h-6 mr-3 text-blue-500 shrink-0" />
+              <div className="flex items-start group">
+                <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center mr-4 shrink-0 group-hover:bg-blue-600/20 group-hover:border-blue-500/50 transition-all duration-300">
+                  <MapPinIcon className="w-5 h-5 text-blue-400 group-hover:text-blue-300" />
+                </div>
                 <div>
-                  <span className="block text-xs text-slate-400 uppercase tracking-wider font-bold mb-1">
+                  <span className="block text-xs text-slate-500 uppercase tracking-widest font-bold mb-1 group-hover:text-slate-400 transition-colors">
                     Visit HQ
                   </span>
-                  <p className="text-slate-300 leading-relaxed">
+                  <p className="text-slate-300 leading-relaxed group-hover:text-white transition-colors">
                     32311 Tamina Rd, Suite A<br />
                     Magnolia, TX 77354
                   </p>
@@ -60,9 +77,11 @@ export default function Footer() {
           </div>
 
           {/* Column 2: Quick Links */}
-          <div>
-            <h3 className="text-white font-semibold text-lg mb-6">Company</h3>
-            <nav className="flex flex-col space-y-3">
+          <div className="lg:pl-8">
+            <h3 className="text-white font-bold text-xl tracking-tight mb-8">
+              Company
+            </h3>
+            <nav className="flex flex-col space-y-4">
               {[
                 ["About Vision", "/about"],
                 ["Our Services", "/services"],
@@ -73,10 +92,12 @@ export default function Footer() {
                 <Link
                   key={label}
                   href={href}
-                  className="text-slate-400 hover:text-white hover:translate-x-1 transition-all duration-200 flex items-center"
+                  className="group flex items-center text-slate-400 hover:text-white transition-all duration-300"
                 >
-                  <span className="w-1.5 h-1.5 rounded-full bg-blue-600 mr-3 opacity-0 group-hover:opacity-100 transition-opacity"></span>
-                  {label}
+                  <ArrowUpRightIcon className="w-3 h-3 mr-2 opacity-0 -translate-y-1 translate-x-1 group-hover:opacity-100 group-hover:translate-y-0 group-hover:translate-x-0 group-hover:text-blue-400 transition-all duration-300" />
+                  <span className="group-hover:translate-x-1 transition-transform duration-300">
+                    {label}
+                  </span>
                 </Link>
               ))}
             </nav>
@@ -84,22 +105,26 @@ export default function Footer() {
 
           {/* Column 3: Services & Solutions */}
           <div>
-            <h3 className="text-white font-semibold text-lg mb-6">Solutions</h3>
-            <nav className="flex flex-col space-y-3">
+            <h3 className="text-white font-bold text-xl tracking-tight mb-8">
+              Solutions
+            </h3>
+            <nav className="flex flex-col space-y-4">
               {[
                 { label: "Solution Finder", href: "/get-started" },
                 { label: "Training Library", href: "/training" },
-                { label: "Audio & Video", href: "/services" },
-                { label: "Structured Cabling", href: "/services" },
-                { label: "Security & Access", href: "/services" },
-                { label: "Fiber Optics", href: "/services" },
+                { label: "Audio & Video", href: "/services#av" },
+                { label: "Structured Cabling", href: "/services#cabling" },
+                { label: "Security & Access", href: "/services#security" },
               ].map((item) => (
                 <Link
                   key={item.label}
                   href={item.href}
-                  className="text-slate-400 hover:text-white hover:translate-x-1 transition-all duration-200"
+                  className="group flex items-center text-slate-400 hover:text-white transition-all duration-300"
                 >
-                  {item.label}
+                  <span className="w-1.5 h-1.5 rounded-full bg-blue-600 mr-3 opacity-50 group-hover:opacity-100 group-hover:scale-150 group-hover:shadow-[0_0_10px_rgba(59,130,246,0.8)] transition-all duration-300"></span>
+                  <span className="group-hover:translate-x-1 transition-transform duration-300">
+                    {item.label}
+                  </span>
                 </Link>
               ))}
             </nav>
@@ -107,9 +132,11 @@ export default function Footer() {
 
           {/* Column 4: Socials */}
           <div>
-            <h3 className="text-white font-semibold text-lg mb-6">Connect</h3>
-            <p className="text-slate-400 text-sm mb-6">
-              Follow us for project updates and company news.
+            <h3 className="text-white font-bold text-xl tracking-tight mb-8">
+              Connect
+            </h3>
+            <p className="text-slate-400 text-sm mb-8 leading-relaxed">
+              Follow us for project updates, industry news, and company culture.
             </p>
             <div className="flex gap-4">
               {[
@@ -135,7 +162,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`Follow us on ${social.name}`}
-                  className="w-12 h-12 flex items-center justify-center rounded-xl bg-slate-800 text-slate-400 hover:bg-blue-600 hover:text-white hover:-translate-y-1 transition-all duration-300"
+                  className="w-12 h-12 flex items-center justify-center rounded-2xl bg-white/5 border border-white/10 text-slate-400 hover:bg-blue-600 hover:text-white hover:border-blue-400 hover:-translate-y-2 hover:shadow-[0_10px_20px_rgba(59,130,246,0.3)] transition-all duration-300"
                 >
                   {/* SVGs */}
                   {social.icon === "linkedin" && (
@@ -172,7 +199,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-slate-800/50 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-400 font-medium">
+        <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-500 font-medium">
           <p>
             © {new Date().getFullYear()} VIS Houston, LLC. All rights reserved.
           </p>

@@ -2,49 +2,79 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRightIcon } from "@heroicons/react/24/outline";
+import { ArrowRightIcon, CpuChipIcon } from "@heroicons/react/24/outline";
 
 export default function CtaSection() {
   return (
-    <section className="py-32 relative overflow-hidden">
-      {/* Dynamic Background */}
-      <div className="absolute inset-0 bg-blue-600 z-0">
-        <div className="absolute inset-0 bg-linear-to-br from-blue-600 to-indigo-700" />
-        {/* Grain Texture Overlay */}
-        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-soft-light" />
-      </div>
+    <section className="py-24 lg:py-32 relative overflow-hidden bg-slate-950 z-10">
+      {/* Dynamic Background Effects */}
+      <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 mix-blend-overlay z-0 pointer-events-none"></div>
 
-      {/* Abstract Shapes */}
+      {/* Ambient Glowing Orbs */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0">
-        <div className="absolute -top-24 -right-24 w-96 h-96 bg-blue-400 rounded-full blur-3xl opacity-20 animate-pulse"></div>
-        <div className="absolute bottom-0 left-0 w-72 h-72 bg-indigo-400 rounded-full blur-3xl opacity-20 animate-pulse delay-1000"></div>
+        <div className="absolute -top-40 -right-40 w-[600px] h-[600px] bg-blue-600/20 rounded-full blur-[120px] mix-blend-screen animate-pulse"></div>
+        <div
+          className="absolute -bottom-40 -left-40 w-[600px] h-[600px] bg-indigo-600/20 rounded-full blur-[120px] mix-blend-screen animate-pulse"
+          style={{ animationDelay: "2s" }}
+        ></div>
       </div>
 
-      <div className="container mx-auto px-4 relative z-10 text-center">
+      <div className="container mx-auto px-4 relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="relative max-w-5xl mx-auto bg-slate-900/50 backdrop-blur-2xl border border-slate-700/50 rounded-[3rem] p-10 md:p-16 lg:p-20 shadow-2xl text-center overflow-hidden group"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight">
-            Ready for Technology That Works For You?
-          </h2>
-          <p className="text-blue-100 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed font-light">
-            Let&apos;s start by understanding your goals. Whether you need a
-            simple update or a campus-wide deployment, we engineer solutions
-            custom-built around your environment and your people.
-          </p>
+          {/* Card Hover Sheen */}
+          <div className="absolute inset-0 bg-linear-to-tr from-blue-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
 
-          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-            <Link
-              href="/contact-us"
-              className="group inline-flex items-center gap-3 px-8 py-4 bg-white text-blue-700 font-bold rounded-full shadow-2xl hover:shadow-blue-900/20 transition-all duration-300"
-            >
-              Start the Conversation
-              <ArrowRightIcon className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </Link>
-          </motion.div>
+          {/* Decorative Tech Grid */}
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#334155_1px,transparent_1px),linear-gradient(to_bottom,#334155_1px,transparent_1px)] bg-[size:3rem_3rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-20 z-0"></div>
+
+          <div className="relative z-10">
+            {/* Floating Tech Icon */}
+            <div className="w-16 h-16 mx-auto bg-blue-500/10 border border-blue-500/30 rounded-2xl flex items-center justify-center mb-8 shadow-[0_0_30px_rgba(59,130,246,0.2)]">
+              <CpuChipIcon className="w-8 h-8 text-blue-400" />
+            </div>
+
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 tracking-tight">
+              Ready for Technology That <br className="hidden md:block" />
+              <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-400 via-indigo-300 to-blue-200">
+                Works For You?
+              </span>
+            </h2>
+
+            <p className="text-slate-400 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed font-light">
+              Let&apos;s start by understanding your goals. Whether you need a
+              simple update or a campus-wide deployment, we engineer solutions
+              custom-built around your environment and your people.
+            </p>
+
+            <div className="flex flex-col sm:flex-row justify-center items-center gap-6">
+              {/* Primary Action */}
+              <Link
+                href="/contact-us"
+                className="group relative inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white transition-all duration-300 bg-blue-600 border border-transparent rounded-full hover:bg-blue-500 hover:shadow-[0_0_40px_rgba(37,99,235,0.5)] hover:-translate-y-1 overflow-hidden w-full sm:w-auto"
+              >
+                <span className="relative z-10 flex items-center gap-2">
+                  Start the Conversation
+                  <ArrowRightIcon className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </span>
+                {/* Button Inner Hover Glow */}
+                <div className="absolute inset-0 h-full w-full scale-0 rounded-full transition-all duration-300 ease-out group-hover:scale-100 group-hover:bg-blue-400/30 z-0"></div>
+              </Link>
+
+              {/* Secondary Action */}
+              <Link
+                href="/get-started"
+                className="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-slate-300 transition-all duration-300 bg-slate-800 border border-slate-700 rounded-full hover:bg-slate-700 hover:text-white hover:border-slate-500 hover:-translate-y-1 hover:shadow-xl w-full sm:w-auto"
+              >
+                Try Solution Finder
+              </Link>
+            </div>
+          </div>
         </motion.div>
       </div>
     </section>

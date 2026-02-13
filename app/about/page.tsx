@@ -92,47 +92,94 @@ export default function About() {
       <StatsSection />
 
       {/* Our Story */}
-      <ContentSection
+      <section
         id="our-story"
-        title="Our Story"
-        bgColor="white"
-        customVisual={
-          <div className="relative rounded-2xl overflow-hidden shadow-2xl group border border-slate-100">
-            <Image
-              src="/vision-team.jpg"
-              alt="The Vision Integrated Systems team"
-              width={1200}
-              height={800}
-              className="w-full h-auto object-cover transform transition-transform duration-700 hover:scale-105"
-              priority
-            />
-            {/* Glass Sheen Effect */}
-            <div className="absolute inset-0 bg-linear-to-tr from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-          </div>
-        }
+        className="py-24 md:py-32 bg-white relative overflow-hidden"
       >
-        <div className="prose prose-lg text-slate-600 leading-relaxed">
-          <p className="mb-6 font-medium text-slate-900 text-xl">
-            At Vision Integrated Systems, we believe technology should simplify
-            operations — not complicate them.
-          </p>
-          <p className="mb-6">
-            Anyone can sell cameras, access control, cabling, or AV equipment.
-            But when systems don’t talk to each other, when workflows break
-            down, or when users avoid the technology altogether, the problem
-            isn’t the hardware — it’s the integration.{" "}
-            <strong>That’s where Vision comes in.</strong>
-          </p>
-          <p>
-            We start by understanding how you work, what matters most, and where
-            technology can remove friction instead of adding it. From access
-            control and video surveillance to structured cabling and audiovisual
-            systems, we design solutions that are custom-built around your
-            environment, your people, and your goals. The result isn’t just
-            installed technology — it’s technology that works for you.
-          </p>
+        {/* Subtle Background Accents */}
+        <div className="absolute top-0 left-0 w-1/3 h-full bg-slate-50 skew-x-12 -ml-20 z-0 opacity-50 pointer-events-none"></div>
+        <div className="absolute -bottom-40 -right-40 w-[600px] h-[600px] bg-blue-50 rounded-full blur-[100px] z-0 pointer-events-none"></div>
+
+        <div className="container mx-auto px-4 lg:px-8 relative z-10">
+          <div className="flex flex-col lg:flex-row items-center gap-16">
+            {/* Left Side: Content */}
+            <div className="lg:w-1/2 relative z-10">
+              <span className="text-blue-600 font-bold tracking-widest uppercase text-sm mb-4 block flex items-center gap-2">
+                <span className="w-8 h-px bg-blue-600"></span>
+                Our Story
+              </span>
+              <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6 leading-tight tracking-tight">
+                Engineering Systems <br />
+                <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-600 to-indigo-600">
+                  That Actually Work
+                </span>
+              </h2>
+
+              <div className="prose prose-lg text-slate-600 leading-relaxed max-w-none">
+                <p className="text-xl text-slate-800 font-medium mb-6 leading-snug">
+                  At Vision Integrated Systems, we believe technology should
+                  simplify operations — not complicate them.
+                </p>
+                <p className="mb-6">
+                  Anyone can sell cameras, access control, cabling, or AV
+                  equipment. But when systems don’t talk to each other, when
+                  workflows break down, or when users avoid the technology
+                  altogether, the problem isn’t the hardware — it’s the
+                  integration.{" "}
+                  <strong className="text-blue-600 font-semibold">
+                    That’s where Vision comes in.
+                  </strong>
+                </p>
+                <p>
+                  We start by understanding how you work, what matters most, and
+                  where technology can remove friction instead of adding it.
+                  From access control and video surveillance to structured
+                  cabling and audiovisual systems, we design solutions that are
+                  custom-built around your environment, your people, and your
+                  goals. The result isn’t just installed technology — it’s
+                  technology that works for you.
+                </p>
+              </div>
+            </div>
+
+            {/* Right Side: Floating Visual */}
+            <div className="lg:w-1/2 relative group w-full max-w-2xl mx-auto mt-10 lg:mt-0">
+              {/* Animated Background Glow */}
+              <div className="absolute inset-0 bg-blue-600/10 rounded-3xl blur-2xl transform scale-95 group-hover:scale-105 transition-transform duration-700"></div>
+
+              {/* Decorative Offset Border */}
+              <div className="absolute inset-0 border-2 border-blue-100 rounded-3xl transform translate-x-4 translate-y-4 transition-transform duration-500 group-hover:translate-x-6 group-hover:translate-y-6"></div>
+
+              {/* Main Image */}
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl z-10 bg-white border border-slate-100">
+                <Image
+                  src="/vision-team.jpg"
+                  alt="The Vision Integrated Systems team"
+                  width={1200}
+                  height={800}
+                  className="w-full h-auto object-cover transform transition-transform duration-1000 group-hover:scale-105"
+                  priority
+                />
+                {/* Subtle Glass Sheen Overlay */}
+                <div className="absolute inset-0 bg-linear-to-tr from-blue-900/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
+              </div>
+
+              {/* Floating Glassmorphism Badge */}
+              <div className="absolute -bottom-8 -left-4 lg:-left-12 bg-white/90 backdrop-blur-xl border border-slate-200 p-6 rounded-2xl shadow-2xl z-20 flex items-center gap-5 transform transition-transform duration-500 group-hover:-translate-y-2">
+                <div className="w-14 h-14 rounded-full bg-linear-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-white font-bold text-xl shadow-lg">
+                  30+
+                </div>
+                <div>
+                  <p className="text-sm font-bold text-slate-900 uppercase tracking-wider">
+                    Years of
+                  </p>
+                  <p className="text-lg text-blue-600 font-bold">Excellence</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-      </ContentSection>
+      </section>
 
       {/* Mission Statement - High Impact */}
       <section className="py-24 relative overflow-hidden bg-blue-900 text-white">
@@ -154,83 +201,150 @@ export default function About() {
       </section>
 
       {/* Core Values */}
-      <section className="py-24 bg-slate-50">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <span className="text-blue-600 font-bold uppercase tracking-wider text-sm mb-2 block">
+      <section className="py-24 md:py-32 bg-slate-50 relative overflow-hidden">
+        {/* Abstract Background Gradients & Textures */}
+        <div className="absolute top-0 right-0 w-1/2 h-full bg-linear-to-bl from-blue-100/40 to-transparent pointer-events-none z-0"></div>
+        <div className="absolute bottom-0 left-0 w-1/2 h-full bg-linear-to-tr from-indigo-100/40 to-transparent pointer-events-none z-0"></div>
+        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-5 mix-blend-overlay z-0"></div>
+
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="text-center max-w-2xl mx-auto mb-20">
+            <span className="text-blue-600 font-bold uppercase tracking-widest text-sm mb-4 flex justify-center items-center gap-4">
+              <span className="w-12 h-px bg-blue-600/30"></span>
               Our DNA
+              <span className="w-12 h-px bg-blue-600/30"></span>
             </span>
-            <h2 className="text-4xl font-bold text-slate-900 mb-4">
-              Core Values
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6 tracking-tight">
+              The Principles We Build On
             </h2>
-            <p className="text-slate-600 max-w-2xl mx-auto text-lg">
-              The principles that guide every decision we make and every cable
-              we pull.
+            <p className="text-slate-600 text-lg leading-relaxed font-light">
+              The core values that guide every decision we make, every system we
+              design, and every cable we pull.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {values.map((value) => (
-              <div
-                key={value.name}
-                className="group p-10 bg-white rounded-2xl border border-slate-200/60 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300"
-              >
-                <div className="w-16 h-16 mb-8 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300 shadow-sm">
-                  {value.icon}
+              <div key={value.name} className="relative group h-full">
+                {/* Glowing Shadow Effect on Hover */}
+                <div className="absolute inset-0 bg-linear-to-r from-blue-500 to-indigo-500 rounded-3xl blur-xl opacity-0 group-hover:opacity-20 transition-opacity duration-500"></div>
+
+                <div className="relative h-full p-10 bg-white rounded-3xl border border-slate-200/60 shadow-xl flex flex-col hover:-translate-y-2 transition-all duration-500 z-10 overflow-hidden">
+                  {/* Decorative Corner Shape */}
+                  <div className="absolute -top-16 -right-16 w-40 h-40 bg-blue-50 rounded-full group-hover:bg-blue-600 transition-colors duration-500 ease-in-out"></div>
+
+                  {/* Subtle Large Icon in Background */}
+                  <div className="absolute top-6 right-6 text-blue-100/50 group-hover:text-white/20 transition-colors duration-500 z-0">
+                    <div className="w-16 h-16">{value.icon}</div>
+                  </div>
+
+                  {/* Primary Icon */}
+                  <div className="relative w-16 h-16 mb-8 bg-white border border-slate-100 shadow-md text-blue-600 rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(59,130,246,0.2)] transition-all duration-500 z-10">
+                    {value.icon}
+                  </div>
+
+                  <h3 className="text-2xl font-bold text-slate-900 mb-4 z-10 relative group-hover:text-blue-600 transition-colors duration-300">
+                    {value.name}
+                  </h3>
+                  <p className="text-slate-600 leading-relaxed z-10 relative flex-grow">
+                    {value.description}
+                  </p>
+
+                  {/* Animated Bottom Border */}
+                  <div className="mt-8 z-10 relative">
+                    <div className="w-12 h-1 bg-slate-200 rounded-full group-hover:w-full group-hover:bg-linear-to-r group-hover:from-blue-500 group-hover:to-indigo-500 transition-all duration-500 ease-out"></div>
+                  </div>
                 </div>
-                <h3 className="text-2xl font-bold text-slate-900 mb-4">
-                  {value.name}
-                </h3>
-                <p className="text-slate-600 leading-relaxed text-lg">
-                  {value.description}
-                </p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Leadership */}
-      <section className="py-24 bg-slate-900 text-white relative overflow-hidden">
-        {/* Background Decoration */}
-        <div className="absolute inset-0 bg-dot-pattern opacity-5 mix-blend-soft-light"></div>
-        <div className="absolute top-0 right-0 w-1/2 h-full bg-linear-to-l from-blue-900/10 to-transparent pointer-events-none"></div>
+      {/* Leadership Section */}
+      <section className="py-24 md:py-32 bg-slate-950 text-white relative overflow-hidden">
+        {/* Dynamic Background Ambience */}
+        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-5 mix-blend-overlay z-0"></div>
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-600/10 rounded-full blur-[120px] pointer-events-none"></div>
+        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-indigo-600/10 rounded-full blur-[120px] pointer-events-none"></div>
 
         <div className="container mx-auto px-4 relative z-10">
-          <div className="text-center mb-20">
-            <h2 className="text-4xl font-bold text-white mb-6">
+          <div className="text-center max-w-2xl mx-auto mb-20">
+            <span className="text-blue-500 font-bold tracking-widest uppercase text-sm mb-4 flex justify-center items-center gap-4">
+              <span className="w-8 h-px bg-blue-500/50"></span>
               Our Leadership
+              <span className="w-8 h-px bg-blue-500/50"></span>
+            </span>
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight">
+              The Team Driving{" "}
+              <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-400 to-indigo-400">
+                Innovation
+              </span>
             </h2>
-            <p className="text-xl text-slate-400 max-w-2xl mx-auto font-light">
-              The dedicated team driving innovation and quality at Vision.
+            <p className="text-slate-400 text-lg leading-relaxed font-light">
+              Decades of combined experience ensuring every system we design
+              meets the highest standard of excellence.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10 max-w-6xl mx-auto">
             {leaders.map((leader, idx) => (
-              <div
-                key={idx}
-                className="group bg-slate-800/40 backdrop-blur-md rounded-2xl p-8 border border-slate-700/50 hover:border-blue-500/50 hover:bg-slate-800 transition-all duration-300 flex flex-col items-center text-center hover:-translate-y-1"
-              >
-                <div className="relative mb-8">
-                  <div className="absolute inset-0 bg-blue-500 rounded-full blur-2xl opacity-0 group-hover:opacity-20 transition-opacity duration-500"></div>
-                  <div className="relative w-40 h-40 rounded-full overflow-hidden border-4 border-slate-700 shadow-2xl group-hover:border-blue-500 transition-colors duration-300">
-                    <Image
-                      src={leader.imageSrc}
-                      alt={`Head shot of ${leader.name}`}
-                      fill
-                      className="object-cover transform group-hover:scale-110 transition-transform duration-500"
-                    />
-                  </div>
-                </div>
+              <div key={idx} className="group relative">
+                {/* Hover Glow Behind Card */}
+                <div className="absolute inset-0 bg-linear-to-b from-blue-600/20 to-indigo-600/20 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
-                <h3 className="text-2xl font-bold text-white mb-2">
-                  {leader.name}
-                </h3>
-                <p className="text-blue-400 font-medium mb-4 text-sm uppercase tracking-wider">
-                  {leader.title}
-                </p>
-                <p className="text-slate-400 leading-relaxed">{leader.bio}</p>
+                <div className="relative h-full bg-slate-900/80 backdrop-blur-xl rounded-3xl p-8 border border-slate-700/50 hover:border-blue-500/30 transition-all duration-500 flex flex-col items-center text-center hover:-translate-y-2 overflow-hidden z-10">
+                  {/* Top Accent Line */}
+                  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/3 h-1 bg-linear-to-r from-blue-500 to-indigo-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-b-full"></div>
+
+                  {/* Image Container with Gradient Ring */}
+                  <div className="relative mb-8 mt-4">
+                    {/* Ambient Glow behind image */}
+                    <div className="absolute inset-0 bg-blue-500 rounded-full blur-2xl opacity-10 group-hover:opacity-40 transition-opacity duration-500"></div>
+
+                    {/* The Gradient Border Ring */}
+                    <div className="relative w-44 h-44 rounded-full p-1 bg-linear-to-br from-slate-700 to-slate-800 group-hover:from-blue-500 group-hover:to-indigo-500 transition-colors duration-500 z-10 shadow-2xl">
+                      <div className="w-full h-full rounded-full border-4 border-slate-900 overflow-hidden relative">
+                        <Image
+                          src={leader.imageSrc}
+                          alt={`Head shot of ${leader.name}`}
+                          fill
+                          className="object-cover transform group-hover:scale-110 transition-transform duration-700"
+                        />
+                      </div>
+                    </div>
+
+                    {/* Floating Tech Accent Badge */}
+                    <div className="absolute -bottom-2 -right-2 w-12 h-12 bg-slate-800 rounded-full border border-slate-600 flex items-center justify-center text-blue-400 group-hover:bg-blue-600 group-hover:text-white group-hover:border-blue-400 transition-all duration-500 shadow-xl z-20">
+                      <svg
+                        className="w-5 h-5"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M13 10V3L4 14h7v7l9-11h-7z"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+
+                  <h3 className="text-2xl font-bold text-white mb-1 group-hover:text-blue-300 transition-colors duration-300">
+                    {leader.name}
+                  </h3>
+                  <p className="text-blue-400 font-bold mb-6 text-xs uppercase tracking-widest">
+                    {leader.title}
+                  </p>
+
+                  <div className="w-12 h-px bg-slate-700 mb-6 group-hover:bg-blue-500/50 transition-colors duration-500"></div>
+
+                  <p className="text-slate-400 leading-relaxed font-light flex-grow">
+                    {leader.bio}
+                  </p>
+                </div>
               </div>
             ))}
           </div>

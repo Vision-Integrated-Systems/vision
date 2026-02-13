@@ -48,4 +48,9 @@ export const trainingVideos: TrainingVideo[] = [
     category: "Genetec",
     tags: ["Security Center", "Reports"],
   },
+
+  // AXIS VIDEOS
+
+
+  // CRESTRON VIDEOS
 ];
