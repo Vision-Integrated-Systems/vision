@@ -95,7 +95,7 @@ export default function Services() {
 
               <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-slate-100 z-10">
                 <Image
-                  src="/conference-room.jpg"
+                  src="/audio-video.webp"
                   alt="Modern conference room"
                   width={800}
                   height={600}
@@ -181,7 +181,7 @@ export default function Services() {
 
               <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-slate-700 z-10 bg-slate-800">
                 <Image
-                  src="/cabling.jpg"
+                  src="/structured-cabling.webp"
                   alt="Structured Cabling"
                   width={800}
                   height={600}
@@ -261,7 +261,7 @@ export default function Services() {
 
               <div className="relative rounded-3xl overflow-hidden shadow-xl border border-white z-10 bg-white">
                 <Image
-                  src="/cameras.jpg"
+                  src="/security.webp"
                   alt="High-definition security camera"
                   width={800}
                   height={600}
