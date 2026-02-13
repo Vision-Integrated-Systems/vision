@@ -40,9 +40,10 @@ export default function Services() {
               Services
             </span>
           </h1>
-          <p className="text-xl md:text-2xl text-slate-300 max-w-2xl mx-auto leading-relaxed font-light mb-12">
-            End-to-end solutions for modern business environments. From design
-            to deployment, we handle it all.
+          <p className="text-xl md:text-2xl text-slate-300 max-w-3xl mx-auto leading-relaxed font-light mb-12">
+            Technology should simplify operations, not complicate them. Explore
+            our integrated solutions designed to remove friction, enhance
+            security, and power your daily workflows.
           </p>
 
           {/* Quick Anchor Links */}

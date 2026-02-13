@@ -62,16 +62,17 @@ export default function FeaturesGrid() {
       <div className="absolute top-0 right-0 w-1/3 h-full bg-slate-50 skew-x-12 -mr-20 z-0 opacity-50" />
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center max-w-2xl mx-auto mb-20">
+        <div className="text-center max-w-3xl mx-auto mb-20">
           <span className="text-blue-600 font-bold tracking-wider uppercase text-sm mb-2 block">
-            Our Expertise
+            The Vision Difference
           </span>
           <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
-            Built for Performance
+            The Problem Isn&apos;t the Hardware — It&apos;s the Integration
           </h2>
           <p className="text-slate-600 text-lg leading-relaxed">
-            We combine top-tier hardware with expert craftsmanship to deliver
-            systems that are as reliable as they are powerful.
+            Anyone can sell equipment. We start by understanding how you work,
+            designing solutions that remove friction and ensure your systems
+            talk to each other effortlessly.
           </p>
         </div>
 

@@ -112,18 +112,24 @@ export default function About() {
         }
       >
         <div className="prose prose-lg text-slate-600 leading-relaxed">
+          <p className="mb-6 font-medium text-slate-900 text-xl">
+            At Vision Integrated Systems, we believe technology should simplify
+            operations — not complicate them.
+          </p>
           <p className="mb-6">
-            Vision Integrated Systems is an industry leader in Audio, Video,
-            Cabling, and Security Solutions. Our commitment to quality, service,
-            and client satisfaction has made us a trusted partner for businesses
-            across Texas.
+            Anyone can sell cameras, access control, cabling, or AV equipment.
+            But when systems don’t talk to each other, when workflows break
+            down, or when users avoid the technology altogether, the problem
+            isn’t the hardware — it’s the integration.{" "}
+            <strong>That’s where Vision comes in.</strong>
           </p>
           <p>
-            We provide complete end-to-end solutions for commercial AV,
-            structured cabling, and security projects. With thousands of
-            integrations completed, our focus remains steadfast on the customer
-            experience—providing quality solutions that work simply and
-            reliably.
+            We start by understanding how you work, what matters most, and where
+            technology can remove friction instead of adding it. From access
+            control and video surveillance to structured cabling and audiovisual
+            systems, we design solutions that are custom-built around your
+            environment, your people, and your goals. The result isn’t just
+            installed technology — it’s technology that works for you.
           </p>
         </div>
       </ContentSection>

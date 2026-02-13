@@ -63,8 +63,11 @@ export default function Hero() {
           className="text-lg md:text-2xl text-slate-300 max-w-2xl mx-auto mb-10 leading-relaxed font-light"
           variants={itemVariants}
         >
-          Transforming spaces with seamless audio-video, security, and
-          structured cabling solutions.
+          We don’t force solutions into spaces. We engineer systems that fit.{" "}
+          <br className="hidden md:block" />
+          <span className="font-medium text-blue-400">
+            Reliable. Scalable. Secure. Easy to use.
+          </span>
         </motion.p>
 
         <motion.div

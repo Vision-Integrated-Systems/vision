@@ -28,11 +28,12 @@ export default function CtaSection() {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight">
-            Ready to Upgrade Your Infrastructure?
+            Ready for Technology That Works For You?
           </h2>
           <p className="text-blue-100 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed font-light">
-            Whether you need a simple conference room update or a campus-wide
-            fiber optic backbone, our team is ready to design your solution.
+            Let&apos;s start by understanding your goals. Whether you need a
+            simple update or a campus-wide deployment, we engineer solutions
+            custom-built around your environment and your people.
           </p>
 
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
@@ -40,7 +41,7 @@ export default function CtaSection() {
               href="/contact-us"
               className="group inline-flex items-center gap-3 px-8 py-4 bg-white text-blue-700 font-bold rounded-full shadow-2xl hover:shadow-blue-900/20 transition-all duration-300"
             >
-              Get a Free Consultation
+              Start the Conversation
               <ArrowRightIcon className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Link>
           </motion.div>
