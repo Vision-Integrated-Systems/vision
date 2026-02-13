@@ -50,7 +50,24 @@ export const trainingVideos: TrainingVideo[] = [
   },
 
   // AXIS VIDEOS
-
+  {
+    id: "axis-01",
+    title: "AXIS Camera Station Pro - version 6.14 new user features",
+    description: "This video with show you the highlights of some of the new features introduced into ACS Pro 6.14.",
+    youtubeId: "qYqDLmrclvw",
+    duration: "5:32",
+    category: "Axis",
+    tags: ["AXIS Camera Station Pro", "Features"],
+  },
+  {
+    id: "axis-02",
+    title: "Audit logging in AXIS OS",
+    description: "Learn how audit logging in AXIS OS plays a key role in system accountability and compliance.",
+    youtubeId: "TPFCD-SIAzI",
+    duration: "9:18",
+    category: "Axis",
+    tags: ["AXIS OS", "Audit Logging"],
+  },
 
   // CRESTRON VIDEOS
 ];
