@@ -104,7 +104,7 @@ export default function Services() {
                 <div className="absolute inset-0 bg-linear-to-t from-slate-900/60 via-transparent to-transparent"></div>
               </div>
 
-              {/* Floating UI Badge */}
+              {/* Floating UI Badge - Bottom Right */}
               <div className="absolute -bottom-6 -right-6 lg:-right-10 bg-white/90 backdrop-blur-xl border border-slate-200 p-6 rounded-2xl shadow-2xl z-20 flex items-center gap-4 transform transition-transform duration-500 group-hover:-translate-y-2">
                 <div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center text-green-600">
                   <SignalIcon className="w-6 h-6" />
@@ -189,8 +189,8 @@ export default function Services() {
                 />
               </div>
 
-              {/* Floating UI Badge */}
-              <div className="absolute top-10 -left-6 lg:-left-10 bg-slate-800/90 backdrop-blur-xl border border-slate-600 p-5 rounded-2xl shadow-2xl z-20 flex items-center gap-4 transform transition-transform duration-500 group-hover:-translate-y-2">
+              {/* Floating UI Badge - Bottom Right */}
+              <div className="absolute -bottom-6 -right-6 lg:-right-10 bg-slate-800/90 backdrop-blur-xl border border-slate-600 p-5 rounded-2xl shadow-2xl z-20 flex items-center gap-4 transform transition-transform duration-500 group-hover:-translate-y-2">
                 <div className="w-2 h-2 rounded-full bg-blue-400 animate-ping absolute top-4 right-4"></div>
                 <div className="w-2 h-2 rounded-full bg-blue-500 absolute top-4 right-4"></div>
                 <div className="w-10 h-10 rounded-xl bg-blue-500/20 flex items-center justify-center text-blue-400 border border-blue-500/30">
@@ -269,8 +269,8 @@ export default function Services() {
                 />
               </div>
 
-              {/* Floating UI Badge */}
-              <div className="absolute bottom-10 -left-6 lg:-left-10 bg-white/90 backdrop-blur-xl border border-slate-200 p-5 rounded-2xl shadow-2xl z-20 flex items-center gap-4 transform transition-transform duration-500 group-hover:translate-y-2">
+              {/* Floating UI Badge - Bottom Right */}
+              <div className="absolute -bottom-6 -right-6 lg:-right-10 bg-white/90 backdrop-blur-xl border border-slate-200 p-5 rounded-2xl shadow-2xl z-20 flex items-center gap-4 transform transition-transform duration-500 group-hover:-translate-y-2">
                 <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-600">
                   <ShieldCheckIcon className="w-6 h-6" />
                 </div>
