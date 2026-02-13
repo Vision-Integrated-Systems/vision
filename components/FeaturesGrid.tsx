@@ -142,7 +142,7 @@ export default function FeaturesGrid() {
                 <h3 className="text-2xl font-bold text-slate-900 mb-4 group-hover:text-blue-600 transition-colors duration-300 z-10 relative">
                   {feature.title}
                 </h3>
-                <p className="text-slate-600 leading-relaxed font-light z-10 relative flex-grow">
+                <p className="text-slate-600 leading-relaxed font-light z-10 relative grow">
                   {feature.desc}
                 </p>
 
