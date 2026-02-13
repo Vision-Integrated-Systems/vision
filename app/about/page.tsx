@@ -145,8 +145,9 @@ export default function About() {
           </h2>
           <div className="max-w-5xl mx-auto">
             <p className="text-3xl md:text-5xl font-serif leading-tight text-transparent bg-clip-text bg-linear-to-b from-white to-blue-200">
-              &quot;To deliver the security of an ironclad product, backed by
-              the responsiveness and expertise your success demands.&quot;
+              &quot;To engineer integrated systems that remove friction and
+              simplify operations—delivering technology that truly works for
+              your people.&quot;
             </p>
           </div>
         </div>
