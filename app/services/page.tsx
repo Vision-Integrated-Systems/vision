@@ -122,7 +122,7 @@ export default function Services() {
 
             {/* Right: Content */}
             <div className="lg:w-1/2 relative z-10">
-              <span className="text-blue-600 font-bold tracking-widest uppercase text-sm mb-4 block flex items-center gap-2">
+              <span className="text-blue-600 font-bold tracking-widest uppercase text-sm mb-4 flex items-center gap-2">
                 <VideoCameraIcon className="w-5 h-5" /> Audio & Video
               </span>
               <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-6 leading-tight">
@@ -171,7 +171,7 @@ export default function Services() {
       >
         {/* Tech Grid Background */}
         <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 mix-blend-overlay"></div>
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-40"></div>
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-size-[4rem_4rem] mask-[radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-40"></div>
 
         <div className="container mx-auto px-4 lg:px-8 relative z-10">
           <div className="flex flex-col lg:flex-row-reverse items-center gap-16">
@@ -207,7 +207,7 @@ export default function Services() {
 
             {/* Left: Content */}
             <div className="lg:w-1/2">
-              <span className="text-blue-400 font-bold tracking-widest uppercase text-sm mb-4 block flex items-center gap-2">
+              <span className="text-blue-400 font-bold tracking-widest uppercase text-sm mb-4 flex items-center gap-2">
                 <ServerStackIcon className="w-5 h-5" /> Structured Cabling
               </span>
               <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">
@@ -287,7 +287,7 @@ export default function Services() {
 
             {/* Right: Content */}
             <div className="lg:w-1/2 relative z-10">
-              <span className="text-blue-600 font-bold tracking-widest uppercase text-sm mb-4 block flex items-center gap-2">
+              <span className="text-blue-600 font-bold tracking-widest uppercase text-sm mb-4 flex items-center gap-2">
                 <ShieldCheckIcon className="w-5 h-5" /> Security Solutions
               </span>
               <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-6 leading-tight">
