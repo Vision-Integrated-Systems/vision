@@ -1,12 +1,14 @@
 "use client";
 
 import { motion, Variants } from "framer-motion";
+import Link from "next/link";
 
 export default function FeaturesGrid() {
   const features = [
     {
       title: "Concept & Design",
       desc: "Expert consultation for Audio, Video, and Security infrastructure tailored to your floorplan.",
+      link: "/services",
       icon: (
         <path
           strokeLinecap="round"
@@ -18,6 +20,7 @@ export default function FeaturesGrid() {
     {
       title: "Custom A/V Integration",
       desc: "Seamless, reliable, and flexible systems designed for modern conference rooms and campuses.",
+      link: "/services#av",
       icon: (
         <path
           strokeLinecap="round"
@@ -29,6 +32,7 @@ export default function FeaturesGrid() {
     {
       title: "Rapid Support",
       desc: "Dependable technicians available 24/7 to ensure your systems remain operational.",
+      link: "/service-ticket",
       icon: (
         <path
           strokeLinecap="round"
@@ -57,27 +61,37 @@ export default function FeaturesGrid() {
   };
 
   return (
-    <section className="py-24 bg-white relative z-10 overflow-hidden">
-      {/* Abstract Background Shapes */}
-      <div className="absolute top-0 right-0 w-1/3 h-full bg-slate-50 skew-x-12 -mr-20 z-0 opacity-50" />
+    <section className="py-24 md:py-32 bg-slate-50 relative z-10 overflow-hidden">
+      {/* Abstract Background Enhancements */}
+      <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-5 mix-blend-overlay pointer-events-none z-0"></div>
+      <div className="absolute top-0 right-0 w-1/2 h-full bg-linear-to-bl from-blue-100/40 to-transparent pointer-events-none z-0"></div>
+      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-indigo-100/40 rounded-full blur-[100px] pointer-events-none z-0"></div>
 
       <div className="container mx-auto px-4 relative z-10">
+        {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-20">
-          <span className="text-blue-600 font-bold tracking-wider uppercase text-sm mb-2 block">
+          <span className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full border border-blue-200 bg-blue-50 text-blue-600 text-sm font-bold tracking-widest uppercase mb-6 shadow-sm">
+            <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
             The Vision Difference
           </span>
-          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
-            The Problem Isn&apos;t the Hardware — It&apos;s the Integration
+          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6 tracking-tight leading-tight">
+            The Problem Isn&apos;t the Hardware —{" "}
+            <br className="hidden md:block" />
+            It&apos;s the{" "}
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-600 to-indigo-600">
+              Integration
+            </span>
           </h2>
-          <p className="text-slate-600 text-lg leading-relaxed">
+          <p className="text-slate-600 text-lg leading-relaxed font-light">
             Anyone can sell equipment. We start by understanding how you work,
             designing solutions that remove friction and ensure your systems
             talk to each other effortlessly.
           </p>
         </div>
 
+        {/* Features Grid */}
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10 max-w-7xl mx-auto"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -86,25 +100,75 @@ export default function FeaturesGrid() {
           {features.map((feature, idx) => (
             <motion.div
               key={idx}
-              className="bg-white rounded-2xl p-8 border border-slate-100 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300"
+              className="relative group h-full"
               variants={cardVariants}
             >
-              <div className="w-16 h-16 mb-8 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center shadow-inner">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                  className="w-8 h-8"
-                >
-                  {feature.icon}
-                </svg>
+              {/* Glowing Drop Shadow on Hover */}
+              <div className="absolute inset-0 bg-linear-to-r from-blue-500 to-indigo-500 rounded-3xl blur-xl opacity-0 group-hover:opacity-15 transition-opacity duration-500 pointer-events-none"></div>
+
+              {/* Main Card */}
+              <div className="relative h-full bg-white rounded-3xl p-10 border border-slate-200/60 shadow-lg hover:shadow-2xl transition-all duration-500 flex flex-col hover:-translate-y-2 z-10 overflow-hidden">
+                {/* Decorative Top Accent Line */}
+                <div className="absolute top-0 left-0 w-full h-1.5 bg-slate-100 group-hover:bg-linear-to-r group-hover:from-blue-500 group-hover:to-indigo-500 transition-all duration-500"></div>
+
+                {/* Subtle Ghost Icon in Background */}
+                <div className="absolute -top-6 -right-6 text-slate-50 group-hover:text-blue-50/50 transition-colors duration-500 z-0 transform group-hover:scale-110 group-hover:-rotate-12">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={1}
+                    stroke="currentColor"
+                    className="w-40 h-40"
+                  >
+                    {feature.icon}
+                  </svg>
+                </div>
+
+                {/* Primary Icon Container */}
+                <div className="relative w-16 h-16 mb-8 bg-slate-50 border border-slate-100 text-blue-600 rounded-2xl flex items-center justify-center group-hover:bg-blue-600 group-hover:text-white group-hover:border-blue-500 transition-all duration-500 shadow-sm group-hover:shadow-[0_0_20px_rgba(59,130,246,0.3)] z-10">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={1.5}
+                    stroke="currentColor"
+                    className="w-8 h-8 group-hover:scale-110 transition-transform duration-500"
+                  >
+                    {feature.icon}
+                  </svg>
+                </div>
+
+                <h3 className="text-2xl font-bold text-slate-900 mb-4 group-hover:text-blue-600 transition-colors duration-300 z-10 relative">
+                  {feature.title}
+                </h3>
+                <p className="text-slate-600 leading-relaxed font-light z-10 relative flex-grow">
+                  {feature.desc}
+                </p>
+
+                {/* Animated Bottom Indicator (Hidden until hover) */}
+                <div className="mt-8 pt-6 border-t border-slate-100 z-10 relative overflow-hidden">
+                  <Link
+                    href={feature.link}
+                    className="flex items-center text-sm font-bold text-blue-600 opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 cursor-pointer hover:underline w-fit"
+                  >
+                    Discover How
+                    <svg
+                      className="w-4 h-4 ml-2"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M17 8l4 4m0 0l-4 4m4-4H3"
+                      />
+                    </svg>
+                  </Link>
+                </div>
               </div>
-              <h3 className="text-2xl font-bold text-slate-900 mb-4">
-                {feature.title}
-              </h3>
-              <p className="text-slate-600 leading-relaxed">{feature.desc}</p>
             </motion.div>
           ))}
         </motion.div>
