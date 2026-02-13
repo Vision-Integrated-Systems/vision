@@ -93,13 +93,14 @@ export default function Services() {
         }
       >
         <h3 className="text-2xl font-bold text-slate-900 mb-4">
-          Custom A/V Solutions
+          Collaboration Without the Friction
         </h3>
         <p className="mb-6 text-lg text-slate-600 leading-relaxed">
-          Vision Integrated Systems is a premier provider of high-quality
-          commercial audio, video, and visual presentation solutions. We tailor
-          every installation to the unique requirements of your space, budget,
-          and application.
+          When AV systems don&apos;t talk to each other, meetings break down and
+          users avoid the technology. We design and integrate audio, video, and
+          control systems that remove the frustration from collaboration. From
+          huddle spaces to complex video walls, we engineer solutions
+          custom-built for how your team actually works.
         </p>
         <ul className="grid sm:grid-cols-2 gap-3">
           {[
@@ -139,12 +140,14 @@ export default function Services() {
         }
       >
         <h3 className="text-2xl font-bold text-slate-900 mb-4">
-          The Backbone of Your Network
+          The Foundation of True Integration
         </h3>
         <p className="mb-6 text-lg text-slate-600 leading-relaxed">
-          Reliable connectivity starts with professional cabling. We design,
-          procure, and install structured cabling systems that meet today&apos;s
-          demands and tomorrow&apos;s growth.
+          Seamless integration requires a flawless physical foundation. Whether
+          it&apos;s a server room cleanup or a campus-wide fiber optic backbone,
+          we design and install structured cabling systems that ensure your
+          technology communicates reliably today and scales effortlessly
+          tomorrow.
         </p>
         <ul className="space-y-4">
           {[
@@ -181,12 +184,13 @@ export default function Services() {
         }
       >
         <h3 className="text-2xl font-bold text-slate-900 mb-4">
-          Protecting Your Assets
+          Unified Security That Simplifies Operations
         </h3>
         <p className="mb-6 text-lg text-slate-600 leading-relaxed">
-          Vision’s world-class integrated access control and surveillance
-          systems deliver peace of mind. We provide solutions that are
-          unsurpassed in simplicity, flexibility, and reliability.
+          Anyone can hang a camera, but true security comes from systems that
+          work together. We engineer unified access control and video
+          surveillance platforms that give you total visibility and control,
+          without complicating your daily workflow.
         </p>
         <ul className="space-y-4">
           {[
