@@ -52,7 +52,7 @@ export default function Services() {
             security, and power your daily workflows.
           </p>
 
-          {/* Glassmorphism Quick Links */}
+          {/* Quick Links */}
           <div className="flex flex-wrap justify-center gap-4 text-sm font-medium">
             {[
               { id: "av", icon: VideoCameraIcon, text: "Audio & Video" },
@@ -95,7 +95,7 @@ export default function Services() {
 
               <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-slate-100 z-10">
                 <Image
-                  src="/audio-video.webp"
+                  src="/service/audio-video.webp"
                   alt="Modern conference room"
                   width={800}
                   height={600}
