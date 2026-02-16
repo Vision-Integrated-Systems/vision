@@ -1,5 +1,5 @@
 import StatsSection from "@/components/StatsSection";
-import Testimonials from "@/components/Testimonials";
+// import Testimonials from "@/components/Testimonials";
 import CtaSection from "@/components/CtaSection";
 import type { Metadata } from "next";
 import {
@@ -340,7 +340,7 @@ export default function Services() {
       </section>
 
       {/* Testimonials */}
-      <Testimonials />
+      {/* <Testimonials /> */}
 
       {/* Call to Action */}
       <CtaSection />

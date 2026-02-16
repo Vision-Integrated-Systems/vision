@@ -8,9 +8,9 @@ const StatsSection = dynamic(() => import("@/components/StatsSection"), {
 const FeaturesGrid = dynamic(() => import("@/components/FeaturesGrid"), {
   loading: () => <div className="h-[600px] bg-white" />,
 });
-const Testimonials = dynamic(() => import("@/components/Testimonials"), {
-  loading: () => <div className="h-[500px] bg-slate-900" />,
-});
+// const Testimonials = dynamic(() => import("@/components/Testimonials"), {
+//   loading: () => <div className="h-[500px] bg-slate-900" />,
+// });
 const CtaSection = dynamic(() => import("@/components/CtaSection"));
 
 export default function Home() {
@@ -19,7 +19,7 @@ export default function Home() {
       <Hero />
       <StatsSection />
       <FeaturesGrid />
-      <Testimonials />
+      {/* <Testimonials /> */}
       <TrustedManufacturers />
       <CtaSection />
     </>
