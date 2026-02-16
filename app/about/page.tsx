@@ -16,26 +16,26 @@ export const metadata: Metadata = {
 };
 
 export default function About() {
-  const leaders = [
-    {
-      name: "Bo Barron",
-      title: "Managing Director",
-      bio: "Leading Vision Integrated Systems with a focus on strategy and customer satisfaction.",
-      imageSrc: "/bo.jpeg",
-    },
-    {
-      name: "Zack Spelz",
-      title: "Director of Business Development",
-      bio: "Ensuring operational excellence and efficient project delivery across all sectors.",
-      imageSrc: "/zack.jpeg",
-    },
-    {
-      name: "Josh Schulze",
-      title: "Director of Operations",
-      bio: "Overseeing technical standards and driving innovation in AV and security solutions.",
-      imageSrc: "/josh.jpeg",
-    },
-  ];
+  // const leaders = [
+  //   {
+  //     name: "Bo Barron",
+  //     title: "Managing Director",
+  //     bio: "Leading Vision Integrated Systems with a focus on strategy and customer satisfaction.",
+  //     imageSrc: "/bo.jpeg",
+  //   },
+  //   {
+  //     name: "Zack Spelz",
+  //     title: "Director of Business Development",
+  //     bio: "Ensuring operational excellence and efficient project delivery across all sectors.",
+  //     imageSrc: "/zack.jpeg",
+  //   },
+  //   {
+  //     name: "Josh Schulze",
+  //     title: "Director of Operations",
+  //     bio: "Overseeing technical standards and driving innovation in AV and security solutions.",
+  //     imageSrc: "/josh.jpeg",
+  //   },
+  // ];
 
   const values = [
     {
