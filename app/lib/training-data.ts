@@ -2,13 +2,13 @@ export interface TrainingVideo {
   id: string;
   title: string;
   description: string;
-  youtubeId: string; // The ID from the YouTube URL (e.g., dQw4w9WgXcQ)
+  youtubeId: string;
   duration: string;
   category: string;
   tags: string[];
 }
 
-export const trainingCategories = ["Genetec", "Axis", "Crestron", "General"];
+export const trainingCategories = ["Genetec", "Axis", "Crestron"];
 
 export const trainingVideos: TrainingVideo[] = [
   // GENETEC VIDEOS
@@ -70,4 +70,40 @@ export const trainingVideos: TrainingVideo[] = [
   },
 
   // CRESTRON VIDEOS
+  {
+    id: "cre-01",
+    title: "Introduction to Crestron Systems: Introduction and Automation",
+    description: "An overview to the course and what you will learn from it. Defines automation systems and how Crestron provides the right solutions.",
+    youtubeId: "OdhueSto4Fc",
+    duration: "4:14",
+    category: "Crestron",
+    tags: ["Crestron", "Introduction", "Automation"],
+  },
+  {
+    id: "cre-02",
+    title: "Introduction to Crestron Systems: Ethernet",
+    description: "Ethernet connectivity overview covering POE or Power Over Ethernet, network IP addressing, as well as how to set the IP ID of Crestron products.",
+    youtubeId: "DGe9QjcLuFw",
+    duration: "9:15",
+    category: "Crestron",
+    tags: ["Crestron", "Ethernet"],
+  },
+  {
+    id: "cre-03",
+    title: "Introduction to Crestron Systems: Crestron Toolbox",
+    description: "How to use Crestron Toolbox™ as well as using Device Discovery and Easy Config to simplify discovering and setting up Crestron products.",
+    youtubeId: "jNZr8ITamkg",
+    duration: "1:59",
+    category: "Crestron",
+    tags: ["Crestron", "Toolbox"],
+  },
+  {
+    id: "cre-04",
+    title: "Introduction to Crestron Systems: Debugging Connections",
+    description: "This video will cover the Crestron best practices on how to debug connections with all the supported Crestron connection types. This will include how the local Wi-Fi RF signals can cause interference with infiNET EX® devices.",
+    youtubeId: "TNyJ54Z9DT8",
+    duration: "6:20",
+    category: "Crestron",
+    tags: ["Crestron", "Debugging"],
+  },
 ];
