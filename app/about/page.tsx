@@ -73,7 +73,7 @@ export default function About() {
 
         <div className="container mx-auto px-4 relative z-10">
           <div className="inline-block mb-6 px-4 py-1.5 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-300 text-sm font-medium tracking-wide backdrop-blur-md">
-            Since 1994
+            Since 2018
           </div>
           <h1 className="text-5xl md:text-7xl font-bold mb-8 tracking-tight leading-tight">
             About <br />
@@ -261,8 +261,7 @@ export default function About() {
       </section>
 
       {/* Leadership Section */}
-      <section className="py-24 md:py-32 bg-slate-950 text-white relative overflow-hidden">
-        {/* Dynamic Background Ambience */}
+      {/* <section className="py-24 md:py-32 bg-slate-950 text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-5 mix-blend-overlay z-0"></div>
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-600/10 rounded-full blur-[120px] pointer-events-none"></div>
         <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-indigo-600/10 rounded-full blur-[120px] pointer-events-none"></div>
@@ -289,19 +288,14 @@ export default function About() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10 max-w-6xl mx-auto">
             {leaders.map((leader, idx) => (
               <div key={idx} className="group relative">
-                {/* Hover Glow Behind Card */}
                 <div className="absolute inset-0 bg-linear-to-b from-blue-600/20 to-indigo-600/20 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
                 <div className="relative h-full bg-slate-900/80 backdrop-blur-xl rounded-3xl p-8 border border-slate-700/50 hover:border-blue-500/30 transition-all duration-500 flex flex-col items-center text-center hover:-translate-y-2 overflow-hidden z-10">
-                  {/* Top Accent Line */}
                   <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/3 h-1 bg-linear-to-r from-blue-500 to-indigo-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-b-full"></div>
 
-                  {/* Image Container with Gradient Ring */}
                   <div className="relative mb-8 mt-4">
-                    {/* Ambient Glow behind image */}
                     <div className="absolute inset-0 bg-blue-500 rounded-full blur-2xl opacity-10 group-hover:opacity-40 transition-opacity duration-500"></div>
 
-                    {/* The Gradient Border Ring */}
                     <div className="relative w-44 h-44 rounded-full p-1 bg-linear-to-br from-slate-700 to-slate-800 group-hover:from-blue-500 group-hover:to-indigo-500 transition-colors duration-500 z-10 shadow-2xl">
                       <div className="w-full h-full rounded-full border-4 border-slate-900 overflow-hidden relative">
                         <Image
@@ -313,7 +307,6 @@ export default function About() {
                       </div>
                     </div>
 
-                    {/* Floating Tech Accent Badge */}
                     <div className="absolute -bottom-2 -right-2 w-12 h-12 bg-slate-800 rounded-full border border-slate-600 flex items-center justify-center text-blue-400 group-hover:bg-blue-600 group-hover:text-white group-hover:border-blue-400 transition-all duration-500 shadow-xl z-20">
                       <svg
                         className="w-5 h-5"
@@ -348,7 +341,7 @@ export default function About() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       <TrustedManufacturers />
 
