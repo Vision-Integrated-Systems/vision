@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     title: "Vision Integrated Systems",
     description:
       "Leading provider of audio-video, structured cabling, and security solutions in Texas.",
-    url: "https://vision-iota-ten.vercel.app/", // TODO: Replace with your actual domain
+    url: "https://vision-texas.com/",
     siteName: "Vision Integrated Systems",
     images: [
       {
