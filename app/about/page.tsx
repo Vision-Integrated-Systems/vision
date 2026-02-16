@@ -16,26 +16,26 @@ export const metadata: Metadata = {
 };
 
 export default function About() {
-  // const leaders = [
-  //   {
-  //     name: "Bo Barron",
-  //     title: "Managing Director",
-  //     bio: "Leading Vision Integrated Systems with a focus on strategy and customer satisfaction.",
-  //     imageSrc: "/bo.jpeg",
-  //   },
-  //   {
-  //     name: "Zack Spelz",
-  //     title: "Director of Business Development",
-  //     bio: "Ensuring operational excellence and efficient project delivery across all sectors.",
-  //     imageSrc: "/zack.jpeg",
-  //   },
-  //   {
-  //     name: "Josh Schulze",
-  //     title: "Director of Operations",
-  //     bio: "Overseeing technical standards and driving innovation in AV and security solutions.",
-  //     imageSrc: "/josh.jpeg",
-  //   },
-  // ];
+  const leaders = [
+    {
+      name: "Bo Barron",
+      title: "Managing Director",
+      bio: "Leading Vision Integrated Systems with a focus on strategy and customer satisfaction.",
+      imageSrc: "/bo.webp",
+    },
+    {
+      name: "Zack Spelz",
+      title: "Director of Business Development",
+      bio: "Ensuring operational excellence and efficient project delivery across all sectors.",
+      imageSrc: "/zack.jpeg",
+    },
+    {
+      name: "Josh Schulze",
+      title: "Director of Operations",
+      bio: "Overseeing technical standards and driving innovation in AV and security solutions.",
+      imageSrc: "/josh.webp",
+    },
+  ];
 
   const values = [
     {
@@ -261,7 +261,7 @@ export default function About() {
       </section>
 
       {/* Leadership Section */}
-      {/* <section className="py-24 md:py-32 bg-slate-950 text-white relative overflow-hidden">
+      { <section className="py-24 md:py-32 bg-slate-950 text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-5 mix-blend-overlay z-0"></div>
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-600/10 rounded-full blur-[120px] pointer-events-none"></div>
         <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-indigo-600/10 rounded-full blur-[120px] pointer-events-none"></div>
@@ -341,7 +341,7 @@ export default function About() {
             ))}
           </div>
         </div>
-      </section> */}
+      </section>}
 
       <TrustedManufacturers />
 
