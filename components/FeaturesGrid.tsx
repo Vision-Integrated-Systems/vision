@@ -75,11 +75,11 @@ export default function FeaturesGrid() {
             The Vision Difference
           </span>
           <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6 tracking-tight leading-tight">
-            The Problem Isn&apos;t the Hardware —{" "}
-            <br className="hidden md:block" />
-            It&apos;s the{" "}
+            We partner with the best manufacturers{" "}
+            {/* <br className="hidden md:block" /> */}
+            to deliver fully{" "}
             <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-600 to-indigo-600">
-              Integration
+              integrated solutions
             </span>
           </h2>
           <p className="text-slate-600 text-lg leading-relaxed font-light">

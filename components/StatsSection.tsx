@@ -2,10 +2,10 @@
 import { motion } from "framer-motion";
 
 const stats = [
-  { label: "Years of Experience", value: "30+" },
+  { label: "Years of Combined Experience", value: "30+" },
   { label: "Projects Completed", value: "1k+" },
   { label: "Certified Technicians", value: "100%" },
-  { label: "Texas Clients", value: "500+" },
+  { label: "Texas Clients", value: "100+" },
 ];
 
 export default function StatsSection() {
