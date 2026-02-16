@@ -16,7 +16,7 @@ import CtaSection from "@/components/CtaSection";
 import Image from "next/image";
 
 export default function TrainingPage() {
-  const [selectedCategory, setSelectedCategory] = useState("Genetec");
+  const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedVideo, setSelectedVideo] = useState<TrainingVideo | null>(
     null,
   );
