@@ -48,6 +48,33 @@ export const trainingVideos: TrainingVideo[] = [
     category: "Genetec",
     tags: ["Security Center", "Reports"],
   },
+  {
+    id: "gen-05",
+    title: "Creating Cardholders",
+    description: "To add new employees who must enter and exit secured areas using access cards, and to track their activities, you can create cardholders using the Cardholder management task.",
+    youtubeId: "woggR-ioKTA",
+    duration: "2:17",
+    category: "Genetec",
+    tags: ["Security Center", "Cardholders"],
+  },
+  {
+    id: "gen-06",
+    title: "Assigning Access Rules To Cardholders",
+    description: "To assign access rules to cardholders in Security Center, you must first create cardholders and then define the access rules that apply to them.",
+    youtubeId: "_rsaUgWRdyE",
+    duration: "1:12",
+    category: "Genetec",
+    tags: ["Security Center", "Access Rules"],
+  },
+  {
+    id: "gen-07",
+    title: "Checking In New Visitors",
+    description: "To check in new visitors, you can use the Visitor Management task in Security Center. This task allows you to create visitor profiles, assign access rules, and track their activities during their visit.",
+    youtubeId: "F5APacnbolU",
+    duration: "1:48",
+    category: "Genetec",
+    tags: ["Security Center", "Visitors"],
+  },
 
   // AXIS VIDEOS
   {
