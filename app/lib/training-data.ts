@@ -88,7 +88,7 @@ export const trainingVideos: TrainingVideo[] = [
     id: "gen-09",
     title: "Creating an Access Rule",
     description: "A quick example of how to create an Access Rule in Config Tool. This video explains the 3 W's (Who,When,Where) necessary on the access rule.",
-    youtubeId: "qVq7Uy7io",
+    youtubeId: "v-qVq7Uy7io",
     duration: "3:39",
     category: "Genetec",
     tags: ["Security Center", "Config Tool", "Access Rule"],
