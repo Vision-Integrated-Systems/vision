@@ -90,8 +90,9 @@ body { width:1080px; height:1920px; overflow:hidden; background:#1F334C;
 (function(){
   function tick(){
     var n=new Date();
-    var h=n.getHours(),ampm=h>=12?'PM':'AM',h12=h%12||12;
-    var t=String(h12).padStart(2,'0')+':'+String(n.getMinutes()).padStart(2,'0')+':'+String(n.getSeconds()).padStart(2,'0')+' '+ampm;
+    var ct=new Date(n.toLocaleString('en-US',{timeZone:'America/Chicago'}));
+    var h=ct.getHours(),ampm=h>=12?'PM':'AM',h12=h%12||12;
+    var t=String(h12).padStart(2,'0')+':'+String(ct.getMinutes()).padStart(2,'0')+':'+String(ct.getSeconds()).padStart(2,'0')+' '+ampm;
     var el=document.getElementById('hdrClock');if(el)el.textContent=t;
     var days=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
     var months=['January','February','March','April','May','June','July','August','September','October','November','December'];
