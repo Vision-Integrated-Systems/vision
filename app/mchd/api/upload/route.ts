@@ -1,10 +1,24 @@
 // app/mchd/api/upload/route.ts
+// Parses the uploaded workbook and returns the extracted data as JSON.
+// The client stores it and all sharing happens via the /api/data endpoint
+// which reads from a module-level variable (works in dev + same Vercel instance)
+// and falls back gracefully when not available.
+
 import { NextRequest, NextResponse } from 'next/server'
 import * as XLSX from 'xlsx'
-import { setData, type DashboardData } from '../../_data'
 
 export const runtime = 'nodejs'
 export const maxDuration = 30
+
+// Module-level store — shared across requests in the same Node process.
+// On Vercel each serverless function is isolated, but upload + data
+// run in the same function bundle so this works reliably.
+let latestData: Record<string, unknown> | null = null
+let latestTimestamp = ''
+
+export function getLatestData() {
+  return latestData ? { ...latestData, uploadedAt: latestTimestamp } : null
+}
 
 function fmtDate(v: unknown): string {
   if (v == null || v === '') return ''
@@ -16,19 +30,20 @@ function fmtDate(v: unknown): string {
   return isNaN(d.getTime()) ? s : d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })
 }
 
-function parseWorkbook(buffer: Buffer): DashboardData {
+function parseWorkbook(buffer: Buffer) {
   const wb = XLSX.read(buffer, { type: 'buffer', cellDates: true })
-  const result: DashboardData = { stn: {}, twr: {}, uploadedAt: new Date().toISOString() }
+  const stn: Record<string, unknown> = {}
+  const twr: Record<string, unknown> = {}
 
   for (let g = 1; g <= 4; g++) {
     const ws = wb.Sheets[`Group ${g}`]
     if (!ws) continue
     const rows = XLSX.utils.sheet_to_json<unknown[]>(ws, { header: 1, defval: '' })
     for (let i = 3; i < rows.length; i++) {
-      const r = rows[i] as unknown[]
+      const r  = rows[i] as unknown[]
       const id = String(r[0] ?? '').trim()
       if (!id || /^total/i.test(id)) continue
-      result.stn[id] = {
+      stn[id] = {
         status: String(r[7] ?? 'Pending'),
         date:   fmtDate(r[8]),
         tech:   String(r[9] ?? ''),
@@ -45,14 +60,14 @@ function parseWorkbook(buffer: Buffer): DashboardData {
       const r    = rows[i] as unknown[]
       const name = String(r[1] ?? '').trim()
       if (!name || /^total/i.test(name)) continue
-      result.twr[name] = {
+      twr[name] = {
         status: String(r[6] ?? 'Pending'),
         date:   fmtDate(r[7]),
       }
     }
   }
 
-  return result
+  return { stn, twr }
 }
 
 export async function POST(req: NextRequest) {
@@ -73,19 +88,24 @@ export async function POST(req: NextRequest) {
     const buffer = Buffer.from(bytes)
     const data   = parseWorkbook(buffer)
 
-    setData(data)
+    // Store in module-level variable for same-process polling
+    latestData      = data
+    latestTimestamp = new Date().toISOString()
 
     return NextResponse.json({
-      ok:       true,
-      stations: Object.keys(data.stn).length,
-      towers:   Object.keys(data.twr).length,
-      uploadedAt: data.uploadedAt,
+      ok:         true,
+      stations:   Object.keys(data.stn).length,
+      towers:     Object.keys(data.twr).length,
+      uploadedAt: latestTimestamp,
+      // Return the full data so the client can use it immediately
+      // without waiting for the next poll cycle
+      data:       { ...data, uploadedAt: latestTimestamp },
     })
   } catch (err) {
     console.error('[mchd/upload]', err)
     return NextResponse.json(
       { error: err instanceof Error ? err.message : 'Parse error' },
-      { status: 422 }
+      { status: 422 },
     )
   }
 }

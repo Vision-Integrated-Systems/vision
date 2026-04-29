@@ -1,18 +1,16 @@
 // app/mchd/api/data/route.ts
-// Lightweight polling endpoint.
-// The client polls this every 10 seconds to pick up new uploads.
-// (SSE doesn't work reliably on Vercel serverless — polling is the correct pattern here.)
+// Polling endpoint — returns the latest parsed data.
+// Imports from the upload route so they share the same module instance
+// within a single Next.js server process (dev + Vercel bundled functions).
 
-import { NextResponse } from 'next/server'
-import { getData } from '../../_data'
-
+export const dynamic = 'force-dynamic'
 export const runtime = 'nodejs'
 
-// Tell Next.js / Vercel not to cache this route
-export const dynamic = 'force-dynamic'
+import { NextResponse } from 'next/server'
+import { getLatestData } from '../upload/route'
 
 export async function GET() {
-  const data = getData()
+  const data = getLatestData()
   if (!data) {
     return NextResponse.json({ empty: true }, { status: 404 })
   }
