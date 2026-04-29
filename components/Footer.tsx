@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import {
   MapPinIcon,
   EnvelopeIcon,
@@ -7,6 +10,11 @@ import {
 } from "@heroicons/react/24/outline";
 
 export default function Footer() {
+  const pathname = usePathname();
+  
+  // Hide the footer completely if we are in the Sanity Studio
+  if (pathname.startsWith("/studio")) return null;
+
   return (
     <footer className="relative bg-slate-950 text-slate-300 pt-24 pb-10 overflow-hidden z-10">
       {/* Dynamic Background Effects */}
@@ -16,7 +24,7 @@ export default function Footer() {
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-1/2 bg-blue-600/10 blur-[120px] rounded-t-full pointer-events-none z-0"></div>
 
       {/* Glowing Top Border */}
-      <div className="absolute top-0 left-0 w-full h-px bg-linear-to-r from-transparent via-blue-500/50 to-transparent opacity-50"></div>
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent opacity-50"></div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Main Grid */}

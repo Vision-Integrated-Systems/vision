@@ -11,6 +11,11 @@ export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
+  
+  // Hide the header completely if we are in the Sanity Studio
+  const isStudio = pathname.startsWith("/studio");
+  if (isStudio) return null;
+
   const isHome = pathname === "/";
 
   useEffect(() => {

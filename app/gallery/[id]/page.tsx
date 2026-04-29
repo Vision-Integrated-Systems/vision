@@ -1,22 +1,28 @@
-import { projects } from "@/app/lib/projects";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeftIcon, CpuChipIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import CtaSection from "@/components/CtaSection";
+import { client, urlFor } from "@/sanity/client";
 
-// Generate static params for all known projects
 export async function generateStaticParams() {
-  return projects.map((project) => ({
-    id: project.id,
+  const query = `*[_type == "project" && defined(slug.current)] { "id": slug.current }`;
+  const slugs = await client.fetch(query);
+  return slugs.map((slug: any) => ({
+    id: slug.id,
   }));
 }
 
-export default async function ProjectPage(props: {
-  params: Promise<{ id: string }>;
-}) {
-  const params = await props.params;
-  const project = projects.find((p) => p.id === params.id);
+export default async function ProjectPage({ params }: { params: any }) {
+  const resolvedParams = await params;
+  const projectId = resolvedParams?.id;
+
+  if (!projectId) {
+    notFound();
+  }
+  
+  const query = `*[_type == "project" && slug.current == $id][0]`;
+  const project = await client.fetch(query, { id: projectId });
 
   if (!project) {
     notFound();
@@ -24,29 +30,24 @@ export default async function ProjectPage(props: {
 
   return (
     <div className="bg-slate-50">
-      {/* Immersive Hero Header */}
       <section className="relative h-[70vh] min-h-[600px] flex items-end pb-16 overflow-hidden bg-slate-950">
-        {/* Background Image with Zoom Effect */}
         <div className="absolute inset-0 z-0">
-          <Image
-            src={project.imageSrc}
-            alt={project.title}
-            fill
-            className="object-cover opacity-60"
-            priority
-            sizes="100vw"
-          />
-          {/* Complex Gradient Overlay for Readability */}
-          <div className="absolute inset-0 bg-linear-to-t from-slate-950 via-slate-950/30 to-transparent" />
-          {/* Texture Overlay */}
+          {project.image && (
+             <Image
+               src={urlFor(project.image).url()}
+               alt={project.title}
+               fill
+               className="object-cover opacity-60"
+               priority
+               sizes="100vw"
+             />
+          )}
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/30 to-transparent" />
           <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-soft-light" />
         </div>
 
         <div className="container mx-auto px-4 relative z-10">
-          <Link
-            href="/gallery"
-            className="inline-flex items-center text-blue-300 hover:text-white mb-8 transition-colors text-sm font-medium tracking-wide uppercase"
-          >
+          <Link href="/gallery" className="inline-flex items-center text-blue-300 hover:text-white mb-8 transition-colors text-sm font-medium tracking-wide uppercase">
             <ArrowLeftIcon className="w-4 h-4 mr-2" />
             Back to Gallery
           </Link>
@@ -54,40 +55,30 @@ export default async function ProjectPage(props: {
           <div className="grid lg:grid-cols-2 gap-12 items-end">
             <div>
               <span className="inline-block px-4 py-1.5 rounded-full bg-blue-500/20 border border-blue-400/30 text-blue-300 text-xs font-bold uppercase tracking-wider mb-6 backdrop-blur-md">
-                {project.category}
+                {/* SAFE ARRAY CHECK HERE */}
+                {Array.isArray(project.category) 
+                  ? project.category.join(" • ") 
+                  : project.category || "Project"}
               </span>
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight tracking-tight">
                 {project.title}
               </h1>
             </div>
 
-            {/* Glass Stats Panel */}
             <div className="lg:mb-2">
               <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6 grid grid-cols-2 md:grid-cols-4 gap-6">
                 <div>
-                  <span className="block text-slate-400 text-xs uppercase tracking-wider mb-2">
-                    Client
-                  </span>
-                  <span className="block text-white font-semibold text-lg leading-tight">
-                    {project.client}
-                  </span>
+                  <span className="block text-slate-400 text-xs uppercase tracking-wider mb-2">Client</span>
+                  <span className="block text-white font-semibold text-lg leading-tight">{project.client}</span>
                 </div>
                 <div>
-                  <span className="block text-slate-400 text-xs uppercase tracking-wider mb-2">
-                    Timeline
-                  </span>
-                  <span className="block text-white font-semibold text-lg leading-tight">
-                    {project.duration}
-                  </span>
+                  <span className="block text-slate-400 text-xs uppercase tracking-wider mb-2">Timeline</span>
+                  <span className="block text-white font-semibold text-lg leading-tight">{project.duration}</span>
                 </div>
-                {project.stats.map((stat) => (
+                {project.stats?.map((stat: any) => (
                   <div key={stat.label}>
-                    <span className="block text-slate-400 text-xs uppercase tracking-wider mb-2">
-                      {stat.label}
-                    </span>
-                    <span className="block text-white font-semibold text-lg leading-tight">
-                      {stat.value}
-                    </span>
+                    <span className="block text-slate-400 text-xs uppercase tracking-wider mb-2">{stat.label}</span>
+                    <span className="block text-white font-semibold text-lg leading-tight">{stat.value}</span>
                   </div>
                 ))}
               </div>
@@ -96,18 +87,13 @@ export default async function ProjectPage(props: {
         </div>
       </section>
 
-      {/* The Challenge - Dark Mode Context */}
+      {/* The Challenge */}
       <section className="py-24 bg-slate-900 text-white relative overflow-hidden">
         <div className="absolute top-0 right-0 w-1/3 h-full bg-blue-900/10 blur-3xl pointer-events-none" />
-
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto">
-            <span className="text-blue-500 font-bold tracking-widest uppercase text-sm mb-4 block">
-              The Challenge
-            </span>
-            <h2 className="text-3xl md:text-4xl font-bold mb-8 leading-snug">
-              Identifying the Obstacles
-            </h2>
+            <span className="text-blue-500 font-bold tracking-widest uppercase text-sm mb-4 block">The Challenge</span>
+            <h2 className="text-3xl md:text-4xl font-bold mb-8 leading-snug">Identifying the Obstacles</h2>
             <div className="prose prose-lg prose-invert text-slate-300 leading-relaxed">
               <p>{project.challenge}</p>
             </div>
@@ -115,16 +101,12 @@ export default async function ProjectPage(props: {
         </div>
       </section>
 
-      {/* The Solution - Light Mode Context */}
+      {/* The Solution */}
       <section className="py-24 bg-white relative">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <span className="text-blue-600 font-bold tracking-widest uppercase text-sm mb-4 block">
-              The Solution
-            </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-8 leading-snug">
-              Delivering Excellence
-            </h2>
+            <span className="text-blue-600 font-bold tracking-widest uppercase text-sm mb-4 block">The Solution</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-8 leading-snug">Delivering Excellence</h2>
             <div className="prose prose-lg text-slate-600 leading-relaxed mb-16">
               <p>{project.solution}</p>
             </div>
@@ -135,13 +117,9 @@ export default async function ProjectPage(props: {
                 <CpuChipIcon className="w-8 h-8 text-blue-600" />
                 Technology Deployed
               </h3>
-
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-                {project.gearList.map((item, i) => (
-                  <div
-                    key={i}
-                    className="flex items-center p-4 bg-white rounded-xl border border-slate-200 shadow-sm hover:shadow-md hover:border-blue-200 transition-all duration-300"
-                  >
+                {project.gearList?.map((item: string, i: number) => (
+                  <div key={i} className="flex items-center p-4 bg-white rounded-xl border border-slate-200 shadow-sm">
                     <div className="w-2 h-2 rounded-full bg-blue-500 mr-3 shrink-0" />
                     <span className="text-slate-700 font-medium">{item}</span>
                   </div>
@@ -151,8 +129,6 @@ export default async function ProjectPage(props: {
           </div>
         </div>
       </section>
-
-      {/* Global CTA Section */}
       <CtaSection />
     </div>
   );
