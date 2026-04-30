@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google"; // Safely pulls fonts from Google instead of local files
 import "./globals.css";
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import StructuredData from "@/components/StructuredData";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -17,28 +16,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: {
-    template: "%s | Vision Integrated Systems",
-    default: "Vision Integrated Systems",
-  },
-  description:
-    "Leading provider of audio-video, structured cabling, and security solutions in Texas.",
-  openGraph: {
-    title: "Vision Integrated Systems",
-    description:
-      "Leading provider of audio-video, structured cabling, and security solutions in Texas.",
-    url: "https://vision-texas.com/",
-    siteName: "Vision Integrated Systems",
-    images: [
-      {
-        url: "/hero-poster.webp",
-        width: 1200,
-        height: 630,
-      },
-    ],
-    locale: "en_US",
-    type: "website",
-  },
+  title: "Vision Integrated Systems",
+  description: "Providing premium AV integration, structured cabling, and security projects across Texas.",
 };
 
 export default function RootLayout({
@@ -47,16 +26,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen`}
+        suppressHydrationWarning
       >
-        <StructuredData />
-        <div className="min-h-screen flex flex-col font-sans text-slate-800 bg-white">
-          <Header />
-          <main className="grow">{children}</main>
-          <Footer />
-        </div>
+        <Header />
+        
+        <main className="flex-grow">
+          {children}
+        </main>
+        
+        <Footer />
       </body>
     </html>
   );
