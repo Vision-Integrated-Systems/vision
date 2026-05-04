@@ -91,8 +91,15 @@ export default function MCHDClientPortal() {
     if (isAuthenticated) {
       setLoading(true);
       fetch('/MCHD_Master_Workbook.xlsx')
-        .then(res => res.arrayBuffer())
-        .then(buf => parseData(buf, "MCHD_Master_Workbook.xlsx"))
+        .then(async (res) => {
+          // Grab the actual Last-Modified date from the server file metadata
+          const lastModHeader = res.headers.get('Last-Modified');
+          const fileDate = lastModHeader ? new Date(lastModHeader) : new Date();
+          
+          const buf = await res.arrayBuffer();
+          return { buf, fileDate };
+        })
+        .then(({ buf, fileDate }) => parseData(buf, "MCHD_Master_Workbook.xlsx", fileDate))
         .catch(err => {
           console.error("No default file found. Please upload one.", err);
           setLoading(false);
@@ -110,7 +117,7 @@ export default function MCHDClientPortal() {
     }
   };
 
-  const parseData = (buf: ArrayBuffer, fname: string) => {
+  const parseData = (buf: ArrayBuffer, fname: string, fileDate: Date) => {
     try {
       const wb = XLSX.read(buf, { type: 'array' });
       
@@ -195,8 +202,8 @@ export default function MCHDClientPortal() {
       setHasData(true);
       setFileName(fname);
       
-      // Update: This sets both the short date and time perfectly!
-      setSyncTime(new Date().toLocaleString('en-US', { 
+      // Use the actual File Date passed in from the server or user's computer!
+      setSyncTime(fileDate.toLocaleString('en-US', { 
         month: 'short', 
         day: 'numeric', 
         year: 'numeric', 
@@ -215,11 +222,16 @@ export default function MCHDClientPortal() {
   const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
+    
     setLoading(true);
+    
+    // Grab the exact "Date Modified" from the file the user is uploading
+    const actualFileDate = new Date(file.lastModified);
+    
     const reader = new FileReader();
     reader.onload = (ev) => {
       if (ev.target?.result) {
-        parseData(ev.target.result as ArrayBuffer, file.name);
+        parseData(ev.target.result as ArrayBuffer, file.name, actualFileDate);
       }
     };
     reader.readAsArrayBuffer(file);
