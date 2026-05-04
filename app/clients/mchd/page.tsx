@@ -194,8 +194,17 @@ export default function MCHDClientPortal() {
 
       setHasData(true);
       setFileName(fname);
-      setSyncTime(new Date().toLocaleTimeString());
+      
+      // Update: This sets both the short date and time perfectly!
+      setSyncTime(new Date().toLocaleString('en-US', { 
+        month: 'short', 
+        day: 'numeric', 
+        year: 'numeric', 
+        hour: 'numeric', 
+        minute: '2-digit' 
+      }));
       setLoading(false);
+      
     } catch (err) {
       console.error("Excel parse error:", err);
       setHasData(false);
