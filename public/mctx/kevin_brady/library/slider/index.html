@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Library Kiosk</title>
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    width: 1080px;
+    height: 1920px;
+    background: #0b2545;
+    color: #fff;
+    font-family: "Segoe UI", Arial, sans-serif;
+    overflow: hidden;
+  }
+
+  /* ---------- HEADER ---------- */
+  #header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1080px;
+    height: 260px;
+    background: linear-gradient(135deg, #ff7a00 0%, #ffb347 50%, #ffd56b 100%);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    z-index: 10;
+  }
+  #title {
+    font-size: 92px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: #ffffff;
+    text-shadow: 4px 4px 0 #b34700;
+    line-height: 1;
+    margin-bottom: 14px;
+  }
+  #subtitle {
+    font-size: 32px;
+    font-weight: 600;
+    color: #2b1700;
+    letter-spacing: 1px;
+    margin-bottom: 18px;
+  }
+  #countdown {
+    font-size: 46px;
+    font-weight: 700;
+    color: #ffffff;
+    background: rgba(0,0,0,0.30);
+    padding: 8px 28px;
+    border-radius: 12px;
+    letter-spacing: 1px;
+  }
+  #countdown .num {
+    color: #fff200;
+    font-size: 54px;
+    font-weight: 800;
+    margin: 0 4px;
+  }
+
+  /* ---------- STAGE ---------- */
+  #stage {
+    position: absolute;
+    top: 260px;
+    left: 0;
+    width: 1080px;
+    height: 1660px;
+    background: #0b2545;
+    overflow: hidden;
+  }
+
+  .slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1080px;
+    height: 1660px;
+    opacity: 0;
+    transition: opacity 1.2s ease-in-out;
+    object-fit: contain;
+    background: #0b2545;
+  }
+  .slide.active {
+    opacity: 1;
+  }
+
+  video.slide {
+    background: #000;
+  }
+
+  /* ---------- FOOTER STRIP ---------- */
+  #footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 1080px;
+    height: 8px;
+    background: linear-gradient(90deg, #ff7a00, #ffd56b, #ff7a00);
+    z-index: 11;
+  }
+</style>
+</head>
+<body>
+
+  <div id="header">
+    <div id="title">SUMMER READING</div>
+    <div id="subtitle">Kicks off June 1st &mdash; Get Ready!</div>
+    <div id="countdown">Loading&hellip;</div>
+  </div>
+
+  <div id="stage"></div>
+  <div id="footer"></div>
+
+<script>
+/* ============================================================
+   CONFIG
+   ============================================================ */
+
+// How long each image stays on screen (milliseconds)
+var IMAGE_DURATION_MS = 8000;
+
+// After this many images, play a video, then continue
+var IMAGES_PER_VIDEO = 5;
+
+// Target date for the Summer Reading countdown (local time)
+// Months are 0-indexed: 5 = June
+var TARGET_DATE = new Date(new Date().getFullYear(), 5, 1, 0, 0, 0);
+// If June 1 already passed this year, roll to next year
+if (TARGET_DATE.getTime() < Date.now()) {
+  TARGET_DATE = new Date(new Date().getFullYear() + 1, 5, 1, 0, 0, 0);
+}
+
+// List the image files (in the Images folder).
+// Add/remove files here as your collection changes.
+var IMAGES = [
+  "Images/Baby and Me.png",
+  "Images/Culinary Book Club.png",
+  "Images/Family Fun Zone.png",
+  "Images/Family Game Night.png",
+  "Images/Fiction Book Club.png",
+  "Images/Flipster.png",
+  "Images/Get a Library Card.png",
+  "Images/LEGO with Lexi.png",
+  "Images/Libby.png",
+  "Images/Middle School Book Club.png",
+  "Images/Mystery Book Club.png",
+  "Images/Preschool Storytime.png",
+  "Images/Puzzle Swap.png",
+  "Images/READ with the Dogs.png",
+  "Images/STEM Studio.png",
+  "Images/Senior Game Day.png",
+  "Images/Teen Bullet Journaling.png",
+  "Images/Teen Manga Meetup.png",
+  "Images/Teen Planet Yum.png",
+  "Images/Toddler Time.png",
+  "Images/Facebook.png"
+];
+
+// List the video files (in the video folder).
+var VIDEOS = [
+  "video/Summer Reading Promo.mp4",
+  "video/Crafting Corner.mp4",
+  "video/Walking Book Club.mp4"
+];
+
+/* ============================================================
+   COUNTDOWN
+   ============================================================ */
+
+function updateCountdown() {
+  var el = document.getElementById("countdown");
+  var now = new Date();
+  var diff = TARGET_DATE.getTime() - now.getTime();
+
+  if (diff <= 0) {
+    el.innerHTML = "Summer Reading is HERE! Sign up today!";
+    return;
+  }
+
+  var sec = Math.floor(diff / 1000);
+  var days = Math.floor(sec / 86400);
+  var hours = Math.floor((sec % 86400) / 3600);
+  var mins = Math.floor((sec % 3600) / 60);
+
+  el.innerHTML =
+    '<span class="num">' + days + '</span> days ' +
+    '<span class="num">' + hours + '</span> hrs ' +
+    '<span class="num">' + mins + '</span> min';
+}
+updateCountdown();
+setInterval(updateCountdown, 30000); // refresh every 30s
+
+/* ============================================================
+   SLIDESHOW
+   ============================================================ */
+
+var stage = document.getElementById("stage");
+var currentEl = null;
+var imageIndex = 0;
+var videoIndex = 0;
+var shownSinceVideo = 0;
+
+function fadeIn(el) {
+  // force reflow so the opacity transition triggers
+  void el.offsetWidth;
+  el.classList.add("active");
+}
+
+function removeOld() {
+  if (currentEl && currentEl.parentNode) {
+    currentEl.classList.remove("active");
+    var old = currentEl;
+    setTimeout(function () {
+      if (old.parentNode) old.parentNode.removeChild(old);
+    }, 1300);
+  }
+}
+
+function showImage() {
+  var src = IMAGES[imageIndex];
+  imageIndex = (imageIndex + 1) % IMAGES.length;
+
+  var img = document.createElement("img");
+  img.className = "slide";
+  img.src = src;
+  img.onerror = function () {
+    // skip missing images without stalling the loop
+    setTimeout(nextSlide, 100);
+  };
+
+  stage.appendChild(img);
+  removeOld();
+  currentEl = img;
+  fadeIn(img);
+
+  shownSinceVideo++;
+  setTimeout(nextSlide, IMAGE_DURATION_MS);
+}
+
+function showVideo() {
+  var src = VIDEOS[videoIndex];
+  videoIndex = (videoIndex + 1) % VIDEOS.length;
+
+  var vid = document.createElement("video");
+  vid.className = "slide";
+  vid.src = src;
+  vid.autoplay = true;
+  vid.muted = true;      // required for reliable autoplay
+  vid.playsInline = true;
+  vid.controls = false;
+  vid.preload = "auto";
+
+  var done = false;
+  function finish() {
+    if (done) return;
+    done = true;
+    nextSlide();
+  }
+  vid.onended = finish;
+  vid.onerror = function () { setTimeout(finish, 100); };
+
+  stage.appendChild(vid);
+  removeOld();
+  currentEl = vid;
+  fadeIn(vid);
+
+  // safety net: never let a stuck video freeze the kiosk
+  setTimeout(function () {
+    if (!done) finish();
+  }, 5 * 60 * 1000);
+
+  shownSinceVideo = 0;
+}
+
+function nextSlide() {
+  if (VIDEOS.length > 0 && shownSinceVideo >= IMAGES_PER_VIDEO) {
+    showVideo();
+  } else {
+    showImage();
+  }
+}
+
+// Kick off
+nextSlide();
+</script>
+</body>
+</html>
