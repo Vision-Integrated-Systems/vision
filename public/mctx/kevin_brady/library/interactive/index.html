@@ -41,9 +41,7 @@ html,body{width:1080px;height:1920px;overflow:hidden;font-family:'Manrope',sans-
 .hdr-date{font-size:16px;color:rgba(255,255,255,.55);font-weight:400;margin-top:6px;letter-spacing:.03em}
 
 /* ── CONTENT ── */
-.kiosk-content{flex:1;overflow-y:auto;background:#0A0A0F}
-.kiosk-content::-webkit-scrollbar{width:3px}
-.kiosk-content::-webkit-scrollbar-thumb{background:rgba(139,92,246,.4);border-radius:2px}
+.kiosk-content{flex:1;overflow:hidden;background:#0A0A0F}
 
 /* ── FOOTER ── */
 .kiosk-footer{flex-shrink:0;background:#0f0f1a;display:flex;flex-direction:column;border-top:1px solid rgba(255,255,255,.06)}
@@ -93,11 +91,11 @@ html,body{width:1080px;height:1920px;overflow:hidden;font-family:'Manrope',sans-
 @keyframes tick{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
 /* ── HOME PAGE ── */
-.home-wrap{padding:36px 40px 40px}
+.home-wrap{padding:24px 32px 24px}
 
-.map-img{width:100%;height:500px;object-fit:cover;display:block;border-radius:16px}
+.map-img{width:100%;height:520px;object-fit:cover;display:block;border-radius:16px}
 .map-placeholder{
-  width:100%;height:500px;border-radius:16px;
+  width:100%;height:520px;border-radius:16px;
   display:flex;flex-direction:column;align-items:center;justify-content:center;
   background:rgba(255,255,255,.03);border:1px dashed rgba(255,255,255,.1);gap:14px;
 }
@@ -108,46 +106,37 @@ html,body{width:1080px;height:1920px;overflow:hidden;font-family:'Manrope',sans-
 .section-label{
   font-family:'Syne',sans-serif;font-size:11px;font-weight:600;
   color:rgba(139,92,246,.8);text-transform:uppercase;
-  letter-spacing:.2em;margin-bottom:20px;margin-top:40px;
+  letter-spacing:.2em;margin-bottom:12px;margin-top:20px;
   display:flex;align-items:center;gap:10px;
 }
 .section-label::after{content:'';flex:1;height:1px;background:rgba(255,255,255,.06)}
 
-.mgr-row{
-  display:flex;align-items:center;gap:20px;
-  padding:28px 32px;
-  background:rgba(255,255,255,.03);
-  border:1px solid rgba(255,255,255,.07);
-  border-radius:14px;margin-bottom:24px;
+.bookshelf-img{
+  display:block;width:100%;height:auto;
+  margin:0 0 14px;
+  background:transparent;
+  border:none;
 }
-.mgr-av{
-  width:64px;height:64px;border-radius:50%;flex-shrink:0;
-  background:linear-gradient(135deg,#7C3AED,#4F46E5);
-  display:flex;align-items:center;justify-content:center;
-  font-family:'Syne',sans-serif;font-size:20px;color:#fff;font-weight:700;
-}
-.mgr-name{font-family:'Syne',sans-serif;font-size:24px;font-weight:700;color:#fff;line-height:1.1}
-.mgr-role{font-size:16px;color:rgba(255,255,255,.45);font-weight:400;letter-spacing:.06em;text-transform:uppercase;margin-top:6px}
 
-.info-2col{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+.info-2col{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
 .info-pill{
-  padding:22px 26px;
+  padding:14px 20px;
   background:rgba(255,255,255,.03);
   border:1px solid rgba(255,255,255,.07);
   border-radius:12px;
 }
-.info-pill-label{font-size:11px;color:rgba(255,255,255,.3);font-weight:600;text-transform:uppercase;letter-spacing:.14em;margin-bottom:8px}
-.info-pill-value{font-size:19px;color:#fff;font-weight:500;line-height:1.45}
+.info-pill-label{font-size:11px;color:rgba(255,255,255,.3);font-weight:600;text-transform:uppercase;letter-spacing:.14em;margin-bottom:6px}
+.info-pill-value{font-size:18px;color:#fff;font-weight:500;line-height:1.4}
 .info-pill-value a{color:#A78BFA;text-decoration:none}
 
 .hours-list{
   background:rgba(255,255,255,.03);
   border:1px solid rgba(255,255,255,.07);
-  border-radius:12px;overflow:hidden;margin-bottom:16px;
+  border-radius:12px;overflow:hidden;margin-bottom:12px;
 }
 .h-row{
   display:flex;justify-content:space-between;align-items:center;
-  padding:18px 26px;font-size:19px;
+  padding:12px 22px;font-size:18px;
   border-bottom:1px solid rgba(255,255,255,.05);
 }
 .h-row:last-child{border-bottom:none}
@@ -157,15 +146,15 @@ html,body{width:1080px;height:1920px;overflow:hidden;font-family:'Manrope',sans-
 
 .fb-pill{
   display:flex;align-items:center;gap:22px;
-  padding:22px 28px;
+  padding:14px 24px;
   background:rgba(255,255,255,.03);
   border:1px solid rgba(255,255,255,.07);
   border-radius:12px;
 }
-.fb-lbl{font-size:14px;color:rgba(255,255,255,.45);font-weight:600;text-transform:uppercase;letter-spacing:.1em;margin-bottom:10px}
-.fb-handle{font-family:'Syne',sans-serif;font-size:26px;font-weight:700;color:#A78BFA}
-.fb-hint{font-size:16px;color:rgba(255,255,255,.4);margin-top:6px}
-.qr{width:86px;height:86px;border-radius:8px;display:block;flex-shrink:0;filter:invert(1)}
+.fb-lbl{font-size:14px;color:rgba(255,255,255,.45);font-weight:600;text-transform:uppercase;letter-spacing:.1em;margin-bottom:6px}
+.fb-handle{font-family:'Syne',sans-serif;font-size:24px;font-weight:700;color:#A78BFA}
+.fb-hint{font-size:15px;color:rgba(255,255,255,.4);margin-top:4px}
+.qr{width:78px;height:78px;border-radius:8px;display:block;flex-shrink:0;filter:invert(1)}
 
 /* ── IFRAME PAGES ── */
 .ifr-header{
@@ -250,15 +239,10 @@ html,body{width:1080px;height:1920px;overflow:hidden;font-family:'Manrope',sans-
     <small>Replace with: &lt;img class="map-img" src="your-map.jpg"/&gt;</small>
   </div>
 
-  <!-- MANAGER -->
+  <!-- BOOKSHELF -->
+  <img class="bookshelf-img" src="bookshelf_1.png" alt="Bookshelf"/>
+
   <div class="section-label">Library Contact</div>
-  <div class="mgr-row">
-    <div class="mgr-av">LM</div>
-    <div>
-      <div class="mgr-name">Laci Martinez</div>
-      <div class="mgr-role">Library Manager</div>
-    </div>
-  </div>
 
   <div class="info-2col">
     <div class="info-pill">
