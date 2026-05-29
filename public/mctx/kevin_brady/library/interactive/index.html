@@ -93,7 +93,7 @@ html,body{width:1080px;height:1920px;overflow:hidden;font-family:'Manrope',sans-
 /* ── HOME PAGE ── */
 .home-wrap{padding:24px 32px 24px}
 
-.map-img{width:100%;height:520px;object-fit:cover;display:block;border-radius:16px}
+.map-img{width:100%;height:520px;object-fit:contain;display:block;border-radius:16px;background:#0A0A0F}
 .map-placeholder{
   width:100%;height:520px;border-radius:16px;
   display:flex;flex-direction:column;align-items:center;justify-content:center;
@@ -232,12 +232,7 @@ html,body{width:1080px;height:1920px;overflow:hidden;font-family:'Manrope',sans-
   <main class="kiosk-content"><div class="home-wrap">
 
   <!-- MAP -->
-  <!-- Replace div below with: <img class="map-img" src="your-map.jpg" alt="Map"/> -->
-  <div class="map-placeholder">
-    <svg viewBox="0 0 24 24" fill="none" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/><line x1="9" y1="3" x2="9" y2="18"/><line x1="15" y1="6" x2="15" y2="21"/></svg>
-    <p>Place your map image here</p>
-    <small>Replace with: &lt;img class="map-img" src="your-map.jpg"/&gt;</small>
-  </div>
+  <img class="map-img" src="library_map_3d_ver4.png" alt="Library Map"/>
 
   <!-- BOOKSHELF -->
   <img class="bookshelf-img" src="bookshelf_1.png" alt="Bookshelf"/>
