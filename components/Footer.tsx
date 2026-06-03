@@ -146,6 +146,12 @@ export default function Footer() {
             <p className="text-slate-400 text-sm mb-8 leading-relaxed">
               Follow us for project updates, industry news, and company culture.
             </p>
+            <div className="mb-8">
+              <p className="text-xs text-slate-500 uppercase tracking-widest font-bold mb-1">
+                Security License Number
+              </p>
+              <p className="text-slate-300 text-sm">B20960901</p>
+            </div>
             <div className="flex gap-4">
               {[
                 {

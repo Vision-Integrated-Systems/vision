@@ -307,6 +307,44 @@ export default function About() {
         </div>
       </section>
 
+      {/* Security License */}
+      <section className="py-20 bg-white relative overflow-hidden">
+        <div className="absolute -top-40 -right-40 w-[500px] h-[500px] bg-blue-50 rounded-full blur-[100px] z-0 pointer-events-none" />
+        <div className="container mx-auto px-4 lg:px-8 relative z-10">
+          <div className="max-w-3xl mx-auto text-center">
+            <span className="text-blue-600 font-bold uppercase tracking-widest text-sm mb-4 flex justify-center items-center gap-4">
+              <span className="w-12 h-px bg-blue-600/30" />
+              Licensed &amp; Certified
+              <span className="w-12 h-px bg-blue-600/30" />
+            </span>
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6 tracking-tight">
+              Security License
+            </h2>
+            <p className="text-slate-600 text-lg leading-relaxed mb-12">
+              Vision Integrated Systems is a fully licensed security contractor,
+              meeting all state requirements to design, install, and service
+              security systems across Texas.
+            </p>
+          </div>
+
+          <div className="max-w-sm mx-auto">
+            <div className="flex flex-col items-center gap-6 bg-slate-50 border border-slate-200 rounded-3xl p-10 shadow-xl">
+              <div className="w-16 h-16 rounded-2xl bg-blue-600 flex items-center justify-center shadow-lg shadow-blue-200">
+                <ShieldCheckIcon className="w-8 h-8 text-white" />
+              </div>
+              <div className="text-center">
+                <p className="text-xs text-slate-500 uppercase tracking-widest font-bold mb-2">
+                  Texas DPS License Number
+                </p>
+                <p className="text-3xl font-bold text-slate-900 tracking-wider">
+                  B20960901
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <TrustedManufacturers />
       <CtaSection />
     </>
