@@ -33,7 +33,7 @@
     width: 1080px;
     height: 1920px;
     opacity: 0;
-    transition: opacity 1.2s ease-in-out;
+    transition: opacity 0.4s ease-in-out;
     object-fit: contain;
     background: #0b2545;
   }
@@ -101,64 +101,55 @@ var VIDEOS = [
    ============================================================ */
 
 var stage = document.getElementById("stage");
-var currentEl = null;
 var videoIndex = 0;
+var safetyTimer = null;
 
-function fadeIn(el) {
-  // force reflow so the opacity transition triggers
-  void el.offsetWidth;
-  el.classList.add("active");
-}
+// Single, reused video element — no per-slide allocation, only one decoder ever active.
+var vid = document.createElement("video");
+vid.className = "slide";
+vid.muted = true;
+vid.playsInline = true;
+vid.controls = false;
+vid.preload = "none";
+stage.appendChild(vid);
 
-function removeOld() {
-  if (currentEl && currentEl.parentNode) {
-    currentEl.classList.remove("active");
-    var old = currentEl;
-    setTimeout(function () {
-      if (old.parentNode) old.parentNode.removeChild(old);
-    }, 1300);
-  }
-}
+function playNext() {
+  if (safetyTimer) { clearTimeout(safetyTimer); safetyTimer = null; }
 
-function showVideo() {
   var src = VIDEOS[videoIndex];
   videoIndex = (videoIndex + 1) % VIDEOS.length;
 
-  var vid = document.createElement("video");
-  vid.className = "slide";
+  // Tear down the previous clip before loading a new one.
+  vid.classList.remove("active");
+  try { vid.pause(); } catch (e) {}
+  vid.removeAttribute("src");
+  vid.load();
+
   vid.src = src;
-  vid.autoplay = true;
-  vid.muted = true;      // required for reliable autoplay
-  vid.playsInline = true;
-  vid.controls = false;
-  vid.preload = "auto";
+  vid.load();
+  var p = vid.play();
+  if (p && p.catch) p.catch(function () { advance(); });
 
-  var done = false;
-  function finish() {
-    if (done) return;
-    done = true;
-    nextSlide();
-  }
-  vid.onended = finish;
-  vid.onerror = function () { setTimeout(finish, 100); };
-
-  stage.appendChild(vid);
-  removeOld();
-  currentEl = vid;
-  fadeIn(vid);
+  // force reflow so the opacity transition triggers
+  void vid.offsetWidth;
+  vid.classList.add("active");
 
   // safety net: never let a stuck video freeze the kiosk
-  setTimeout(function () {
-    if (!done) finish();
-  }, 5 * 60 * 1000);
+  safetyTimer = setTimeout(advance, 5 * 60 * 1000);
 }
 
-function nextSlide() {
-  showVideo();
+var advancing = false;
+function advance() {
+  if (advancing) return;
+  advancing = true;
+  setTimeout(function () { advancing = false; playNext(); }, 50);
 }
+
+vid.onended = advance;
+vid.onerror = function () { setTimeout(advance, 100); };
 
 // Kick off
-nextSlide();
+playNext();
 </script>
 </body>
 </html>
