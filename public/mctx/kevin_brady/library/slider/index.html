@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="refresh" content="600">
 <title>Library Kiosk</title>
 <style>
   html, body {
@@ -16,61 +15,13 @@
     overflow: hidden;
   }
 
-  /* ---------- HEADER ---------- */
-  #header {
+  /* ---------- STAGE ---------- */
+  #stage {
     position: absolute;
     top: 0;
     left: 0;
     width: 1080px;
-    height: 260px;
-    background: linear-gradient(135deg, #ff7a00 0%, #ffb347 50%, #ffd56b 100%);
-    box-shadow: 0 6px 18px rgba(0,0,0,0.35);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    z-index: 10;
-  }
-  #title {
-    font-size: 92px;
-    font-weight: 800;
-    letter-spacing: 2px;
-    color: #ffffff;
-    text-shadow: 4px 4px 0 #b34700;
-    line-height: 1;
-    margin-bottom: 14px;
-  }
-  #subtitle {
-    font-size: 32px;
-    font-weight: 600;
-    color: #2b1700;
-    letter-spacing: 1px;
-    margin-bottom: 18px;
-  }
-  #countdown {
-    font-size: 46px;
-    font-weight: 700;
-    color: #ffffff;
-    background: rgba(0,0,0,0.30);
-    padding: 8px 28px;
-    border-radius: 12px;
-    letter-spacing: 1px;
-  }
-  #countdown .num {
-    color: #fff200;
-    font-size: 54px;
-    font-weight: 800;
-    margin: 0 4px;
-  }
-
-  /* ---------- STAGE ---------- */
-  #stage {
-    position: absolute;
-    top: 260px;
-    left: 0;
-    width: 1080px;
-    height: 1660px;
+    height: 1920px;
     background: #0b2545;
     overflow: hidden;
   }
@@ -80,7 +31,7 @@
     top: 0;
     left: 0;
     width: 1080px;
-    height: 1660px;
+    height: 1920px;
     opacity: 0;
     transition: opacity 1.2s ease-in-out;
     object-fit: contain;
@@ -108,12 +59,6 @@
 </head>
 <body>
 
-  <div id="header">
-    <div id="title">SUMMER READING</div>
-    <div id="subtitle">Kicks off June 1st &mdash; Get Ready!</div>
-    <div id="countdown">Loading&hellip;</div>
-  </div>
-
   <div id="stage"></div>
   <div id="footer"></div>
 
@@ -121,14 +66,6 @@
 /* ============================================================
    CONFIG
    ============================================================ */
-
-// Target date for the Summer Reading countdown (local time)
-// Months are 0-indexed: 5 = June
-var TARGET_DATE = new Date(new Date().getFullYear(), 5, 1, 0, 0, 0);
-// If June 1 already passed this year, roll to next year
-if (TARGET_DATE.getTime() < Date.now()) {
-  TARGET_DATE = new Date(new Date().getFullYear() + 1, 5, 1, 0, 0, 0);
-}
 
 // List the video files (in the video folder).
 var VIDEOS = [
@@ -158,33 +95,6 @@ var VIDEOS = [
   "video/Teen - Manga Meetup.mp4",
   "video/Teen - Planet Yum.mp4"
 ];
-
-/* ============================================================
-   COUNTDOWN
-   ============================================================ */
-
-function updateCountdown() {
-  var el = document.getElementById("countdown");
-  var now = new Date();
-  var diff = TARGET_DATE.getTime() - now.getTime();
-
-  if (diff <= 0) {
-    el.innerHTML = "Summer Reading is HERE! Sign up today!";
-    return;
-  }
-
-  var sec = Math.floor(diff / 1000);
-  var days = Math.floor(sec / 86400);
-  var hours = Math.floor((sec % 86400) / 3600);
-  var mins = Math.floor((sec % 3600) / 60);
-
-  el.innerHTML =
-    '<span class="num">' + days + '</span> days ' +
-    '<span class="num">' + hours + '</span> hrs ' +
-    '<span class="num">' + mins + '</span> min';
-}
-updateCountdown();
-setInterval(updateCountdown, 30000); // refresh every 30s
 
 /* ============================================================
    SLIDESHOW
