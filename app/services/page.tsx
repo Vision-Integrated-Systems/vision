@@ -9,6 +9,7 @@ import {
   ServerStackIcon,
   ShieldCheckIcon,
   SignalIcon,
+  CpuChipIcon,
 } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import Link from "next/link";
@@ -36,6 +37,7 @@ export default function Services() {
             { id: "av", icon: VideoCameraIcon, text: "Audio & Video" },
             { id: "cabling", icon: ServerStackIcon, text: "Structured Cabling" },
             { id: "security", icon: ShieldCheckIcon, text: "Security" },
+            { id: "data-center", icon: CpuChipIcon, text: "Data Center" },
           ].map((link) => (
             <Link
               key={link.id}
@@ -241,6 +243,79 @@ export default function Services() {
                   </div>
                 ))}
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Data Center */}
+      <section id="data-center" className="py-24 md:py-32 bg-slate-900 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 mix-blend-overlay" />
+        <div className="absolute inset-0 hero-grid-bg opacity-[0.15]" />
+
+        <div className="container mx-auto px-4 lg:px-8 relative z-10">
+          <div className="flex flex-col lg:flex-row items-center gap-16">
+            <div className="lg:w-1/2 relative group w-full max-w-2xl mx-auto">
+              <div className="absolute inset-0 bg-blue-500/20 blur-2xl rounded-full transform scale-90 group-hover:scale-100 transition-transform duration-700" />
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-slate-700 z-10 bg-slate-800">
+                <Image
+                  src="/services/data_center.png"
+                  alt="Data center with server racks and structured cabling"
+                  width={800}
+                  height={600}
+                  className="w-full h-auto object-cover transform transition-transform duration-1000 group-hover:scale-105"
+                />
+              </div>
+              <div className="absolute -bottom-6 -right-6 lg:-right-10 bg-slate-800/90 backdrop-blur-xl border border-slate-600 p-5 rounded-2xl shadow-2xl z-20 flex items-center gap-4 transform transition-transform duration-500 group-hover:-translate-y-2">
+                <div className="w-10 h-10 rounded-xl bg-blue-500/20 flex items-center justify-center text-blue-400 border border-blue-500/30">
+                  <ShieldCheckIcon className="w-5 h-5" />
+                </div>
+                <div>
+                  <p className="text-sm font-bold text-white">Panduit</p>
+                  <p className="text-xs text-slate-400 font-medium">Silver Partner</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="lg:w-1/2">
+              <span className="text-blue-400 font-bold tracking-widest uppercase text-sm mb-4 flex items-center gap-2">
+                <CpuChipIcon className="w-5 h-5" /> Data Center
+              </span>
+              <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">
+                Every Cable. Every Cabinet.{" "}
+                <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-400 to-teal-300">
+                  Zero Compromise.
+                </span>
+              </h2>
+              <p className="mb-6 text-lg text-slate-300 leading-relaxed font-light">
+                From the raised floor to the top of the rack, we design and build
+                data centers engineered for reliability, density, and growth. Our
+                team delivers complete infrastructure&mdash;structured cabling,
+                power, cooling, racks, and cable management&mdash;so your critical
+                systems stay online and ready to scale.
+              </p>
+              <p className="mb-8 text-lg text-slate-300 leading-relaxed font-light">
+                As a certified{" "}
+                <span className="font-semibold text-white">
+                  Panduit Silver Partner
+                </span>
+                , we deliver industry-leading data center solutions backed by
+                proven products, certified installations, and manufacturer-grade
+                warranties you can trust.
+              </p>
+              <ul className="space-y-5">
+                {["Data Center Design & Build", "Rack & Cabinet Deployment", "High-Density Structured Cabling", "Power & Cooling Infrastructure", "Panduit Silver Partner Solutions"].map(
+                  (item, i) => (
+                    <li
+                      key={i}
+                      className="flex items-center text-slate-200 bg-slate-800/50 p-4 rounded-xl border border-slate-700/50 hover:bg-slate-800 hover:border-blue-500/30 transition-all"
+                    >
+                      <div className="w-2 h-2 rounded-full bg-blue-500 mr-4 shadow-[0_0_10px_rgba(59,130,246,0.8)]" />
+                      <span className="font-medium">{item}</span>
+                    </li>
+                  )
+                )}
+              </ul>
             </div>
           </div>
         </div>
